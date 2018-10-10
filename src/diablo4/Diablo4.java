@@ -29,7 +29,7 @@ public class Diablo4 {
 
     /** CRIACAO CHARACTER **/
          
-        int escolhaClasse = 0; 
+        int classe = 0; 
         Scanner scanNome= new Scanner(System.in);   
         System.out.println("Qual o seu nome?");
         String nome = scanNome.nextLine();
@@ -44,21 +44,22 @@ public class Diablo4 {
         Scanner scanClasse = new Scanner(System.in); 
         
         try {
-           escolhaClasse = Integer.parseInt(start.nextLine().trim());
+           classe = Integer.parseInt(start.nextLine().trim());
            Classes classe1 = new Classes(classe); 
          }
         
         catch(NumberFormatException e) {} 
         
-        while (escolhaClasse != 1 || escolhaClasse != 2 || escolhaClasse != 3) {
+        while (classe < 1 && classe > 2) {
            System.out.println("Digite 1, 2 ou 3 para escolha."); 
            try {
-                escolhaClasse = Integer.parseInt(start.nextLine().trim());
+                classe = Integer.parseInt(start.nextLine().trim());
                 Classes classe1 = new Classes(classe); 
          }
            catch(NumberFormatException e) {}
-         }       
-               
-        
+         }             
+       
+         Classes.escolhaClasse(classe);     
+    
     }    
 }

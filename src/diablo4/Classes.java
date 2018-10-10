@@ -9,24 +9,32 @@ package diablo4;
  *
  * @author lucas
  */
-public class Classes extends Character{
+public class Classes{
     
-    Character character;
     private int classe;
     private String classeNome;
     private int dano;
     private int hp;
     private int mp;
 
-    public Classes(String nome) {
-        super(nome);
-    }   
+    
+    public int getClasse() {
+        return classe;
+    }
+
+    public void setClasse(int classe) {
+        this.classe = classe;
+    }
+
+    public Classes(int classe) {
+        this.classe = classe;
+    }
     
     void escolhaClasse(int classe){
     if (classe == 1){
     classeNome = "Arqueiro";
     dano = 4;
-    hp = 50;
+    hp = 50;      
     }
     else if (classe == 2){
     dano = 3;
