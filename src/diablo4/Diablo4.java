@@ -59,7 +59,7 @@ public class Diablo4 {
            catch(NumberFormatException e) {}
          }             
        
-         Classes.escolhaClasse(classe);     
+         //Classes.escolhaClasse(classe);     
     
     }    
 }
