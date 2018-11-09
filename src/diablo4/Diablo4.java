@@ -35,7 +35,6 @@ public class Diablo4 {
         Scanner scanNome = new Scanner(System.in);   
         System.out.println("Qual o seu nome?");
         String nome = scanNome.nextLine();
-        Character character1 = new Character(nome); 
         
         System.out.println("Olá " + nome + ".");
         System.out.println("Escolha sua classe.");
