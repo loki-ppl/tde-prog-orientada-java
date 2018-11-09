@@ -35,6 +35,14 @@ public class Arqueiro extends Heroi {
     public void setNome(String nome) {
         this.nome = nome;
     }
+    
+    public String getNomeClasse() {
+        return nomeClasse;
+    }
+
+    public void setNomeClasse(String nomeClasse) {
+        this.nomeClasse = nomeClasse;
+    }
 
     public int getIdade() {
         return idade;

@@ -13,6 +13,7 @@ import java.util.ArrayList;
  */
 public abstract class Heroi {
     protected String nome;
+    protected String nomeClasse;
     protected int idade;
     protected int saude;
     protected int level;
