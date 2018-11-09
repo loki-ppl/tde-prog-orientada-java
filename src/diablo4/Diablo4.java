@@ -11,7 +11,8 @@ public class Diablo4 {
         int opcao = 0;
         Scanner start = new Scanner(System.in);          
         System.out.println("Diablo 4");
-        System.out.println("Digite 1 para iniciar o jogo.");     
+        System.out.println("Digite 1 para iniciar o jogo.");
+        System.out.println("Digite 2 para criar fases.");  
 
         try {
            opcao = Integer.parseInt(start.nextLine().trim());
@@ -19,8 +20,9 @@ public class Diablo4 {
         
         catch(NumberFormatException e) {} 
         
-        while (opcao != 1) {
+        while (opcao < 1 && opcao > 2) {
            System.out.println("Digite 1 para iniciar o jogo."); 
+           System.out.println("Digite 2 para criar fases.");  
            try {
                 opcao = Integer.parseInt(start.nextLine().trim());
          }
@@ -30,7 +32,7 @@ public class Diablo4 {
     /** CRIACAO CHARACTER **/
          
         int classe = 0; 
-        Scanner scanNome= new Scanner(System.in);   
+        Scanner scanNome = new Scanner(System.in);   
         System.out.println("Qual o seu nome?");
         String nome = scanNome.nextLine();
         Character character1 = new Character(nome); 
@@ -39,13 +41,24 @@ public class Diablo4 {
         System.out.println("Escolha sua classe.");
         System.out.println("1 - Arqueiro - (Chance de perfurar inimigo, -hp)");
         System.out.println("2 - Guerreiro - (Chance de bloquear dano recebido, +hp)");
-        System.out.println("3 - Arqueiro - (Chance de congelar inimigo, -hp)");
+        System.out.println("3 - Mago - (Chance de congelar inimigo, -hp)");
         
-        Scanner scanClasse = new Scanner(System.in); 
+        Scanner scanClasse = new Scanner(System.in);         
         
         try {
-           classe = Integer.parseInt(start.nextLine().trim());
-           Classes classe1 = new Classes(classe); 
+           classe = Integer.parseInt(start.nextLine().trim());    
+           if(classe == 1){
+           Arqueiro arqueiro1 = new Arqueiro(); 
+           System.out.println("Arqueiro " + nome + ".");
+           }
+           else if(classe == 2){
+           Guerreiro guerreiro1 = new Guerreiro(); 
+           System.out.println("Arqueiro " + nome + ".");
+           }
+           else if(classe == 3){
+           Mago mago1 = new Mago(); 
+           System.out.println("Mago " + nome + ".");
+           }
          }
         
         catch(NumberFormatException e) {} 
@@ -57,9 +70,8 @@ public class Diablo4 {
                 Classes classe1 = new Classes(classe); 
          }
            catch(NumberFormatException e) {}
-         }             
-       
-         //Classes.escolhaClasse(classe);     
+         }            
+  
     
     }    
 }
