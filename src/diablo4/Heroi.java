@@ -18,8 +18,7 @@ public abstract class Heroi {
     protected int saude;
     protected int level;
     protected int moeda;
-    protected ArrayList<Item> inventario;
-    
+     
     
     abstract void atacar();
     abstract void pegarItem(Item item);
