@@ -32,7 +32,7 @@ public class Diablo4 {
 
     /** CRIACAO CHARACTER **/
          
-        int classe = 0; 
+        int classe; 
         Scanner scanNome = new Scanner(System.in);   
         System.out.println("Qual o seu nome?");
         String nome = scanNome.nextLine();
@@ -57,12 +57,12 @@ public class Diablo4 {
                     arqueiro1.setSaude(50);
                     arqueiro1.setIdade(18);
                     System.out.println("/==/ Status /==/");
-                    System.out.println("Nome: "+ arqueiro1.getNome());
-                    System.out.println("Classe:"+ arqueiro1.getNomeClasse());
-                    System.out.println("Level: "+ arqueiro1.getLevel());
-                    System.out.println("Moedas: "+ arqueiro1.getMoeda());
-                    System.out.println("Saude: "+ arqueiro1.getSaude());
-                    System.out.println("Idade: "+ arqueiro1.getIdade());
+                    System.out.println("Nome: " + arqueiro1.getNome());
+                    System.out.println("Classe:" + arqueiro1.getNomeClasse());
+                    System.out.println("Level: " + arqueiro1.getLevel());
+                    System.out.println("Moedas: " + arqueiro1.getMoeda());
+                    System.out.println("Saude: " + arqueiro1.getSaude());
+                    System.out.println("Idade: " + arqueiro1.getIdade());
                     break;
                 case 2:
                     Guerreiro guerreiro1 = new Guerreiro();
