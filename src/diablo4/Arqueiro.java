@@ -12,7 +12,7 @@ import java.util.ArrayList;
  * @author augusto.coelho
  */
 public class cuAlado extends Heroi {
-
+#meu pau suado
     @Override
     void atacar() {
         
