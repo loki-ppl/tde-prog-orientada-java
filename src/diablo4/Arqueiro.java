@@ -13,6 +13,7 @@ import java.util.ArrayList;
  */
 public class cuAlado extends Heroi {
 #meu pau suado
+        #meu pau suado
     @Override
     void atacar() {
         
