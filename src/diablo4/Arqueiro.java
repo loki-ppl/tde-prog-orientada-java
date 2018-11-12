@@ -11,7 +11,7 @@ import java.util.ArrayList;
  *
  * @author augusto.coelho
  */
-public class Arqueiro extends Heroi {
+public class AstutoBandidao extends Heroi {
 
     @Override
     void atacar() {
