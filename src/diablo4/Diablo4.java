@@ -9,6 +9,7 @@ public class Diablo4 {
         
     /** MENU **/
     /** TESTE GIT 1 **/
+    /*meu cu alado na moral quero morrer porra so me fodo aqui vou morrer */
         
         int opcao = 0;
         Scanner start = new Scanner(System.in);          
