@@ -23,8 +23,7 @@ public class  Item {
     private int pontoAtk;
     private int pontoDef;
     
-    public static void dropar(){
-        
+    public static void dropar(){        
     }
 
     public String getNomeItens() {
