@@ -23,7 +23,7 @@ public class Diablo4 {
         
         catch(NumberFormatException e) {} 
         
-        while (opcao < 1 && opcao > 2) {
+        while (opcao < 1 || opcao > 2) {
            System.out.println("Digite 1 para iniciar o jogo."); 
            System.out.println("Digite 2 para criar fases.");  
            try {
@@ -36,19 +36,22 @@ public class Diablo4 {
            Scanner in = new Scanner(System.in);
            System.out.println("Insira o numero de fases");
            int nf = in.nextInt();
-           for(int i= 0; i <= nf; i++){
-               Fase[] fases = new Fase[nf];
-               System.out.println("Digite 1 os monstros da "+ (i+1+"°")+"fase");
-               System.out.println("Digite 2 para adicionar o boss da "+ (i+1+ "° ")+ "fase");
-               int opcaof = in.nextInt();
-               switch(opcaof){
-                   case 1: Monstro boss = new Boss();
-                            System.out.println("Mais ou menos certo");
-                           break;
-                   case 2: Monstro monstronorm =  new MonstroN();
-                           break;
-                   default: System.out.println("vai se fude vai");
-                  
+           for(int i= 0; i < nf; i++){
+               
+               System.out.println("Fase "+ (i+1));
+               System.out.println("cadastrar mosntro");
+                for(int j = 0; j < nf; j++){
+                Scanner sc = new Scanner(System.in);
+                    System.out.println("Insira o "+ (j+1+"° "+ "monstro")); 
+                    sc.next();
+                }
+                Scanner ss = new Scanner(System.in);
+              System.out.println("cadastrar boss");
+               System.out.println("Digite o nome do boss ");
+               String boss = ss.next();
+                                                        }
+              
+
                }
               
                
@@ -149,5 +152,5 @@ public class Diablo4 {
      System.out.println("Digite 2 para abrir o inventario.");
      System.out.println("Digite 3 para mostrar status.");
     }  
-    /*
+  
 }
