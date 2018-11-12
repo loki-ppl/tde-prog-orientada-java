@@ -12,11 +12,8 @@ import java.util.ArrayList;
  * @author augusto.coelho
  */
 public class Arqueiro extends Heroi {
-    public ArrayList<Inventario> inventario;
     
-    public Arqueiro(){
-    this.inventario = new ArrayList();
-    }
+    
     @Override
     void atacar() {
         
@@ -24,12 +21,12 @@ public class Arqueiro extends Heroi {
 
     @Override
     void pegarItem(Item item) {
-        inventario.add(item);
+        Inventario.addItem(item);
     }
 
     @Override
     void soltarItem(Item item) {
-        inventario.remove(item);
+        Inventario.addItem(item);
     }
 
     public String getNome() {

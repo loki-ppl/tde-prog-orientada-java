@@ -12,15 +12,23 @@ import java.util.ArrayList;
  * @author augusto.coelho
  */
 public class Inventario {
-    protected ArrayList<Item> itensDefesa;
-    protected ArrayList<Item> itensAtaque;
+    static ArrayList<Item> itensDefesa;
+    static ArrayList<Item> itensAtaque;
     
-    public void addItem(Item item){
+    public static void addItem(Item item){
         if (item.getIdItem()% 2 == 0){
-            
+            itensDefesa.add(item);
         }
         else{
-            
+            itensAtaque.add(item);
+        }
+    }
+    public static void removeItem(Item item){
+         if (item.getIdItem()% 2 == 0){
+            itensDefesa.remove(item);
+        }
+         else{
+            itensAtaque.remove(item);
         }
     }
     
