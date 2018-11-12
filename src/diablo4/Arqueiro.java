@@ -11,9 +11,12 @@ import java.util.ArrayList;
  *
  * @author augusto.coelho
  */
-public class cuAlado extends Heroi {
-#meu pau suado
-        #meu pau suado
+public class Arqueiro extends Heroi {
+    public ArrayList<Inventario> inventario;
+    
+    public Arqueiro(){
+    this.inventario = new ArrayList();
+    }
     @Override
     void atacar() {
         
