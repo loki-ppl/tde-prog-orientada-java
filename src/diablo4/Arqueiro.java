@@ -21,12 +21,15 @@ public class Arqueiro extends Heroi {
 
     @Override
     void pegarItem(Item item) {
+        
         Inventario.addItem(item);
+        
+
     }
 
     @Override
     void soltarItem(Item item) {
-        Inventario.addItem(item);
+       Inventario.removeItem(item);
     }
 
     public String getNome() {
