@@ -20,12 +20,12 @@ public class Guerreiro extends Heroi {
 
     @Override
     void pegarItem(Item item) {
-        inventario.add(item);
+         Inventario.addItem(item);
     }
 
     @Override
     void soltarItem(Item item) {
-        inventario.remove(item);
+         Inventario.removeItem(item);
     }
 
     public String getNome() {
