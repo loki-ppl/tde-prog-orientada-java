@@ -40,7 +40,9 @@ public class Diablo4 {
                
                System.out.println("Fase "+ (i+1));
                System.out.println("cadastrar mosntro");
-                for(int j = 0; j < nf; j++){
+               System.out.println("Insira numero de monstros");
+               int nm = in.nextInt();
+                for(int j = 0; j < nm; j++){
                 Scanner sc = new Scanner(System.in);
                     System.out.println("Insira o "+ (j+1+"° "+ "monstro")); 
                     sc.next();
@@ -55,11 +57,11 @@ public class Diablo4 {
                }
               
                
-           }
+           
             
             
             
-        }
+        
       
     /** CRIACAO CHARACTER **/
        /**
@@ -133,8 +135,9 @@ public class Diablo4 {
          }
        
         catch(NumberFormatException e) {}    
-     /**   
+    
      /** INICIANDO JOGO **/
+
      TimeUnit.SECONDS.sleep(1);
      System.out.println("Iniciando jogo em 5");
      TimeUnit.SECONDS.sleep(1);
