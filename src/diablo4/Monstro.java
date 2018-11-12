@@ -13,10 +13,10 @@ import java.util.ArrayList;
  */
 public abstract class Monstro {
     
-    private String nome;
+    protected String nome;
     protected String descricao;
-    private int saude;
-    private int forca;
+    protected int saude;
+    protected int forca;
     protected ArrayList<Item> itens;
     
 }

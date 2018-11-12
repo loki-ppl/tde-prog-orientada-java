@@ -21,10 +21,7 @@ public class Arqueiro extends Heroi {
 
     @Override
     void pegarItem(Item item) {
-        
         Inventario.addItem(item);
-        
-
     }
 
     @Override

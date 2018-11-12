@@ -31,9 +31,35 @@ public class Diablo4 {
          }
            catch(NumberFormatException e) {}
          }
-
+        /** criar classe **/
+        if (opcao == 2){
+           Scanner in = new Scanner(System.in);
+           System.out.println("Insira o numero de fases");
+           int nf = in.nextInt();
+           for(int i= 0; i <= nf; i++){
+               Fase[] fases = new Fase[nf];
+               System.out.println("Digite 1 os monstros da "+ (i+1+"°")+"fase");
+               System.out.println("Digite 2 para adicionar o boss da "+ (i+1+ "° ")+ "fase");
+               int opcaof = in.nextInt();
+               switch(opcaof){
+                   case 1: Monstro boss = new Boss();
+                            System.out.println("Mais ou menos certo");
+                           break;
+                   case 2: Monstro monstronorm =  new MonstroN();
+                           break;
+                   default: System.out.println("vai se fude vai");
+                  
+               }
+              
+               
+           }
+            
+            
+            
+        }
+      
     /** CRIACAO CHARACTER **/
-         
+       /**
         int classe; 
         Scanner scanNome = new Scanner(System.in);   
         System.out.println("Qual o seu nome?");
@@ -104,7 +130,7 @@ public class Diablo4 {
          }
        
         catch(NumberFormatException e) {}    
-        
+     /**   
      /** INICIANDO JOGO **/
      TimeUnit.SECONDS.sleep(1);
      System.out.println("Iniciando jogo em 5");
@@ -123,5 +149,5 @@ public class Diablo4 {
      System.out.println("Digite 2 para abrir o inventario.");
      System.out.println("Digite 3 para mostrar status.");
     }  
-    
+    /*
 }
