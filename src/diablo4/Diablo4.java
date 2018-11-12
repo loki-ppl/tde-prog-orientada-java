@@ -13,6 +13,7 @@ public class Diablo4 {
         Scanner start = new Scanner(System.in);          
         System.out.println("Diablo 4");
         System.out.println("Digite 1 para iniciar o jogo.");
+        System.out.println("Digite 1 para iniciar o jogo.");
         System.out.println("Digite 2 para criar fases.");  
 
         try {
