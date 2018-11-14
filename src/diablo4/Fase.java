@@ -10,6 +10,11 @@ import java.util.ArrayList;
  * @author Cliente
  */
 public class Fase{
-    static ArrayList<Monstro> monstros;
+    public static ArrayList<Monstro> monstros = new ArrayList();
+    
+    public static void addMostro(Monstro monstro){
+        monstros.add(monstro);
+    }
+    
     
 }

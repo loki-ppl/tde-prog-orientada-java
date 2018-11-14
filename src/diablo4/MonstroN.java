@@ -12,8 +12,17 @@ import java.util.ArrayList;
  * @author Cliente
  */
 public class MonstroN extends Monstro{
-    
 
+    public MonstroN(String nome, String descricao, int saude, int forca ) {
+        this.nome = nome;
+        this.descricao = descricao;
+        this.saude = saude;
+        this.forca = forca;
+        this.itens = new ArrayList();
+        
+    }
+    
+    
     public String getNome() {
         return nome;
     }
@@ -45,13 +54,10 @@ public class MonstroN extends Monstro{
     public void setForca(int forca) {
         this.forca = forca;
     }
-
-    public ArrayList<Item> getItens() {
-        return itens;
+    public void addItem(Item item){
+        itens.add(item);
     }
 
-    public void setItens(ArrayList<Item> itens) {
-        this.itens = itens;
-    }
+    
     
 }

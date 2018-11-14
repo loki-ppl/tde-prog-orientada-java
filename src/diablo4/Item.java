@@ -4,14 +4,27 @@
  * and open the template in the editor.
  */
 package diablo4;
-
+import java.util.Random;
 /**
  *
  * @author augusto.coelho
  */
 public class  Item {
     private int idItem;
+    private String nomeItens;
+    private int pontoAtk;
+    private int pontoDef;
 
+    public Item(String nomeItens, int pontoAtk, int pontoDef) {
+        Random r = new Random();
+        idItem = r.nextInt(100);
+        this.nomeItens = nomeItens;
+        this.pontoAtk = pontoAtk;
+        this.pontoDef = pontoDef;
+        
+    }
+    
+    
     public int getIdItem() {
         return idItem;
     }
@@ -19,13 +32,7 @@ public class  Item {
     public void setIdItem(int idItem) {
         this.idItem = idItem;
     }
-    private String nomeItens;
-    private int pontoAtk;
-    private int pontoDef;
     
-    public static void dropar(){        
-    }
-
     public String getNomeItens() {
         return nomeItens;
     }

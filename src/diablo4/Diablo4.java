@@ -10,6 +10,7 @@ public class Diablo4 {
     /** MENU **/
     /** TESTE GIT 1 **/
     /*meu cu alado na moral quero morrer porra so me fodo aqui vou morrer */
+    
         
         int opcao = 0;
         Scanner start = new Scanner(System.in);          
@@ -44,8 +45,18 @@ public class Diablo4 {
                int nm = in.nextInt();
                 for(int j = 0; j < nm; j++){
                 Scanner sc = new Scanner(System.in);
+                Scanner input = new Scanner(System.in);
                     System.out.println("Insira o "+ (j+1+"° "+ "monstro")); 
-                    sc.next();
+                    String nome = sc.next();
+                    System.out.println("Insira a descrição do "+ (j+1+"° "+ "monstro")); 
+                    String descricao = sc.next();
+                    System.out.println("Insira a quanto de vida tera "+ (j+1+"° "+ "monstro")); 
+                    int saude = input.nextInt();
+                    System.out.println("Insira a força do "+ (j+1+"° "+ "monstro")); 
+                    int forca = input.nextInt();
+                    MonstroN monstroNormal = new MonstroN(nome,descricao, saude, forca);
+                    
+                    
                 }
                 Scanner ss = new Scanner(System.in);
               System.out.println("cadastrar boss");

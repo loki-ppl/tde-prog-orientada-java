@@ -19,4 +19,5 @@ public abstract class Monstro {
     protected int forca;
     protected ArrayList<Item> itens;
     
+    
 }
