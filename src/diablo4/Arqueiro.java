@@ -11,8 +11,14 @@ import java.util.ArrayList;
  *
  * @author augusto.coelho
  */
-public class Arqueiro extends Heroi {
+public class Arqueiro extends Heroi{
     
+    
+    public Arqueiro(String nome,int idade, int saude){
+        this.nome = nome;
+        this.idade = idade;
+        this.saude = saude;
+    }
     
     @Override
     void atacar() {
@@ -36,14 +42,7 @@ public class Arqueiro extends Heroi {
     public void setNome(String nome) {
         this.nome = nome;
     }
-    
-    public String getNomeClasse() {
-        return nomeClasse;
-    }
 
-    public void setNomeClasse(String nomeClasse) {
-        this.nomeClasse = nomeClasse;
-    }
 
     public int getIdade() {
         return idade;
@@ -76,6 +75,7 @@ public class Arqueiro extends Heroi {
     public void setMoeda(int moeda) {
         this.moeda = moeda;
     }
+    
 
     
 }

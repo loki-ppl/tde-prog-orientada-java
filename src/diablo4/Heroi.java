@@ -13,11 +13,13 @@ import java.util.ArrayList;
  */
 public abstract class Heroi {
     protected String nome;
-    protected String nomeClasse;
     protected int idade;
     protected int saude;
-    protected int level;
-    protected int moeda;
+    protected int level = 1;
+    protected int moeda = 0;
+    protected int defesa;
+    protected int ataque;
+    
      
     
     abstract void atacar();

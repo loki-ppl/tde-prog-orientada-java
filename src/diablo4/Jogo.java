@@ -15,8 +15,10 @@ import java.util.Scanner;
 public final class Jogo {
     static ArrayList<Fase> fases = new ArrayList<Fase>();
     
+    public static void criarItem(){}
+    
     public static void criarFase(){
-        Fase fase = new Fase();                
+        Fase fase = new Fase();           
         Scanner in = new Scanner(System.in);
         System.out.println("Insira o numero de fases");
         int nf = in.nextInt();
@@ -33,25 +35,107 @@ public final class Jogo {
                 String nome = sc.next();
                 System.out.println("Insira a descrição do "+ (j+1+"° "+ "monstro")); 
                 String descricao = sc.next();
-                System.out.println("Insira a quanto de vida tera "+ (j+1+"° "+ "monstro")); 
+                System.out.println("Insira quanto de vida tera "+ (j+1+"° "+ "monstro")); 
                 int saude = input.nextInt();
                 System.out.println("Insira a força do "+ (j+1+"° "+ "monstro")); 
                 int forca = input.nextInt();
+                
                 MonstroN monstroNormal = new MonstroN(nome,descricao, saude, forca);
                 fase.addMostro(monstroNormal);
-                for(int cont =0; cont < fase.monstros.size(); cont++){
-                    System.out.println(fase.monstros.get(cont).nome);
-                
-                }
-                    
-                
+     
+            }   
             Scanner ss = new Scanner(System.in);
             System.out.println("cadastrar boss");
             System.out.println("Digite o nome do boss ");
-            String boss = ss.next();
-            }
+            String nomeboss = ss.next();
+            System.out.println("Insira a descrição do boss");
+            String descricao = ss.next();
+            System.out.println("Insira a lore do boss");
+            String lore = ss.next();
+            System.out.println("Insira quanto de vida tera o boss");
+            int saude = ss.nextInt();
+            System.out.println("Insira a força do boss");
+            int forca = ss.nextInt();
+            Boss boss = new Boss(nomeboss, descricao, lore, saude, forca);
+            fase.addMostro(boss);
+            fases.add(fase);
         }                                                
     }
+    public static void criarHeroi(){
+        int classe; 
+        Scanner scanNome = new Scanner(System.in);   
+        System.out.println("Qual o seu nome?");
+        String nome = scanNome.nextLine();
+        
+        System.out.println("Olá " + nome + ".");
+        System.out.println("Escolha sua classe.");
+        System.out.println("1 - Arqueiro - (Chance de perfurar inimigo)");
+        System.out.println("2 - Guerreiro - (Chance de bloquear dano recebido)");
+        System.out.println("3 - Mago - (Chance de congelar inimigo");
+        
+        Scanner scanClasse = new Scanner(System.in); 
+        
+        try {
+           classe = Integer.parseInt(scanNome.nextLine().trim());    
+            switch (classe) {
+                case 1:
+                    System.out.println("Insira idade do seu personagem: ");
+                    int idadearq = scanClasse.nextInt();
+                    System.out.println("Insira a vida do seu personagem: ");
+                    int saudearq = scanClasse.nextInt();
+                    Arqueiro arqueiro = new Arqueiro(nome, idadearq, saudearq);
+                    
+                    System.out.println("/==/ Status /==/");
+                    System.out.println("Classe: Arqueiro");
+                    System.out.println("Nome: " + arqueiro.getNome());
+                    System.out.println("Idade: " + arqueiro.getIdade());
+                    System.out.println("Saude: " + arqueiro.getSaude());
+                    System.out.println("Level: " + arqueiro.getLevel());
+                    System.out.println("Moedas: " + arqueiro.getMoeda());
+                    break;
+                    
+                case 2:
+                    
+                     System.out.println("Insira idade do seu personagem: ");
+                    int idadeguerr = scanClasse.nextInt();
+                    System.out.println("Insira a vida do seu personagem: ");
+                    int saudeguerr = scanClasse.nextInt();
+                    Guerreiro guerreiro = new Guerreiro(nome, idadeguerr, saudeguerr);
+                    
+                    System.out.println("/==/ Status /==/");
+                    System.out.println("Classe: Guerreiro");
+                    System.out.println("Nome: " + guerreiro.getNome());
+                    System.out.println("Idade: " + guerreiro.getIdade());
+                    System.out.println("Saude: " + guerreiro.getSaude());
+                    System.out.println("Level: " + guerreiro.getLevel());
+                    System.out.println("Moedas: " + guerreiro.getMoeda());
+                    break;
+                case 3:
+                    
+                    
+                    System.out.println("Insira idade do seu personagem: ");
+                    int idademago = scanClasse.nextInt();
+                    System.out.println("Insira a vida do seu personagem: ");
+                    int saudemago = scanClasse.nextInt();
+                    Mago mago = new Mago(nome, idademago, saudemago);
+                    
+                    System.out.println("/==/ Status /==/");
+                    System.out.println("Classe: Mago");
+                    System.out.println("Nome: " + mago.getNome());
+                    System.out.println("Idade: " + mago.getIdade());
+                    System.out.println("Saude: " + mago.getSaude());
+                    System.out.println("Level: " + mago.getLevel());
+                    System.out.println("Moedas: " + mago.getMoeda());
+                    break;
+                default:
+                    break;
+            }
+         }
+       
+        catch(NumberFormatException e) {}    
+    
+    }
+    
     
     
 }

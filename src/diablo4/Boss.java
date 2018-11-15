@@ -13,7 +13,15 @@ import java.util.ArrayList;
  */
 public class Boss extends Monstro{
     private String lore;
-
+    
+    public Boss(String nome, String descricao, String lore, int saude, int forca){
+        this.nome = nome;
+        this.descricao = descricao;
+        this.lore = lore;
+        this.saude = saude;
+        this.forca = forca;
+    }
+    
     public String getLore() {
         return lore;
     }

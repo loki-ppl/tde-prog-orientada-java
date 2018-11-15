@@ -12,7 +12,12 @@ import java.util.ArrayList;
  * @author augusto.coelho
  */
 public class Guerreiro extends Heroi {
-
+    
+    public Guerreiro(String nome,int idade, int saude){
+        this.nome = nome;
+        this.idade = idade;
+        this.saude = saude;
+    }
     @Override
     void atacar() {
         
@@ -36,13 +41,6 @@ public class Guerreiro extends Heroi {
         this.nome = nome;
     }
     
-    public String getNomeClasse() {
-        return nomeClasse;
-    }
-
-    public void setNomeClasse(String nomeClasse) {
-        this.nomeClasse = nomeClasse;
-    }
 
     public int getIdade() {
         return idade;

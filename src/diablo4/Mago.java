@@ -12,10 +12,15 @@ import java.util.ArrayList;
  * @author augusto.coelho
  */
 public class Mago extends Heroi{
-
+    
+    public Mago(String nome,int idade, int saude){
+        this.nome = nome;
+        this.idade = idade;
+        this.saude = saude;
+    }
+    
     @Override
     void atacar() {
-        
         
     }
 
@@ -36,15 +41,7 @@ public class Mago extends Heroi{
     public void setNome(String nome) {
         this.nome = nome;
     }
-    
-    public String getNomeClasse() {
-        return nomeClasse;
-    }
-
-    public void setNomeClasse(String nomeClasse) {
-        this.nomeClasse = nomeClasse;
-    }
-
+   
     public int getIdade() {
         return idade;
     }
