@@ -21,12 +21,12 @@ public class Mago extends Heroi{
 
     @Override
     void pegarItem(Item item) {
-        Inventario.addItem(item);
+        //Inventario.addItem(item);
     }
 
     @Override
     void soltarItem(Item item) {
-        Inventario.removeItem(item);
+        //Inventario.removeItem(item);
     }
 
     public String getNome() {
