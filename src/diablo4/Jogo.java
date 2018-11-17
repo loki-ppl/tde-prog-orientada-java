@@ -19,6 +19,7 @@ public final class Jogo {
     
     public static void opcaoAtacar(){
         Scanner in = new Scanner(System.in);
+        while((fases.get(0).monstros.get(fases.get(0).monstros.size()-1).saude)>0){
         System.out.println("\n/===/ Atacar /===/");  
         System.out.println("Insira o numero do monstro que deseja atacar:"); 
         int nf = in.nextInt();
@@ -26,12 +27,13 @@ public final class Jogo {
         System.out.println(("Voce atacou o Boss "+fases.get(nf-1).monstros.get(fases.get(nf-1).monstros.size()-1).nome)+"!"); 
         // System.out.println("Atacou e aplicou " + guerreiro.getAtaque()+" de dano!");
         System.out.println("Atacou e aplicou 1 de dano!");
-        System.out.println("Saude restante do Boss: "+fases.get(nf-1).monstros.get(fases.get(nf-1).monstros.size()-1).saude);  
+        System.out.println("Saude restante do Boss: "+fases.get(nf).monstros.get(fases.get(nf).monstros.size()-1).saude);  
         }
         System.out.println(("Voce atacou o monstro "+Jogo.fases.get(0).monstros.get(nf-1).nome)+"!"); 
        // System.out.println("Atacou e aplicou " + guerreiro.getAtaque()+" de dano!");
         System.out.println("Atacou e aplicou 1 de dano!");
-        System.out.println("Saude restante do monstro: "+Jogo.fases.get(0).monstros.get(nf-1).saude);  
+        System.out.println("Saude restante do monstro: "+Jogo.fases.get(0).monstros.get(nf-1).saude); 
+        }
     }    
     
     public static void criarFase(){
