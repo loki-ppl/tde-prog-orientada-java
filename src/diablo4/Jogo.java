@@ -315,7 +315,7 @@ public final class Jogo {
 
         System.out.println("\n/==/ Monstros da fase "+(fases.indexOf(fases.get(i))+1)+" /==/");
         for(int j = 0; j < Jogo.fases.get(i).monstros.size()-1; j++){
-            System.out.println("Nome: "+fases.get(i).monstros.get(j).nome+" - Saude: "+fases.get(i).monstros.get(j).saude+" - Digite "+(i+1)+" para atacar.");
+            System.out.println("Nome: "+fases.get(i).monstros.get(j).nome+" - Saude: "+fases.get(i).monstros.get(j).saude+" - Digite "+(j+1)+" para atacar.");
         }
 
     }
