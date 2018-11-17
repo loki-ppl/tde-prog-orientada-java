@@ -32,7 +32,7 @@ public final class Jogo {
  
         }       
         
-            if (nf == 1){
+            if (nf == 1 && itemAtkCriado == true){
                 System.out.println("Quantos itens de Ataque voce deseja criar?");
                 int ni = in.nextInt();
                 for(int i= 0; i < ni; i++){                  
@@ -42,10 +42,11 @@ public final class Jogo {
                 int pontoAtk = in.nextInt();   
                 int pontoDef = 0;
                 Item item1 = new Item(nomeItens,pontoAtk,pontoDef);
-                itemAtkCriado = false;
                 }
+                itemAtkCriado = false;
+                
         }
-            else if(nf == 2){
+            else if(nf == 2 && itemDefCriado == true){
                 System.out.println("Quantos itens de Defesa voce deseja criar?");
                 int ni = in.nextInt();
                 for(int i= 0; i < ni; i++){  
@@ -55,8 +56,9 @@ public final class Jogo {
                 int pontoAtk = 0; 
                 int pontoDef = in.nextInt(); 
                 Item item1 = new Item(nomeItens,pontoAtk,pontoDef);
-                itemDefCriado = false;
                 }
+                itemDefCriado = false;
+                
         }
         }
         }
