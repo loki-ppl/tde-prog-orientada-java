@@ -340,7 +340,7 @@ public final class Jogo {
     }
     public static void mostrarStatus(){
                     System.out.println("\n/==/ Status Gerais /==/");
-                    System.out.println("Classe: "+ heroi2.getClass().getName());
+                    System.out.println("Classe: "+ heroi2.getClass().getCanonicalName().substring(8));
                     System.out.println("Nome: " + heroi2.nome);
                     System.out.println("Idade: " + heroi2.idade);
                     System.out.println("Saude: " + heroi2.saude);

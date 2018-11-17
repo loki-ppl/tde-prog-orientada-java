@@ -41,8 +41,8 @@ public class Diablo4 {
                 System.out.println("Iniciar jogo pronto"); 
                 break;
             case 2:      
-                Jogo.criarFase();
-                Jogo.criarItem();
+                //Jogo.criarFase();
+                //Jogo.criarItem();
                 Jogo.criarHeroi();                
                 faseCriada = true;
                 itensCriados = true;
