@@ -148,12 +148,12 @@ public final class Jogo {
     
     }
     public static void mostraFase(){
-        for(int i = 0; i < Jogo.fases.size(); i++){
+        for(int i = 0; i < fases.size(); i++){
                     System.out.println(Jogo.fases.get(i).getNome());
                         }
     }
     public static void mostraMonstro(){
-        for(int i = 0; i < Jogo.fases.size(); i++){
+        for(int i = 0; i < fases.size(); i++){
             System.out.println("Monstros da fase "+ i+1);
             for(int j = 0; j < Jogo.fases.get(i).monstros.size()-1; j++){
                 System.out.println(Jogo.fases.get(i).monstros.get(j).nome);
@@ -161,9 +161,9 @@ public final class Jogo {
         }
     }
     public static void mostraBoss(){
-    for(int i = 0; i < Jogo.fases.size(); i++){
+    for(int i = 0; i < fases.size(); i++){
             System.out.println("Boss da fase "+ i+1);
-            System.out.println(Jogo.fases.get(i).monstros.get(Jogo.fases.get(i).monstros.size()-1).nome);
+            System.out.println(fases.get(i).monstros.get(fases.get(i).monstros.size()-1).nome);
             
     }
     
