@@ -20,26 +20,35 @@ public final class Jogo {
     
      public static void criarItem(){
         int escolhas = 0;
+        boolean foi = true;
         boolean itemAtkCriado = true;
         boolean itemDefCriado = true;
         Scanner in = new Scanner(System.in);
+        Scanner in2 = new Scanner(System.in);
         while (itemAtkCriado == true || itemDefCriado == true){
         System.out.println("\n/===/ Criar Itens /===/");  
         System.out.println("Digite 1 para criar itens de ataque.");  
-        System.out.println("Digite 2 para criar itens de defesa.");  
-                try {
-           escolhas = Integer.parseInt(in.nextLine().trim());
+        System.out.println("Digite 2 para criar itens de defesa."); 
+        try {
+           escolhas = Integer.parseInt(in2.nextLine().trim());  
         }        
         catch(NumberFormatException e) {} 
-        int nf = escolhas;
+        
+        int nf = escolhas;  
+        
         while (nf < 1 || nf > 2){
         System.out.println("\n/===/ Criar Itens /===/");  
         System.out.println("Digite 1 para criar itens de ataque.");  
         System.out.println("Digite 2 para criar itens de defesa.");  
- 
-        }       
         
-            if (nf == 1 && itemAtkCriado == true){
+        try {
+           escolhas = Integer.parseInt(in2.nextLine().trim());    
+        }        
+        catch(NumberFormatException e) {}        
+        }
+        int nf2 = escolhas;
+        
+            if (nf2 == 1 && itemAtkCriado == true){
                 System.out.println("Quantos itens de Ataque voce deseja criar?");
                 int ni = in.nextInt();
                 for(int i= 0; i < ni; i++){                  
@@ -58,7 +67,7 @@ public final class Jogo {
                 itemAtkCriado = false;
                 
         }
-            else if(nf == 2 && itemDefCriado == true){
+            else if(nf2 == 2 && itemDefCriado == true){
                 System.out.println("Quantos itens de Defesa voce deseja criar?");
                 int ni = in.nextInt();
                 for(int i= 0; i < ni; i++){  
@@ -77,8 +86,9 @@ public final class Jogo {
                 itemDefCriado = false;
                 
         }
+        
         }
-        }
+     }
       
     
     public static void opcoesHeroi(){
@@ -117,9 +127,7 @@ public final class Jogo {
 
                     System.out.println("Atacou e aplicou " + heroi2.ataque+" de dano!");
                     
-                    fases.get(i).monstros.get(fases.get(nf).monstros.size()-1).contraGolpe(heroi2, i, nf);
-                    
-                    
+                    fases.get(i).monstros.get(fases.get(nf).monstros.size()-1).contraGolpe(heroi2, i, nf);                       
                     fases.get(i).monstros.get(fases.get(nf).monstros.size()-1).saude -= heroi2.ataque;
                     System.out.println("Saude restante do Boss: "+fases.get(i).monstros.get(fases.get(nf).monstros.size()-1).saude);  
                     
