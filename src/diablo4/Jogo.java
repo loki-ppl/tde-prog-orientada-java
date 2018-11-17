@@ -36,9 +36,9 @@ public final class Jogo {
                 System.out.println("Quantos itens de Ataque voce deseja criar?");
                 int ni = in.nextInt();
                 for(int i= 0; i < ni; i++){                  
-                System.out.println("Insira o nome do item:"); 
+                System.out.println("Insira o nome do item "+(i+1)+":"); 
                 String nomeItens = in.next();
-                System.out.println("Insira o Ataque do item"+(i+1)+":"); 
+                System.out.println("Insira o Ataque do item "+(i+1)+":"); 
                 int pontoAtk = in.nextInt();   
                 int pontoDef = 0;
                 Item item1 = new Item(nomeItens,pontoAtk,pontoDef);
@@ -52,10 +52,10 @@ public final class Jogo {
                 for(int i= 0; i < ni; i++){  
                 System.out.println("Insira o nome do item "+(i+1)+":"); 
                 String nomeItens = in.next();
-                System.out.println("Insira o Ataque do item "+(i+1)+":");  
+                System.out.println("Insira a Defesa do item "+(i+1)+":");  
                 int pontoAtk = 0; 
                 int pontoDef = in.nextInt(); 
-                Item item1 = new Item(nomeItens,pontoAtk,pontoDef);
+                Item item2 = new Item(nomeItens,pontoAtk,pontoDef);
                 }
                 itemDefCriado = false;
                 
