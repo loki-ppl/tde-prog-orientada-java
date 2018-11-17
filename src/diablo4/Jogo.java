@@ -160,6 +160,9 @@ public final class Jogo {
                     int drop = in.nextInt();
                     if (drop == 1){
                         heroi2.pegarItem(fases.get(i).monstros.get(nf-1).itens.get(rnd));
+                        heroi2.ataque += fases.get(i).monstros.get(nf-1).itens.get(rnd).getPontoAtk();
+                        heroi2.defesa += fases.get(i).monstros.get(nf-1).itens.get(rnd).getPontoDef();
+                        
                     }
                     if (drop == 2){
                         System.out.println("Item desmanchado");
@@ -181,6 +184,7 @@ public final class Jogo {
         System.out.println("Insira o numero de fases a serem criadas:");
         try {
            escolhas = Integer.parseInt(in.nextLine().trim());
+           foi = false;
         }        
         catch(NumberFormatException e) {} 
         while(foi == true){

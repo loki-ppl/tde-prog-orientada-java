@@ -3,6 +3,7 @@ package diablo4;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 import java.util.ArrayList;
+import java.util.Random;
 public class Diablo4 {
 
     public static void main(String[] args) throws InterruptedException {            
@@ -13,7 +14,7 @@ public class Diablo4 {
         int opcao = 0;
         boolean faseCriada = false;
         boolean itensCriados = false;
-      
+        
         Scanner start = new Scanner(System.in);          
         System.out.println("Diablo 4");
         System.out.println("\n/===/ Menu /===/");
