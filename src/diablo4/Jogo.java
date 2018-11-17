@@ -6,6 +6,7 @@
 package diablo4;
 
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Scanner;
 
 /**
@@ -112,28 +113,49 @@ public final class Jogo {
                     System.out.println("Atacou e aplicou " + heroi2.ataque+" de dano!");
                     
                     fases.get(i).monstros.get(fases.get(nf).monstros.size()-1).saude -= heroi2.ataque;
+                    System.out.println("Saude restante do Boss: "+fases.get(i).monstros.get(fases.get(nf).monstros.size()-1).saude);  
                     
                     if((fases.get(i).monstros.get(fases.get(i).monstros.size()-1).saude)<=0){
                     System.out.println("Boss "+fases.get(i).monstros.get(fases.get(nf).monstros.size()-1).nome+" derrotado!");
-                    System.out.println("Dropou o item: " +fases.get(i).monstros.get(i).itens.get(0).getNomeItens()+"");
+                    int rnd = new Random().nextInt(fases.get(i).monstros.get(i).itens.size());   
+                    System.out.println("Dropou o item: " +fases.get(i).monstros.get(i).itens.get(rnd).getNomeItens()+"");
+                    
                     System.out.println("Insira 1 para equipar o item dropado ou 0 para descartar:");
                     int drop = in.nextInt();
                     if (drop == 1){
-                        heroi2.pegarItem(fases.get(i).monstros.get(i).itens.get(0));
+                        heroi2.pegarItem(fases.get(i).monstros.get(i).itens.get(rnd));
                     }
                     if (drop == 2){
                         System.out.println("Item desmanchado");
                     }
                     bossDerrotado = true;
                     }                   
-
-                    System.out.println("Saude restante do Boss: "+fases.get(i).monstros.get(fases.get(nf).monstros.size()-1).saude);  
+                    
+                   
                 }
                 else{
                     System.out.println(("Voce atacou o monstro "+fases.get(nf).monstros.get(nf-1).nome)+"!"); 
                     System.out.println("Atacou e aplicou " + heroi2.ataque+" de dano!");
                     fases.get(i).monstros.get(nf-1).saude -= heroi2.ataque;
                     System.out.println("Saude restante do monstro: "+ (fases.get(i).monstros.get(nf-1).saude)); 
+                    //fases.get(i).monstros.get(j).saude          
+                   // if((fases.get(i).monstros.get(fases.get(i).monstros.size()-1).saude)<=0){
+                    if((fases.get(i).monstros.get(nf-1).saude)<=0){
+                    System.out.println("Monstro "+fases.get(i).monstros.get(nf-1).nome+" derrotado!");
+                    int rnd = new Random().nextInt(fases.get(i).monstros.get(i).itens.size());   
+                    System.out.println("Dropou o item: " +fases.get(i).monstros.get(i).itens.get(rnd).getNomeItens()+"");
+                    
+                    System.out.println("Insira 1 para equipar o item dropado ou 0 para descartar:");
+                    int drop = in.nextInt();
+                    if (drop == 1){
+                        heroi2.pegarItem(fases.get(i).monstros.get(i).itens.get(rnd));
+                    }
+                    if (drop == 2){
+                        System.out.println("Item desmanchado");
+                    }
+                    bossDerrotado = true;
+                    }                   
+                    
                 }
                 opcoesHeroi();
             }
@@ -268,7 +290,7 @@ public final class Jogo {
 
         System.out.println("\n/==/ Monstros da fase "+(fases.indexOf(fases.get(i))+1)+" /==/");
         for(int j = 0; j < Jogo.fases.get(i).monstros.size()-1; j++){
-            System.out.println("Nome: "+Jogo.fases.get(i).monstros.get(j).nome+" - Saude: "+Jogo.fases.get(i).monstros.get(j).saude+" - Digite "+(i+1)+" para atacar.");
+            System.out.println("Nome: "+fases.get(i).monstros.get(j).nome+" - Saude: "+fases.get(i).monstros.get(j).saude+" - Digite "+(i+1)+" para atacar.");
         }
 
     }
