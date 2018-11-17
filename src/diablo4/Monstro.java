@@ -6,6 +6,7 @@
 package diablo4;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  *
@@ -27,6 +28,10 @@ public abstract class Monstro {
         return forca;
     }
     abstract void dropaItem();
+    
+    abstract void contraGolpe();
+
+    
     
     
 }

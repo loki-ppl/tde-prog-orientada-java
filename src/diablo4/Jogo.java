@@ -111,6 +111,9 @@ public final class Jogo {
 
                     System.out.println("Atacou e aplicou " + heroi2.ataque+" de dano!");
                     
+                    fases.get(i).monstros.get(fases.get(nf).monstros.size()-1).contraGolpe(heroi2, i, nf);
+                    
+                    
                     fases.get(i).monstros.get(fases.get(nf).monstros.size()-1).saude -= heroi2.ataque;
                     System.out.println("Saude restante do Boss: "+fases.get(i).monstros.get(fases.get(nf).monstros.size()-1).saude);  
                     

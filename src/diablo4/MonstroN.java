@@ -6,6 +6,7 @@
 package diablo4;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  *
@@ -60,7 +61,8 @@ public class MonstroN extends Monstro{
     }
     public void addItem(Item item){
         itens.add(item);
-    }
+    }   
+
 
     
     
