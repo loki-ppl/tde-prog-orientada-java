@@ -17,9 +17,30 @@ public final class Jogo {
     
     public static void criarItem(){}
     
+    public static void opcoesHeroi(){
+    Scanner in = new Scanner(System.in);
+    System.out.println("\n/===/ Menu Heroi /===/");     
+    System.out.println("/===/ Digite 1 para atacar os monstros/===/");    
+    System.out.println("/===/ Digite 2 para mostrar os status/===/"); 
+    int nf = in.nextInt();
+    while (nf < 1 || nf > 2){
+    System.out.println("\n/===/ Menu Heroi /===/");     
+    System.out.println("/===/ Digite 1 para atacar os monstros/===/");    
+    System.out.println("/===/ Digite 2 para mostrar os status/===/");     
+    }
+    if (nf == 1){
+        opcaoAtacar();
+    }
+    else if(nf == 2){
+     mostrarStatus();
+    }
+    }
+    
     public static void opcaoAtacar(){
         Scanner in = new Scanner(System.in);
         while((fases.get(0).monstros.get(fases.get(0).monstros.size()-1).saude)>0){
+        Jogo.mostraMonstro();
+        Jogo.mostraBoss();
         System.out.println("\n/===/ Atacar /===/");  
         System.out.println("Insira o numero do monstro que deseja atacar:"); 
         int nf = in.nextInt();
@@ -35,6 +56,7 @@ public final class Jogo {
         System.out.println("Atacou e aplicou 1 de dano!");
         System.out.println("Saude restante do monstro: "+Jogo.fases.get(0).monstros.get(nf-1).saude); 
         }
+        opcoesHeroi();
         }
     }    
     
@@ -186,17 +208,27 @@ public final class Jogo {
         for(int i = 0; i < fases.size(); i++){
             System.out.println("\n/==/ Monstros da fase "+(i+1)+" /==/");
             for(int j = 0; j < Jogo.fases.get(i).monstros.size()-1; j++){
-                System.out.println(Jogo.fases.get(i).monstros.get(j).nome+"- Saude: "+Jogo.fases.get(i).monstros.get(j).saude+" - Digite "+(i+1)+" para atacar.");
+                System.out.println("Nome: "+Jogo.fases.get(i).monstros.get(j).nome+"- Saude: "+Jogo.fases.get(i).monstros.get(j).saude+" - Digite "+(i+1)+" para atacar.");
             }
         }
     }
     public static void mostraBoss(){
     for(int i = 0; i < fases.size(); i++){
             System.out.println("/==/ Boss da fase "+(i+1)+" /==/");
-            System.out.println(fases.get(i).monstros.get(fases.get(i).monstros.size()-1).nome+"- Saude: "+fases.get(i).monstros.get(fases.get(i).monstros.size()-1).saude+" - Digite 0 para atacar.");
+            System.out.println("Nome: "+fases.get(i).monstros.get(fases.get(i).monstros.size()-1).nome+"- Saude: "+fases.get(i).monstros.get(fases.get(i).monstros.size()-1).saude+" - Digite 0 para atacar.");
             
-    }    
-      
-    
+    }   
+    }
+    public static void mostrarStatus(){
+                            System.out.println("\n/==/ Status Gerais /==/");
+                    System.out.println("Classe: Mago");
+                   /* System.out.println("Nome: " + mago.getNome());
+                    System.out.println("Idade: " + mago.getIdade());
+                    System.out.println("Saude: " + mago.getSaude());
+                    System.out.println("Level: " + mago.getLevel());
+                    System.out.println("Ataque: " + mago.getAtaque());
+                    System.out.println("Defesa: " + mago.getDefesa());
+                    System.out.println("Moedas: " + mago.getMoeda());*/
+        
     }
 }
