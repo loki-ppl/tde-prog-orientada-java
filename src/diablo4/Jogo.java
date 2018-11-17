@@ -17,33 +17,50 @@ public final class Jogo {
     //static Heroi[] heroi = new Heroi[1];
     static Heroi heroi2;
      public static void criarItem(){
+        boolean itemAtkCriado = true;
+        boolean itemDefCriado = true;
         Scanner in = new Scanner(System.in);
+        while (itemAtkCriado == true || itemDefCriado == true){
         System.out.println("\n/===/ Criar Itens /===/");  
-        System.out.println("Digite 1 para criar um item de ataque.");  
-        System.out.println("Digite 2 para criar um item de defesa.");  
+        System.out.println("Digite 1 para criar itens de ataque.");  
+        System.out.println("Digite 2 para criar itens de defesa.");  
         int nf = in.nextInt();
         while (nf < 1 || nf > 2){
         System.out.println("\n/===/ Criar Itens /===/");  
-        System.out.println("Digite 1 para criar um item de ataque.");  
-        System.out.println("Digite 2 para criar um item de defesa.");    
+        System.out.println("Digite 1 para criar itens de ataque.");  
+        System.out.println("Digite 2 para criar itens de defesa.");  
+ 
+        }       
+        
             if (nf == 1){
-                System.out.println("Insira o nome do item"); 
+                System.out.println("Quantos itens de Ataque voce deseja criar?");
+                int ni = in.nextInt();
+                for(int i= 0; i < ni; i++){                  
+                System.out.println("Insira o nome do item:"); 
                 String nomeItens = in.next();
-                System.out.println("Insira o Ataque do item:"); 
+                System.out.println("Insira o Ataque do item"+(i+1)+":"); 
                 int pontoAtk = in.nextInt();   
                 int pontoDef = 0;
                 Item item1 = new Item(nomeItens,pontoAtk,pontoDef);
+                itemAtkCriado = false;
+                }
         }
             else if(nf == 2){
-               System.out.println("Insira o nome do item"); 
+                System.out.println("Quantos itens de Defesa voce deseja criar?");
+                int ni = in.nextInt();
+                for(int i= 0; i < ni; i++){  
+                System.out.println("Insira o nome do item "+(i+1)+":"); 
                 String nomeItens = in.next();
-                System.out.println("Insira o Ataque do item:"); 
+                System.out.println("Insira o Ataque do item "+(i+1)+":");  
                 int pontoAtk = 0; 
                 int pontoDef = in.nextInt(); 
                 Item item1 = new Item(nomeItens,pontoAtk,pontoDef);
+                itemDefCriado = false;
+                }
         }
         }
-      }
+        }
+      
     
     public static void opcoesHeroi(){
     Scanner in = new Scanner(System.in);
