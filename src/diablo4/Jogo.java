@@ -24,20 +24,22 @@ public final class Jogo {
         int nf = in.nextInt();
         for(int i= 0; i < nf; i++){
                
-            System.out.println("Fase "+ (i+1));
-            System.out.println("cadastrar mosntro");
-            System.out.println("Insira numero de monstros");
+            System.out.println("/===/ Fase "+ (i+1)+" /===/ ");
+            System.out.println("Insira o nome da fase: "+ (i+1));
+            String nomeFaseBoss = in.next();
+            System.out.println("/===/ Cadastrar monstros /===/");
+            System.out.println("Insira numero de monstros:");
             int nm = in.nextInt();
             for(int j = 0; j < nm; j++){
                 Scanner sc = new Scanner(System.in);
                 Scanner input = new Scanner(System.in);
-                System.out.println("Insira o "+ (j+1+"° "+ "monstro")); 
+                System.out.println("Insira o nome do "+ (j+1+"° "+ "monstro:")); 
                 String nome = sc.next();
-                System.out.println("Insira a descrição do "+ (j+1+"° "+ "monstro")); 
+                System.out.println("Insira a descrição do "+ (j+1+"° "+ "monstro:")); 
                 String descricao = sc.next();
-                System.out.println("Insira quanto de vida tera "+ (j+1+"° "+ "monstro")); 
+                System.out.println("Insira quanto de vida tera "+ (j+1+"° "+ "monstro:")); 
                 int saude = input.nextInt();
-                System.out.println("Insira a força do "+ (j+1+"° "+ "monstro")); 
+                System.out.println("Insira a força do "+ (j+1+"° "+ "monstro:")); 
                 int forca = input.nextInt();
                 
                 MonstroN monstroNormal = new MonstroN(nome,descricao, saude, forca);
@@ -45,21 +47,22 @@ public final class Jogo {
      
             }   
             Scanner ss = new Scanner(System.in);
-            System.out.println("cadastrar boss");
-            System.out.println("Digite o nome do boss ");
+            System.out.println("/===/ Cadastrar Boss /===/ ");
+            System.out.println("Insira o nome do Boss:");
             String nomeboss = ss.next();
-            System.out.println("Insira a descrição do boss");
+            System.out.println("Insira a descrição do Boss:");
             String descricao = ss.next();
-            System.out.println("Insira a lore do boss");
+            System.out.println("Insira a lore do Boss");
             String lore = ss.next();
-            System.out.println("Insira quanto de vida tera o boss");
+            System.out.println("Insira quanto de vida tera o Boss:");
             int saude = ss.nextInt();
-            System.out.println("Insira a força do boss");
+            System.out.println("Insira a força do Boss:");
             int forca = ss.nextInt();
-            Boss boss = new Boss(nomeboss, descricao, lore, saude, forca);
+            Boss boss = new Boss(nomeFaseBoss, nomeboss, descricao, lore, saude, forca);
             fase.addMostro(boss);
             fases.add(fase);
-        }                                                
+        }   
+        System.out.println("Fases: nome das fases criadas com sucesso!");
     }
     public static void criarHeroi(){
         int classe; 
