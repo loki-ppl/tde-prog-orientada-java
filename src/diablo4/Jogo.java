@@ -61,8 +61,9 @@ public final class Jogo {
             Boss boss = new Boss(nomeboss, descricao, lore, saude, forca);
             fase.addMostro(boss);
             fase.setNome(nomefase);
-            fases.add(fase);
             System.out.println("Fase "+ fase.getNome()+" criada com sucesso!");
+            fases.add(fase);
+            
         }   
         
     }
@@ -142,7 +143,14 @@ public final class Jogo {
     }
     
     public static void comecajogo(){
+        for(int i = 0; i <= fases.size(); i++)
+        System.out.println("Iniciando fase "+ fases.get(i).getNome()+" !");
     
+    }
+    public static void mostraFase(){
+        for(int i = 0; i < Jogo.fases.size(); i++){
+                    System.out.println(Jogo.fases.get(i).getNome());
+                        }
     }
     
 }
