@@ -25,8 +25,8 @@ public final class Jogo {
         for(int i= 0; i < nf; i++){
             Fase fase = new Fase();        
             System.out.println("/===/ Fase "+ (i+1)+" /===/ ");
-            System.out.println("Insira o nome da fase: "+ (i+1));
-            String nomeFaseBoss = in.next();
+            System.out.println("Insira o nome da "+ (i+1+"°") +" fase: ");
+            String nomefase = in.next();
             System.out.println("/===/ Cadastrar monstros /===/");
             System.out.println("Insira numero de monstros:");
             int nm = in.nextInt();
@@ -60,13 +60,11 @@ public final class Jogo {
             int forca = ss.nextInt();
             Boss boss = new Boss(nomeboss, descricao, lore, saude, forca);
             fase.addMostro(boss);
-            System.out.println("Insira nome da fase");
-            
-            String nomefase = ss.next();
             fase.setNome(nomefase);
             fases.add(fase);
+            System.out.println("Fase "+ fase.getNome()+" criada com sucesso!");
         }   
-        System.out.println("Fases: nome das fases criadas com sucesso!");
+        
     }
     public static void criarHeroi(){
         int classe; 
