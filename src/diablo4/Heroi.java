@@ -19,6 +19,7 @@ public abstract class Heroi {
     protected int moeda = 0;
     protected int defesa = 1;
     protected int ataque = 1;
+    protected ArrayList<Item> items;
     
      
     

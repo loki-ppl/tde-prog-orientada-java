@@ -14,6 +14,7 @@ import java.util.ArrayList;
 public class Mago extends Heroi{
     
     public Mago(String nome,int idade, int saude){
+        this.items =  new ArrayList();
         this.nome = nome;
         this.idade = idade;
         this.saude = saude;
@@ -26,7 +27,7 @@ public class Mago extends Heroi{
 
     @Override
     void pegarItem(Item item) {
-        //Inventario.addItem(item);
+        items.add(item);
     }
 
     @Override

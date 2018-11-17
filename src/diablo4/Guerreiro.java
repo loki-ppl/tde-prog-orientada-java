@@ -14,6 +14,7 @@ import java.util.ArrayList;
 public class Guerreiro extends Heroi {
     
     public Guerreiro(String nome,int idade, int saude){
+        this.items =  new ArrayList();
         this.nome = nome;
         this.idade = idade;
         this.saude = saude;
@@ -25,7 +26,7 @@ public class Guerreiro extends Heroi {
 
     @Override
     void pegarItem(Item item) {
-         //Inventario.addItem(item);
+         items.add(item);
     }
 
     @Override

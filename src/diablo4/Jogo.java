@@ -115,8 +115,15 @@ public final class Jogo {
                     
                     if((fases.get(i).monstros.get(fases.get(i).monstros.size()-1).saude)<=0){
                     System.out.println("Boss "+fases.get(i).monstros.get(fases.get(nf).monstros.size()-1).nome+" derrotado!");
-                    System.out.println("Dropou o item: " +fases.get(i).monstros.get(i).itens.get(0)+"");
+                    System.out.println("Dropou o item: " +fases.get(i).monstros.get(i).itens.get(0).getNomeItens()+"");
                     System.out.println("Insira 1 para equipar o item dropado ou 0 para descartar:");
+                    int drop = in.nextInt();
+                    if (drop == 1){
+                        heroi2.pegarItem(fases.get(i).monstros.get(i).itens.get(0));
+                    }
+                    if (drop == 2){
+                        System.out.println("Item desmanchado");
+                    }
                     bossDerrotado = true;
                     }                   
 
@@ -273,7 +280,7 @@ public final class Jogo {
     }
     public static void mostrarStatus(){
                     System.out.println("\n/==/ Status Gerais /==/");
-                    System.out.println("Classe: "+ heroi2);
+                    System.out.println("Classe: "+ heroi2.getClass().getName());
                     System.out.println("Nome: " + heroi2.nome);
                     System.out.println("Idade: " + heroi2.idade);
                     System.out.println("Saude: " + heroi2.saude);

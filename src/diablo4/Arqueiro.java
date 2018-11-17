@@ -15,6 +15,7 @@ public class Arqueiro extends Heroi{
     
     
     public Arqueiro(String nome,int idade, int saude){
+        this.items =  new ArrayList();
         this.nome = nome;
         this.idade = idade;
         this.saude = saude;
@@ -27,13 +28,10 @@ public class Arqueiro extends Heroi{
 
     @Override
     void pegarItem(Item item) {
-        //Inventario.addItem(item);
+        items.add(item);
     }
 
-    @Override
-    void soltarItem(Item item) {
-       //Inventario.removeItem(item);
-    }
+    
 
     public String getNome() {
         return nome;
@@ -90,6 +88,11 @@ public class Arqueiro extends Heroi{
 
     public void setDefesa(int defesa) {
         this.defesa = defesa;
+    }
+
+    @Override
+    void soltarItem(Item item) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 
