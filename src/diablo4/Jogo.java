@@ -16,7 +16,34 @@ public final class Jogo {
     static ArrayList<Fase> fases = new ArrayList<Fase>();
     //static Heroi[] heroi = new Heroi[1];
     static Heroi heroi2;
-    public static void criarItem(){}
+     public static void criarItem(){
+        Scanner in = new Scanner(System.in);
+        System.out.println("\n/===/ Criar Itens /===/");  
+        System.out.println("Digite 1 para criar um item de ataque.");  
+        System.out.println("Digite 2 para criar um item de defesa.");  
+        int nf = in.nextInt();
+        while (nf < 1 || nf > 2){
+        System.out.println("\n/===/ Criar Itens /===/");  
+        System.out.println("Digite 1 para criar um item de ataque.");  
+        System.out.println("Digite 2 para criar um item de defesa.");    
+            if (nf == 1){
+                System.out.println("Insira o nome do item"); 
+                String nomeItens = in.next();
+                System.out.println("Insira o Ataque do item:"); 
+                int pontoAtk = in.nextInt();   
+                int pontoDef = 0;
+                Item item1 = new Item(nomeItens,pontoAtk,pontoDef);
+        }
+            else if(nf == 2){
+               System.out.println("Insira o nome do item"); 
+                String nomeItens = in.next();
+                System.out.println("Insira o Ataque do item:"); 
+                int pontoAtk = 0; 
+                int pontoDef = in.nextInt(); 
+                Item item1 = new Item(nomeItens,pontoAtk,pontoDef);
+        }
+        }
+      }
     
     public static void opcoesHeroi(){
     Scanner in = new Scanner(System.in);
