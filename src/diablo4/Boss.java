@@ -63,12 +63,6 @@ public class Boss extends Monstro{
         this.forca = forca;
     }
 
-    public ArrayList<Item> getItens() {
-        return itens;
-    }
-
-    public void setItens(ArrayList<Item> itens) {
-        this.itens = itens;
-    }
+    
     
 }

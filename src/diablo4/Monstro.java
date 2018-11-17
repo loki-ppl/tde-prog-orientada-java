@@ -17,7 +17,7 @@ public abstract class Monstro {
     protected String descricao;
     protected int saude;
     protected int forca;
-    protected ArrayList<Item> itens;
+    protected ArrayList<Item> itens = new ArrayList<Item>();
 
     public int getSaude() {
         return saude;

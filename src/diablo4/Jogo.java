@@ -42,8 +42,8 @@ public final class Jogo {
                 int pontoAtk = in.nextInt();   
                 int pontoDef = 0;
                 Item item1 = new Item(nomeItens,pontoAtk,pontoDef);
-                for (int j = 0; j <= fases.size(); j++){
-                        for (int k = 0; k <= fases.get(j).monstros.size(); k++){
+                for (int j = 0; j < fases.size(); j++){
+                        for (int k = 0; k < fases.get(j).monstros.size(); k++){
                             fases.get(j).monstros.get(k).itens.add(item1);
                         }
                     }
@@ -61,8 +61,8 @@ public final class Jogo {
                 int pontoAtk = 0; 
                 int pontoDef = in.nextInt(); 
                 Item item2 = new Item(nomeItens,pontoAtk,pontoDef);
-                for (int j = 0; j <= fases.size(); j++){
-                        for (int k = 0; k <= fases.get(j).monstros.size(); k++){
+                for (int j = 0; j < fases.size(); j++){
+                        for (int k = 0; k < fases.get(j).monstros.size(); k++){
                             fases.get(j).monstros.get(k).itens.add(item2);
                         }
                     }

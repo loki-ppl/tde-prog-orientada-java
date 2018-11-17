@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package diablo4;
-import java.util.Random;
+
 /**
  *
  * @author augusto.coelho
@@ -16,8 +16,7 @@ public class  Item {
     private int pontoDef;
 
     public Item(String nomeItens, int pontoAtk, int pontoDef) {
-        Random r = new Random();
-        idItem = r.nextInt(100);
+
         this.nomeItens = nomeItens;
         this.pontoAtk = pontoAtk;
         this.pontoDef = pontoDef;
