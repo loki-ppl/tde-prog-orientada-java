@@ -17,20 +17,18 @@ public class Diablo4 {
         Scanner start = new Scanner(System.in);          
         System.out.println("Diablo 4");
         System.out.println("\n/===/ Menu /===/");
-        System.out.println("Digite 1 para iniciar o jogo.");
+        System.out.println("Digite 1 para iniciar o jogo default.");
         System.out.println("Digite 2 para criar fases.");  
-        System.out.println("Digite 3 para criar itens.");  
         
         try {
            opcao = Integer.parseInt(start.nextLine().trim());
         }        
         catch(NumberFormatException e) {} 
         
-        while (opcao < 1 || opcao > 3) {
+        while (opcao < 1 || opcao > 2) {
            System.out.println("\n/===/ Menu /===/");
            System.out.println("Digite 1 para iniciar o jogo default."); 
-           System.out.println("Digite 2 para criar fases."); 
-           System.out.println("Digite 3 para criar itens."); 
+           System.out.println("Digite 2 para criar fases.");            
            try {
                 opcao = Integer.parseInt(start.nextLine().trim());
          }
@@ -43,29 +41,14 @@ public class Diablo4 {
                 break;
             case 2:      
                 Jogo.criarFase();
-                Jogo.criarHeroi();
-                faseCriada = true;
-                break;
-            case 3:
                 Jogo.criarItem();
+                Jogo.criarHeroi();                
+                faseCriada = true;
+                itensCriados = true;
                 break;
             }       
         
-        if (faseCriada == true){
-           while (opcao != 3) {
-           System.out.println("\n/===/ Menu /===/");           
-           System.out.println("Digite 3 para criar itens."); 
-           try {
-                opcao = Integer.parseInt(start.nextLine().trim());
-         }
-           catch(NumberFormatException e) {}
-         }
-                Jogo.criarItem();
-                itensCriados = true;
-             
-        }
-        
-        else if (faseCriada == true || itensCriados == true){
+    if (faseCriada == true || itensCriados == true){
         System.out.println("Digite 1 para iniciar o jogo."); 
         }
      Jogo.opcoesHeroi();

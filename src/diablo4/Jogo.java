@@ -42,6 +42,11 @@ public final class Jogo {
                 int pontoAtk = in.nextInt();   
                 int pontoDef = 0;
                 Item item1 = new Item(nomeItens,pontoAtk,pontoDef);
+                for (int j = 0; j <= fases.size(); j++){
+                        for (int k = 0; k <= fases.get(j).monstros.size(); k++){
+                            fases.get(j).monstros.get(k).itens.add(item1);
+                        }
+                    }
                 }
                 itemAtkCriado = false;
                 
@@ -56,6 +61,11 @@ public final class Jogo {
                 int pontoAtk = 0; 
                 int pontoDef = in.nextInt(); 
                 Item item2 = new Item(nomeItens,pontoAtk,pontoDef);
+                for (int j = 0; j <= fases.size(); j++){
+                        for (int k = 0; k <= fases.get(j).monstros.size(); k++){
+                            fases.get(j).monstros.get(k).itens.add(item2);
+                        }
+                    }
                 }
                 itemDefCriado = false;
                 
@@ -97,7 +107,12 @@ public final class Jogo {
                 if (nf == 0){            
                     System.out.println(("Voce atacou o Boss "+fases.get(i).monstros.get(fases.get(nf).monstros.size()-1).nome)+"!");
 
-                    System.out.println("Atacou e aplicou " + heroi2.ataque+" de dano!");    
+                    System.out.println("Atacou e aplicou " + heroi2.ataque+" de dano!");
+                    
+                    if((fases.get(i).monstros.get(fases.get(i).monstros.size()-1).saude)<=0){
+                    System.out.println("Boss "+fases.get(i).monstros.get(fases.get(nf).monstros.size()-1).nome+" derrotado!");
+                    System.out.println("Dropou o item: " +fases.get(i).monstros.get(i).itens.get(0)+"");
+                    }
 
                     fases.get(i).monstros.get(fases.get(nf).monstros.size()-1).saude -= heroi2.ataque;
 
