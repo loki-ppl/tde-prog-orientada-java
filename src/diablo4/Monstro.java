@@ -29,7 +29,7 @@ public abstract class Monstro {
     }
     abstract void dropaItem();
     
-    abstract void contraGolpe();
+    abstract void contraGolpe(Heroi heroi2, int i, int nf);
 
     
     
