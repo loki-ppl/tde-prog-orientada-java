@@ -18,12 +18,12 @@ public final class Jogo {
     public static void criarItem(){}
     
     public static void criarFase(){
-        Fase fase = new Fase();           
+              
         Scanner in = new Scanner(System.in);
         System.out.println("Insira o numero de fases");
         int nf = in.nextInt();
         for(int i= 0; i < nf; i++){
-               
+            Fase fase = new Fase();        
             System.out.println("/===/ Fase "+ (i+1)+" /===/ ");
             System.out.println("Insira o nome da fase: "+ (i+1));
             String nomeFaseBoss = in.next();
@@ -58,8 +58,12 @@ public final class Jogo {
             int saude = ss.nextInt();
             System.out.println("Insira a força do Boss:");
             int forca = ss.nextInt();
-            Boss boss = new Boss(nomeFaseBoss, nomeboss, descricao, lore, saude, forca);
+            Boss boss = new Boss(nomeboss, descricao, lore, saude, forca);
             fase.addMostro(boss);
+            System.out.println("Insira nome da fase");
+            
+            String nomefase = ss.next();
+            fase.setNome(nomefase);
             fases.add(fase);
         }   
         System.out.println("Fases: nome das fases criadas com sucesso!");

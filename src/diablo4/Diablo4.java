@@ -40,6 +40,7 @@ public class Diablo4 {
         if (opcao == 2){
            Jogo.criarFase();
            Jogo.criarHeroi();
+           
    
                }
               
