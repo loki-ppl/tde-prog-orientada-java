@@ -35,11 +35,11 @@ public class Diablo4 {
                  
         /** criar classe **/
         if (opcao == 1){
-            
+            System.out.println(Jogo.fases.get(0).monstros.get(0).nome);
         }
         if (opcao == 2){
            Jogo.criarFase();
-           //Jogo.criarHeroi();
+           Jogo.criarHeroi();
            
    
                }

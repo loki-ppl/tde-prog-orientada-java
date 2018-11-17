@@ -141,6 +141,8 @@ public final class Jogo {
     
     }
     
+    public static void comecajogo(){
     
+    }
     
 }
