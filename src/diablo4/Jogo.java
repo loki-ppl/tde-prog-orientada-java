@@ -22,6 +22,12 @@ public final class Jogo {
         System.out.println("\n/===/ Atacar /===/");  
         System.out.println("Insira o numero do monstro que deseja atacar:"); 
         int nf = in.nextInt();
+        if (nf == 0){            
+        System.out.println(("Voce atacou o Boss "+fases.get(nf-1).monstros.get(fases.get(nf-1).monstros.size()-1).nome)+"!"); 
+        // System.out.println("Atacou e aplicou " + guerreiro.getAtaque()+" de dano!");
+        System.out.println("Atacou e aplicou 1 de dano!");
+        System.out.println("Saude restante do Boss: "+fases.get(nf-1).monstros.get(fases.get(nf-1).monstros.size()-1).saude);  
+        }
         System.out.println(("Voce atacou o monstro "+Jogo.fases.get(0).monstros.get(nf-1).nome)+"!"); 
        // System.out.println("Atacou e aplicou " + guerreiro.getAtaque()+" de dano!");
         System.out.println("Atacou e aplicou 1 de dano!");
@@ -165,7 +171,7 @@ public final class Jogo {
     
     public static void comecajogo(){
         for(int i = 0; i <= fases.size(); i++)
-        System.out.println("\nIniciando fase "+ fases.get(i).getNome()+" !");
+        System.out.println("\n/==/ Iniciando fase "+ fases.get(i).getNome()+" ! /==/");
     
     }
     public static void mostraFase(){
@@ -175,7 +181,7 @@ public final class Jogo {
     }
     public static void mostraMonstro(){
         for(int i = 0; i < fases.size(); i++){
-            System.out.println("\nMonstros da fase "+i+1);
+            System.out.println("\n/==/Monstros da fase "+i+1+" /==/");
             for(int j = 0; j < Jogo.fases.get(i).monstros.size()-1; j++){
                 System.out.println(Jogo.fases.get(i).monstros.get(j).nome+" - Digite"+i+1+" para atacar.");
             }
@@ -183,7 +189,7 @@ public final class Jogo {
     }
     public static void mostraBoss(){
     for(int i = 0; i < fases.size(); i++){
-            System.out.println("Boss da fase "+i+1);
+            System.out.println("/==/ Boss da fase "+i+1+" /==/");
             System.out.println(fases.get(i).monstros.get(fases.get(i).monstros.size()-1).nome+" - Digite 0 para atacar.");
             
     }    
