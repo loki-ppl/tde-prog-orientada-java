@@ -26,7 +26,7 @@ public abstract class Monstro {
     public int getForca() {
         return forca;
     }
-    
+    abstract void dropaItem();
     
     
 }

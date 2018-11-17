@@ -52,14 +52,14 @@ public final class Jogo {
 
             System.out.println("Atacou e aplicou " + heroi[0].ataque+" de dano!");    
 
-            fases.get(nf).monstros.get(fases.get(i).monstros.size()-1).saude -= heroi[0].ataque;
+            fases.get(i).monstros.get(fases.get(nf).monstros.size()-1).saude -= heroi[0].ataque;
 
             System.out.println("Saude restante do Boss: "+fases.get(i).monstros.get(fases.get(nf).monstros.size()-1).saude);  
             }
             else{
-            System.out.println(("Voce atacou o monstro "+fases.get(i).monstros.get(nf-1).nome)+"!"); 
-           System.out.println("Atacou e aplicou " + heroi[0].ataque+" de dano!");
-            fases.get(0).monstros.get(nf-1).saude -= heroi[0].ataque;
+            System.out.println(("Voce atacou o monstro "+fases.get(nf).monstros.get(nf-1).nome)+"!"); 
+            System.out.println("Atacou e aplicou " + heroi[0].ataque+" de dano!");
+            fases.get(i).monstros.get(nf-1).saude -= heroi[0].ataque;
             System.out.println("Saude restante do monstro: "+ (fases.get(i).monstros.get(nf-1).saude)); 
             }
             opcoesHeroi();

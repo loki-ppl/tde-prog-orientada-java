@@ -22,7 +22,10 @@ public class MonstroN extends Monstro{
         
         
     }
-    
+    @Override
+    public void dropaItem(){
+        
+    }
     
     public String getNome() {
         return nome;

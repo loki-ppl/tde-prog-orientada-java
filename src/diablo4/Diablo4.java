@@ -2,24 +2,24 @@ package diablo4;
 
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
-
+import java.util.ArrayList;
 public class Diablo4 {
 
     public static void main(String[] args) throws InterruptedException {            
         
     /** MENU **/
     /** TESTE GIT 1 **/
-    /*meu cu alado na moral quero morrer porra so me fodo aqui vou morrer */
-    
-        
+  
         int opcao = 0;
         boolean faseCriada = false;
+      
         Scanner start = new Scanner(System.in);          
         System.out.println("Diablo 4");
         System.out.println("\n/===/ Menu /===/");
         System.out.println("Digite 1 para iniciar o jogo.");
         System.out.println("Digite 2 para criar fases.");  
 
+        
         try {
            opcao = Integer.parseInt(start.nextLine().trim());
         }        
@@ -72,9 +72,10 @@ public class Diablo4 {
      
      //Jogo.comecajogo();
      //Jogo.mostraFase();
-     Jogo.mostraMonstro();
-     Jogo.mostraBoss();
-     Jogo.opcaoAtacar();
+     //Jogo.mostraMonstro();
+     //Jogo.mostraBoss();
+     //Jogo.opcaoAtacar();
+ Jogo.opcoesHeroi();
      
     }  
   

@@ -21,7 +21,8 @@ public class Boss extends Monstro{
         this.saude = saude;
         this.forca = forca;
     }
-    
+    @Override
+    public void dropaItem(){}
     public String getLore() {
         return lore;
     }
