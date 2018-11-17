@@ -14,7 +14,8 @@ import java.util.Scanner;
  */
 public final class Jogo {
     static ArrayList<Fase> fases = new ArrayList<Fase>();
-    static Heroi[] heroi = new Heroi[1];
+    //static Heroi[] heroi = new Heroi[1];
+    static Heroi heroi2;
     public static void criarItem(){}
     
     public static void opcoesHeroi(){
@@ -41,28 +42,28 @@ public final class Jogo {
         Scanner in = new Scanner(System.in);
         for(int i = 0; i < fases.size(); i++){
             while((fases.get(i).monstros.get(fases.get(i).monstros.size()-1).saude)>0){
-            Jogo.mostraMonstro();
-            Jogo.mostraBoss();
-            System.out.println("\n/===/ Atacar /===/");  
-            System.out.println(i); 
-            System.out.println("Insira o numero do monstro que deseja atacar:"); 
-            int nf = in.nextInt();
-            if (nf == 0){            
-            System.out.println(("Voce atacou o Boss "+fases.get(i).monstros.get(fases.get(nf).monstros.size()-1).nome)+"!");
+                Jogo.mostraMonstro(i);
+                Jogo.mostraBoss(i);
+                System.out.println("\n/===/ Atacar /===/");  
+                System.out.println(i); 
+                System.out.println("Insira o numero do monstro que deseja atacar:"); 
+                int nf = in.nextInt();
+                if (nf == 0){            
+                    System.out.println(("Voce atacou o Boss "+fases.get(i).monstros.get(fases.get(nf).monstros.size()-1).nome)+"!");
 
-            System.out.println("Atacou e aplicou " + heroi[0].ataque+" de dano!");    
+                    System.out.println("Atacou e aplicou " + heroi2.ataque+" de dano!");    
 
-            fases.get(i).monstros.get(fases.get(nf).monstros.size()-1).saude -= heroi[0].ataque;
+                    fases.get(i).monstros.get(fases.get(nf).monstros.size()-1).saude -= heroi2.ataque;
 
-            System.out.println("Saude restante do Boss: "+fases.get(i).monstros.get(fases.get(nf).monstros.size()-1).saude);  
-            }
-            else{
-            System.out.println(("Voce atacou o monstro "+fases.get(nf).monstros.get(nf-1).nome)+"!"); 
-            System.out.println("Atacou e aplicou " + heroi[0].ataque+" de dano!");
-            fases.get(i).monstros.get(nf-1).saude -= heroi[0].ataque;
-            System.out.println("Saude restante do monstro: "+ (fases.get(i).monstros.get(nf-1).saude)); 
-            }
-            opcoesHeroi();
+                    System.out.println("Saude restante do Boss: "+fases.get(i).monstros.get(fases.get(nf).monstros.size()-1).saude);  
+                }
+                else{
+                    System.out.println(("Voce atacou o monstro "+fases.get(nf).monstros.get(nf-1).nome)+"!"); 
+                    System.out.println("Atacou e aplicou " + heroi2.ataque+" de dano!");
+                    fases.get(i).monstros.get(nf-1).saude -= heroi2.ataque;
+                    System.out.println("Saude restante do monstro: "+ (fases.get(i).monstros.get(nf-1).saude)); 
+                }
+                opcoesHeroi();
             }
         }
     }    
@@ -144,7 +145,7 @@ public final class Jogo {
                     System.out.println("Insira a vida do seu personagem: ");
                     int saudearq = scanClasse.nextInt();
                     Arqueiro arqueiro = new Arqueiro(nome, idadearq, saudearq);
-                    heroi[0] = arqueiro;
+                    heroi2 = arqueiro;
                     
                     
                     System.out.println("\n/==/ Status Gerais /==/");
@@ -167,7 +168,7 @@ public final class Jogo {
                     System.out.println("Insira a vida do seu personagem: ");
                     int saudeguerr = scanClasse.nextInt();
                     Guerreiro guerreiro = new Guerreiro(nome, idadeguerr, saudeguerr);
-                    heroi[0] = guerreiro;
+                    heroi2 = guerreiro;
                     System.out.println("\n/==/ Status Gerais /==/");
                     System.out.println("Classe: Guerreiro");
                     System.out.println("Nome: " + guerreiro.getNome());
@@ -186,7 +187,7 @@ public final class Jogo {
                     System.out.println("Insira a vida do seu personagem: ");
                     int saudemago = scanClasse.nextInt();
                     Mago mago = new Mago(nome, idademago, saudemago);
-                    heroi[0] = mago;
+                    heroi2 = mago;
                     System.out.println("\n/==/ Status Gerais /==/");
                     System.out.println("Classe: Mago");
                     System.out.println("Nome: " + mago.getNome());
@@ -208,7 +209,7 @@ public final class Jogo {
     
     public static void comecajogo(){
         for(int i = 0; i <= fases.size(); i++)
-        System.out.println("\n/==/ Iniciando fase "+ fases.get(i).getNome()+" ! /==/");
+            System.out.println("\n/==/ Iniciando fase "+ fases.get(i).getNome()+" ! /==/");
     
     }
     public static void mostraFase(){
@@ -216,20 +217,19 @@ public final class Jogo {
                     System.out.println(Jogo.fases.get(i).getNome());
                         }
     }
-    public static void mostraMonstro(){
-        for(int i = 0; i < fases.size(); i++){
-            System.out.println("\n/==/ Monstros da fase "+(i+1)+" /==/");
-            for(int j = 0; j < Jogo.fases.get(i).monstros.size()-1; j++){
-                System.out.println("Nome: "+Jogo.fases.get(i).monstros.get(j).nome+" - Saude: "+Jogo.fases.get(i).monstros.get(j).saude+" - Digite "+(i+1)+" para atacar.");
-            }
+    public static void mostraMonstro(int i){
+
+        System.out.println("\n/==/ Monstros da fase "+(fases.indexOf(fases.get(i))+1)+" /==/");
+        for(int j = 0; j < Jogo.fases.get(i).monstros.size()-1; j++){
+            System.out.println("Nome: "+Jogo.fases.get(i).monstros.get(j).nome+" - Saude: "+Jogo.fases.get(i).monstros.get(j).saude+" - Digite "+(i+1)+" para atacar.");
         }
+
     }
-    public static void mostraBoss(){
-    for(int i = 0; i < fases.size(); i++){
-            System.out.println("/==/ Boss da fase "+(i+1)+" /==/");
-            System.out.println("Nome: "+fases.get(i).monstros.get(fases.get(i).monstros.size()-1).nome+" - Saude: "+fases.get(i).monstros.get(fases.get(i).monstros.size()-1).saude+" - Digite 0 para atacar.");
-            
-    }   
+    public static void mostraBoss(int i){
+
+            System.out.println("/==/ Boss da fase "+(fases.indexOf(fases.get(i))+1)+" /==/");
+            System.out.println("Nome: "+fases.get(i).monstros.get(fases.get(i).monstros.size()-1).nome+" - Saude: "+fases.get(i).monstros.get(fases.get(i).monstros.size()-1).saude+" - Digite "+ i +" para atacar.");
+
     }
     public static void mostrarStatus(){
                             System.out.println("\n/==/ Status Gerais /==/");
