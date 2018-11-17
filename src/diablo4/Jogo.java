@@ -14,7 +14,7 @@ import java.util.Scanner;
  */
 public final class Jogo {
     static ArrayList<Fase> fases = new ArrayList<Fase>();
-    
+    static Heroi[] heroi = new Heroi[1];
     public static void criarItem(){}
     
     public static void opcoesHeroi(){
@@ -37,6 +37,7 @@ public final class Jogo {
     }
     
     public static void opcaoAtacar(){
+       
         Scanner in = new Scanner(System.in);
         while((fases.get(0).monstros.get(fases.get(0).monstros.size()-1).saude)>0){
         Jogo.mostraMonstro();
@@ -45,16 +46,19 @@ public final class Jogo {
         System.out.println("Insira o numero do monstro que deseja atacar:"); 
         int nf = in.nextInt();
         if (nf == 0){            
-        System.out.println(("Voce atacou o Boss "+fases.get(nf).monstros.get(fases.get(nf).monstros.size()-1).nome)+"!"); 
-        // System.out.println("Atacou e aplicou " + guerreiro.getAtaque()+" de dano!");
-        System.out.println("Atacou e aplicou 1 de dano!");
+        System.out.println(("Voce atacou o Boss "+fases.get(0).monstros.get(fases.get(nf).monstros.size()-1).nome)+"!");
+        
+        System.out.println("Atacou e aplicou " + heroi[0].ataque+" de dano!");    
+        
+        fases.get(nf).monstros.get(fases.get(nf).monstros.size()-1).saude -= heroi[0].ataque;
+        
         System.out.println("Saude restante do Boss: "+fases.get(nf).monstros.get(fases.get(nf).monstros.size()-1).saude);  
         }
         else{
-        System.out.println(("Voce atacou o monstro "+Jogo.fases.get(0).monstros.get(nf-1).nome)+"!"); 
-       // System.out.println("Atacou e aplicou " + guerreiro.getAtaque()+" de dano!");
-        System.out.println("Atacou e aplicou 1 de dano!");
-        System.out.println("Saude restante do monstro: "+Jogo.fases.get(0).monstros.get(nf-1).saude); 
+        System.out.println(("Voce atacou o monstro "+fases.get(0).monstros.get(nf-1).nome)+"!"); 
+       System.out.println("Atacou e aplicou " + heroi[0].ataque+" de dano!");
+        fases.get(0).monstros.get(nf-1).saude -= heroi[0].ataque;
+        System.out.println("Saude restante do monstro: "+ (fases.get(0).monstros.get(nf-1).saude)); 
         }
         opcoesHeroi();
         }
@@ -130,12 +134,15 @@ public final class Jogo {
            classe = Integer.parseInt(scanNome.nextLine().trim());    
             switch (classe) {
                 case 1:
+                    
                     System.out.println("\n/===/ Status do Heroi /===/");   
                     System.out.println("Insira idade do seu personagem: ");
                     int idadearq = scanClasse.nextInt();
                     System.out.println("Insira a vida do seu personagem: ");
                     int saudearq = scanClasse.nextInt();
                     Arqueiro arqueiro = new Arqueiro(nome, idadearq, saudearq);
+                    heroi[0] = arqueiro;
+                    
                     
                     System.out.println("\n/==/ Status Gerais /==/");
                     System.out.println("Classe: Arqueiro");
@@ -146,16 +153,18 @@ public final class Jogo {
                     System.out.println("Ataque: " + arqueiro.getAtaque());
                     System.out.println("Defesa: " + arqueiro.getDefesa());
                     System.out.println("Moedas: " + arqueiro.getMoeda());
+                    
                     break;
                     
                 case 2:
+                    
                     System.out.println("\n/===/ Status do Heroi /===/"); 
                     System.out.println("Insira idade do seu personagem: ");
                     int idadeguerr = scanClasse.nextInt();
                     System.out.println("Insira a vida do seu personagem: ");
                     int saudeguerr = scanClasse.nextInt();
                     Guerreiro guerreiro = new Guerreiro(nome, idadeguerr, saudeguerr);
-                    
+                    heroi[0] = guerreiro;
                     System.out.println("\n/==/ Status Gerais /==/");
                     System.out.println("Classe: Guerreiro");
                     System.out.println("Nome: " + guerreiro.getNome());
@@ -174,7 +183,7 @@ public final class Jogo {
                     System.out.println("Insira a vida do seu personagem: ");
                     int saudemago = scanClasse.nextInt();
                     Mago mago = new Mago(nome, idademago, saudemago);
-                    
+                    heroi[0] = mago;
                     System.out.println("\n/==/ Status Gerais /==/");
                     System.out.println("Classe: Mago");
                     System.out.println("Nome: " + mago.getNome());
@@ -188,7 +197,7 @@ public final class Jogo {
                 default:
                     break;
             }
-         }
+         } 
        
         catch(NumberFormatException e) {}    
     
