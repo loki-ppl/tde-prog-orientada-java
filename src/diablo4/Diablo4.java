@@ -52,7 +52,9 @@ public class Diablo4 {
     if (faseCriada == true || itensCriados == true){
         System.out.println("Digite 1 para iniciar o jogo."); 
         }
+    while(Jogo.heroi2.saude> 0){
      Jogo.opcoesHeroi();
+    }
      // INICIANDO JOGO 
      /*TimeUnit.SECONDS.sleep(1);
      System.out.println("Iniciando jogo em 5");

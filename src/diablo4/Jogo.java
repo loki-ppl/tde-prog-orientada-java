@@ -17,6 +17,7 @@ public final class Jogo {
     static ArrayList<Fase> fases = new ArrayList<Fase>();
     //static Heroi[] heroi = new Heroi[1];
     static Heroi heroi2;
+    
      public static void criarItem(){
         int escolhas = 0;
         boolean itemAtkCriado = true;
@@ -30,7 +31,7 @@ public final class Jogo {
            escolhas = Integer.parseInt(in.nextLine().trim());
         }        
         catch(NumberFormatException e) {} 
-        int nf = in.nextInt();
+        int nf = escolhas;
         while (nf < 1 || nf > 2){
         System.out.println("\n/===/ Criar Itens /===/");  
         System.out.println("Digite 1 para criar itens de ataque.");  
