@@ -104,7 +104,6 @@ public final class Jogo {
                 Jogo.mostraBoss(i);
                 bossDerrotado = false;
                 System.out.println("\n/===/ Atacar /===/");  
-                System.out.println(i); 
                 System.out.println("Insira o numero do monstro que deseja atacar:"); 
                 int nf = in.nextInt();
                 if (nf == 0){            
@@ -119,6 +118,8 @@ public final class Jogo {
                     System.out.println("Boss "+fases.get(i).monstros.get(fases.get(nf).monstros.size()-1).nome+" derrotado!");
                     int rnd = new Random().nextInt(fases.get(i).monstros.get(nf).itens.size());   
                     System.out.println("Dropou o item: " +fases.get(i).monstros.get(nf).itens.get(rnd).getNomeItens()+"");
+                    System.out.println("Ataque: " +fases.get(i).monstros.get(nf).itens.get(rnd).getPontoAtk()+"");
+                    System.out.println("Defesa: " +fases.get(i).monstros.get(nf).itens.get(rnd).getPontoDef()+"");
                     
                     System.out.println("Insira 1 para equipar o item dropado ou 0 para descartar:");
                     int drop = in.nextInt();
@@ -144,6 +145,8 @@ public final class Jogo {
                     System.out.println("Monstro "+fases.get(i).monstros.get(nf-1).nome+" derrotado!");
                     int rnd = new Random().nextInt(fases.get(i).monstros.get(nf-1).itens.size());   
                     System.out.println("Dropou o item: " +fases.get(i).monstros.get(nf-1).itens.get(rnd).getNomeItens()+"");
+                    System.out.println("Ataque: " +fases.get(i).monstros.get(nf-1).itens.get(rnd).getPontoAtk()+"");
+                    System.out.println("Defesa: " +fases.get(i).monstros.get(nf-1).itens.get(rnd).getPontoDef()+"");
                     
                     System.out.println("Insira 1 para equipar o item dropado ou 0 para descartar:");
                     int drop = in.nextInt();
