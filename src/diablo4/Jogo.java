@@ -96,10 +96,12 @@ public final class Jogo {
     public static void opcaoAtacar(){
        
         Scanner in = new Scanner(System.in);
+        boolean bossDerrotado = false;
         for(int i = 0; i < fases.size(); i++){
-            while((fases.get(i).monstros.get(fases.get(i).monstros.size()-1).saude)>0){
+            while((fases.get(i).monstros.get(fases.get(i).monstros.size()-1).saude)>0 || bossDerrotado == false){
                 Jogo.mostraMonstro(i);
                 Jogo.mostraBoss(i);
+                bossDerrotado = false;
                 System.out.println("\n/===/ Atacar /===/");  
                 System.out.println(i); 
                 System.out.println("Insira o numero do monstro que deseja atacar:"); 
@@ -109,12 +111,14 @@ public final class Jogo {
 
                     System.out.println("Atacou e aplicou " + heroi2.ataque+" de dano!");
                     
+                    fases.get(i).monstros.get(fases.get(nf).monstros.size()-1).saude -= heroi2.ataque;
+                    
                     if((fases.get(i).monstros.get(fases.get(i).monstros.size()-1).saude)<=0){
                     System.out.println("Boss "+fases.get(i).monstros.get(fases.get(nf).monstros.size()-1).nome+" derrotado!");
                     System.out.println("Dropou o item: " +fases.get(i).monstros.get(i).itens.get(0)+"");
-                    }
-
-                    fases.get(i).monstros.get(fases.get(nf).monstros.size()-1).saude -= heroi2.ataque;
+                    System.out.println("Insira 1 para equipar o item dropado ou 0 para descartar:");
+                    bossDerrotado = true;
+                    }                   
 
                     System.out.println("Saude restante do Boss: "+fases.get(i).monstros.get(fases.get(nf).monstros.size()-1).saude);  
                 }
