@@ -175,6 +175,7 @@ public final class Jogo {
     
     public static void criarFase(){
         int escolhas = 0;
+        boolean foi = true;
         Scanner in = new Scanner(System.in);
         System.out.println("\n/===/ Criação de fases /===/");        
         System.out.println("Insira o numero de fases a serem criadas:");
@@ -182,15 +183,16 @@ public final class Jogo {
            escolhas = Integer.parseInt(in.nextLine().trim());
         }        
         catch(NumberFormatException e) {} 
-        while(escolhas != 1){
+        while(foi == true){
         System.out.println("\n/===/ Criação de fases /===/");        
         System.out.println("Insira o numero de fases a serem criadas:");
-                   try {
-                escolhas = Integer.parseInt(in.nextLine().trim());
+        try {
+                escolhas = Integer.parseInt(in.nextLine().trim());                
+                foi = false;
          }
            catch(NumberFormatException e) {}
          }
-        int nf = in.nextInt();
+        int nf = escolhas;
         for(int i= 0; i < nf; i++){
             Fase fase = new Fase();        
             System.out.println("\n/===/ Fase "+ (i+1)+" /===/ ");
