@@ -34,7 +34,6 @@ public final class Jogo {
         System.out.println("Saude restante do monstro: "+Jogo.fases.get(0).monstros.get(nf-1).saude);  
     }    
     
-    
     public static void criarFase(){
               
         Scanner in = new Scanner(System.in);
@@ -181,15 +180,15 @@ public final class Jogo {
     }
     public static void mostraMonstro(){
         for(int i = 0; i < fases.size(); i++){
-            System.out.println("\n/==/Monstros da fase "+i+1+" /==/");
+            System.out.println("\n/==/ Monstros da fase "+(i+1)+" /==/");
             for(int j = 0; j < Jogo.fases.get(i).monstros.size()-1; j++){
-                System.out.println(Jogo.fases.get(i).monstros.get(j).nome+" - Digite"+i+1+" para atacar.");
+                System.out.println(Jogo.fases.get(i).monstros.get(j).nome+" - Digite"+(i+1)+" para atacar.");
             }
         }
     }
     public static void mostraBoss(){
     for(int i = 0; i < fases.size(); i++){
-            System.out.println("/==/ Boss da fase "+i+1+" /==/");
+            System.out.println("/==/ Boss da fase "+(i+1)+" /==/");
             System.out.println(fases.get(i).monstros.get(fases.get(i).monstros.size()-1).nome+" - Digite 0 para atacar.");
             
     }    
