@@ -13,18 +13,20 @@ public class Diablo4 {
     
         
         int opcao = 0;
+        boolean faseCriada = false;
         Scanner start = new Scanner(System.in);          
         System.out.println("Diablo 4");
+        System.out.println("\n/===/ Menu /===/");
         System.out.println("Digite 1 para iniciar o jogo.");
         System.out.println("Digite 2 para criar fases.");  
 
         try {
            opcao = Integer.parseInt(start.nextLine().trim());
-         }
-        
+        }        
         catch(NumberFormatException e) {} 
         
         while (opcao < 1 || opcao > 2) {
+           System.out.println("\n/===/ Menu /===/");
            System.out.println("Digite 1 para iniciar o jogo."); 
            System.out.println("Digite 2 para criar fases.");  
            try {
@@ -33,22 +35,30 @@ public class Diablo4 {
            catch(NumberFormatException e) {}
          }
                  
-        /** criar classe **/
-        if (opcao == 1){
-            System.out.println(Jogo.fases.get(0).monstros.get(0).nome);
+         switch (opcao) {
+            case 1:  
+                System.out.println("iniciar jogo pronto"); 
+                break;
+            case 2:      
+                Jogo.criarFase();
+                Jogo.criarHeroi();
+                faseCriada = true;
+                break;
+            }       
+        
+        if (faseCriada == true){
+           while (opcao != 1) {
+           System.out.println("\n/===/ Menu /===/");
+           System.out.println("Digite 1 para iniciar o jogo."); 
+           try {
+                opcao = Integer.parseInt(start.nextLine().trim());
+         }
+           catch(NumberFormatException e) {}
+         }
         }
-        if (opcao == 2){
-           Jogo.criarFase();
-           Jogo.criarHeroi();
-           
-   
-               }
-              
-
-    
-     /** INICIANDO JOGO 
-
-     TimeUnit.SECONDS.sleep(1);
+     
+     // INICIANDO JOGO 
+     /*TimeUnit.SECONDS.sleep(1);
      System.out.println("Iniciando jogo em 5");
      TimeUnit.SECONDS.sleep(1);
      System.out.println("Iniciando jogo em 4");
@@ -58,13 +68,16 @@ public class Diablo4 {
      System.out.println("Iniciando jogo em 2");
      TimeUnit.SECONDS.sleep(1);
      System.out.println("Iniciando jogo em 1");
-     TimeUnit.SECONDS.sleep(1);
+     TimeUnit.SECONDS.sleep(1);*/
      
-     /** INICIANDO JOGO 
-     System.out.println("Digite 1 para ir a fase (variavel fase)");
-     System.out.println("Digite 2 para abrir o inventario.");
-     System.out.println("Digite 3 para mostrar status.");
-     **/
+     //Jogo.comecajogo();
+     //Jogo.mostraFase();
+     Jogo.mostraMonstro();
+     Jogo.mostraBoss();
+     Jogo.opcaoAtacar();
+     
     }  
   
 }
+
+             

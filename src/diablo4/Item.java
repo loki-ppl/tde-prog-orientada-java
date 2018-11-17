@@ -23,8 +23,7 @@ public class  Item {
         this.pontoDef = pontoDef;
         
     }
-    
-    
+
     public int getIdItem() {
         return idItem;
     }

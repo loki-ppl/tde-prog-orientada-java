@@ -19,8 +19,6 @@ public class Fase{
     public void setNome(String nome) {
         this.nome = nome;
     }
-
- 
     
     public ArrayList<Monstro> monstros;
     

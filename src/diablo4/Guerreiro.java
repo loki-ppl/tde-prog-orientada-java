@@ -73,6 +73,22 @@ public class Guerreiro extends Heroi {
     public void setMoeda(int moeda) {
         this.moeda = moeda;
     }
+    
+    public int getAtaque() {
+        return ataque;
+    }
+
+    public void setAtaque(int ataque) {
+        this.ataque = ataque;
+    }
+    
+    public int getDefesa() {
+        return defesa;
+    }
+
+    public void setDefesa(int defesa) {
+        this.defesa = defesa;
+    }
 
     
 }

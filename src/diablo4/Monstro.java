@@ -18,6 +18,15 @@ public abstract class Monstro {
     protected int saude;
     protected int forca;
     protected ArrayList<Item> itens;
+
+    public int getSaude() {
+        return saude;
+    }
+
+    public int getForca() {
+        return forca;
+    }
+    
     
     
 }
