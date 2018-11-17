@@ -18,6 +18,7 @@ public final class Jogo {
     //static Heroi[] heroi = new Heroi[1];
     static Heroi heroi2;
      public static void criarItem(){
+        int escolhas = 0;
         boolean itemAtkCriado = true;
         boolean itemDefCriado = true;
         Scanner in = new Scanner(System.in);
@@ -25,6 +26,10 @@ public final class Jogo {
         System.out.println("\n/===/ Criar Itens /===/");  
         System.out.println("Digite 1 para criar itens de ataque.");  
         System.out.println("Digite 2 para criar itens de defesa.");  
+                try {
+           escolhas = Integer.parseInt(in.nextLine().trim());
+        }        
+        catch(NumberFormatException e) {} 
         int nf = in.nextInt();
         while (nf < 1 || nf > 2){
         System.out.println("\n/===/ Criar Itens /===/");  
@@ -169,10 +174,22 @@ public final class Jogo {
     }    
     
     public static void criarFase(){
-              
+        int escolhas = 0;
         Scanner in = new Scanner(System.in);
         System.out.println("\n/===/ Criação de fases /===/");        
         System.out.println("Insira o numero de fases a serem criadas:");
+        try {
+           escolhas = Integer.parseInt(in.nextLine().trim());
+        }        
+        catch(NumberFormatException e) {} 
+        while(escolhas != 1){
+        System.out.println("\n/===/ Criação de fases /===/");        
+        System.out.println("Insira o numero de fases a serem criadas:");
+                   try {
+                escolhas = Integer.parseInt(in.nextLine().trim());
+         }
+           catch(NumberFormatException e) {}
+         }
         int nf = in.nextInt();
         for(int i= 0; i < nf; i++){
             Fase fase = new Fase();        
