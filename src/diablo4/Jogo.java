@@ -146,18 +146,7 @@ public final class Jogo {
                     int saudearq = scanClasse.nextInt();
                     Arqueiro arqueiro = new Arqueiro(nome, idadearq, saudearq);
                     heroi2 = arqueiro;
-                    
-                    
-                    System.out.println("\n/==/ Status Gerais /==/");
-                    System.out.println("Classe: Arqueiro");
-                    System.out.println("Nome: " + arqueiro.getNome());
-                    System.out.println("Idade: " + arqueiro.getIdade());
-                    System.out.println("Saude: " + arqueiro.getSaude());
-                    System.out.println("Level: " + arqueiro.getLevel());
-                    System.out.println("Ataque: " + arqueiro.getAtaque());
-                    System.out.println("Defesa: " + arqueiro.getDefesa());
-                    System.out.println("Moedas: " + arqueiro.getMoeda());
-                    
+                    mostrarStatus();
                     break;
                     
                 case 2:
@@ -169,15 +158,8 @@ public final class Jogo {
                     int saudeguerr = scanClasse.nextInt();
                     Guerreiro guerreiro = new Guerreiro(nome, idadeguerr, saudeguerr);
                     heroi2 = guerreiro;
-                    System.out.println("\n/==/ Status Gerais /==/");
-                    System.out.println("Classe: Guerreiro");
-                    System.out.println("Nome: " + guerreiro.getNome());
-                    System.out.println("Idade: " + guerreiro.getIdade());
-                    System.out.println("Saude: " + guerreiro.getSaude());
-                    System.out.println("Level: " + guerreiro.getLevel());
-                    System.out.println("Ataque: " + guerreiro.getAtaque());
-                    System.out.println("Defesa: " + guerreiro.getDefesa());
-                    System.out.println("Moedas: " + guerreiro.getMoeda());
+                    mostrarStatus();
+                    
                     break;
                 case 3:
                     
@@ -188,15 +170,8 @@ public final class Jogo {
                     int saudemago = scanClasse.nextInt();
                     Mago mago = new Mago(nome, idademago, saudemago);
                     heroi2 = mago;
-                    System.out.println("\n/==/ Status Gerais /==/");
-                    System.out.println("Classe: Mago");
-                    System.out.println("Nome: " + mago.getNome());
-                    System.out.println("Idade: " + mago.getIdade());
-                    System.out.println("Saude: " + mago.getSaude());
-                    System.out.println("Level: " + mago.getLevel());
-                    System.out.println("Ataque: " + mago.getAtaque());
-                    System.out.println("Defesa: " + mago.getDefesa());
-                    System.out.println("Moedas: " + mago.getMoeda());
+                    mostrarStatus();
+                    
                     break;
                 default:
                     break;
@@ -232,15 +207,16 @@ public final class Jogo {
 
     }
     public static void mostrarStatus(){
-                            System.out.println("\n/==/ Status Gerais /==/");
-                    System.out.println("Classe: Mago");
-                   /* System.out.println("Nome: " + mago.getNome());
-                    System.out.println("Idade: " + mago.getIdade());
-                    System.out.println("Saude: " + mago.getSaude());
-                    System.out.println("Level: " + mago.getLevel());
-                    System.out.println("Ataque: " + mago.getAtaque());
-                    System.out.println("Defesa: " + mago.getDefesa());
-                    System.out.println("Moedas: " + mago.getMoeda());*/
-        
+                    System.out.println("\n/==/ Status Gerais /==/");
+                    System.out.println("Classe: "+ heroi2);
+                    System.out.println("Nome: " + heroi2.nome);
+                    System.out.println("Idade: " + heroi2.idade);
+                    System.out.println("Saude: " + heroi2.saude);
+                    System.out.println("Level: " + heroi2.level);
+                    System.out.println("Ataque: " + heroi2.ataque);
+                    System.out.println("Defesa: " + heroi2.defesa);
+                    System.out.println("Moedas: " + heroi2.moeda);
+                    opcoesHeroi();
+
     }
 }
