@@ -86,8 +86,8 @@ public class Boss extends Monstro{
     public void contraGolpeTeste(Heroi heroi2, int i, int nf) {
     int rnd = new Random().nextInt(10);
     if (rnd>3){
-        System.out.println("--> Boss contra atacou! Heroi recebeu "+Jogo.fasesteste.get(i).monstros.get(Jogo.fasesteste.get(nf).monstros.size()-1).forca+" de dano!");
-        heroi2.saude -= Jogo.fasesteste.get(i).monstros.get(Jogo.fasesteste.get(nf).monstros.size()-1).forca;
+        System.out.println("--> Boss contra atacou! Heroi recebeu "+JogoTeste.fasesteste.get(i).monstros.get(JogoTeste.fasesteste.get(nf).monstros.size()-1).forca+" de dano!");
+        heroi2.saude -= JogoTeste.fasesteste.get(i).monstros.get(JogoTeste.fasesteste.get(nf).monstros.size()-1).forca;
         System.out.println("\nSaude do heroi:"+heroi2.saude);
     }
     else{

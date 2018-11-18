@@ -29,6 +29,7 @@ public final class JogoTeste {
                     System.out.println("Ataque: " + heroi2.ataque);
                     System.out.println("Defesa: " + heroi2.defesa);
                     System.out.println("Moedas: " + heroi2.moeda);
+                    opcoesHeroiteste();
     }                
     public static void heroiCriado(){ 
         Arqueiro arqueiro = new Arqueiro("Arqueiro Eduardo Linux", 23, 30);
