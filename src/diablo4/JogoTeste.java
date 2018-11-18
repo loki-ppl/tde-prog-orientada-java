@@ -18,9 +18,6 @@ public final class JogoTeste {
     
     static ArrayList<Fase> fasesteste = new ArrayList<Fase>();        
     static Heroi heroi2;
-    static boolean primeroDropT = false;
-    static int salvarItemAtkT = 0;
-    static int salvarItemDefT = 0;
     
     public static void mostrarStatus(){
                     System.out.println("\n/==/ Status Gerais /==/");
@@ -180,28 +177,22 @@ public final class JogoTeste {
                         System.out.println("\n$ Dropou o item: " +fasesteste.get(i).monstros.get(nf).itens.get(rnd).nomeItens+"");
                         System.out.println("\n$ Dropou "+ moedarnd+" moedas!");
                         heroi2.moeda += moedarnd;
-                        System.out.println("Ataque: " +fasesteste.get(i).monstros.get(nf).itens.get(rnd).pontoAtk+"");
-                        salvarItemAtkT = fasesteste.get(i).monstros.get(nf).itens.get(rnd).pontoDef;                     
-                        System.out.println("Defesa: " +fasesteste.get(i).monstros.get(nf).itens.get(rnd).pontoDef+""); 
-                        salvarItemDefT = fasesteste.get(i).monstros.get(nf).itens.get(rnd).pontoAtk;                      
+                        System.out.println("Ataque: " +fasesteste.get(i).monstros.get(nf).itens.get(rnd).pontoAtk+"");                           
+                        System.out.println("Defesa: " +fasesteste.get(i).monstros.get(nf).itens.get(rnd).pontoDef+"");                    
                         System.out.println("\nInsira 1 para equipar o item dropado ou 0 para descartar:");
                         int drop = in.nextInt();
                         if (drop == 1){
-                            if(primeroDropT == false){ 
                             heroi2.pegarItem(fasesteste.get(i).monstros.get(i).itens.get(rnd));
-                            heroi2.ataque += fasesteste.get(i).monstros.get(i).itens.get(rnd).getPontoAtk();
-                            heroi2.defesa += fasesteste.get(i).monstros.get(i).itens.get(rnd).getPontoDef();
-                            System.out.println("Item equipado."); 
-                            primeroDropT = true;
+                            if(fasesteste.get(i).monstros.get(i).itens.get(rnd).pontoAtk == 0){
+                                heroi2.defesa = 1;
+                                heroi2.defesa += fasesteste.get(i).monstros.get(i).itens.get(rnd).pontoDef;
+                                System.out.println("Item equipado."); 
                             }
-                            else{
-                            heroi2.ataque -= salvarItemAtkT;       
-                            heroi2.defesa -= salvarItemDefT;
-                            heroi2.pegarItem(fasesteste.get(i).monstros.get(i).itens.get(rnd));
-                            heroi2.ataque += fasesteste.get(i).monstros.get(i).itens.get(rnd).getPontoAtk();
-                            heroi2.defesa += fasesteste.get(i).monstros.get(i).itens.get(rnd).getPontoDef();
-                            System.out.println("Item equipado.");  
-                            }
+                            if(fasesteste.get(i).monstros.get(i).itens.get(rnd).pontoAtk == 0){
+                                heroi2.ataque = 1;
+                                heroi2.ataque += fasesteste.get(i).monstros.get(i).itens.get(rnd).pontoAtk;
+                                System.out.println("Item equipado."); 
+                            }                             
                         }
                         if (drop == 2){
                             System.out.println("Item descartado.");                            
@@ -217,8 +208,7 @@ public final class JogoTeste {
                     if(heroi2.saude>0){}
                     else{
                     gameOver();
-                    }
-                    
+                    }                   
                     
                     fasesteste.get(i).monstros.get(nf-1).saude -= heroi2.ataque;
                     System.out.println("Saude restante do monstro: "+ (fasesteste.get(i).monstros.get(nf-1).saude)); 
@@ -228,31 +218,26 @@ public final class JogoTeste {
                         int rnd = new Random().nextInt(fasesteste.get(i).monstros.get(nf-1).itens.size());   
                         System.out.println("\n$ Dropou o item: " +fasesteste.get(i).monstros.get(nf-1).itens.get(rnd).nomeItens+"");
                         System.out.println("Ataque: " +fasesteste.get(i).monstros.get(nf-1).itens.get(rnd).pontoAtk+"");
-                        salvarItemAtkT = fasesteste.get(i).monstros.get(nf-1).itens.get(rnd).pontoAtk;      
                         System.out.println("Defesa: " +fasesteste.get(i).monstros.get(nf-1).itens.get(rnd).pontoDef+"");
-                        salvarItemDefT = fasesteste.get(i).monstros.get(nf-1).itens.get(rnd).pontoDef;  
                         System.out.println("\nInsira 1 para equipar o item dropado ou 0 para descartar:");
                         int drop = in.nextInt();
                         if (drop == 1){
-                            if(primeroDropT == false){ 
                             heroi2.pegarItem(fasesteste.get(i).monstros.get(nf-1).itens.get(rnd));
-                            heroi2.ataque += fasesteste.get(i).monstros.get(nf-1).itens.get(rnd).getPontoAtk();
-                            heroi2.defesa += fasesteste.get(i).monstros.get(nf-1).itens.get(rnd).getPontoDef();
+                            if(fasesteste.get(i).monstros.get(nf-1).itens.get(rnd).pontoAtk == 0){
+                                heroi2.defesa = 1; 
+                                heroi2.defesa += fasesteste.get(i).monstros.get(nf-1).itens.get(rnd).pontoDef;
                             System.out.println("Item equipado.");  
-                            primeroDropT = true;
                             }
-                            else{
-                            heroi2.ataque -= salvarItemAtkT;       
-                            heroi2.defesa -= salvarItemDefT;
+                            if(fasesteste.get(i).monstros.get(nf-1).itens.get(rnd).pontoDef == 0){
+                                heroi2.ataque = 1;
+                                heroi2.ataque += fasesteste.get(i).monstros.get(nf-1).itens.get(rnd).pontoAtk;
+                            System.out.println("Item equipado.");                             
                             }
                         }
                         if (drop == 2){
                             System.out.println("Item descartado.");
-                            
-                        }
-                        
-                    }                   
-                    
+                        } 
+                    }                      
                 }                
                 opcoesHeroiteste();
             }
