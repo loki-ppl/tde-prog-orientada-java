@@ -98,14 +98,13 @@ public class  Item {
 "Dragon’s Claw",
 "Dragon’s Tooth",
 "Dragon’s Fang");
-
-    }
+ }
     
        public static void randomItensAtk(int j, int k){
-        for(int i = 0; i < Jogo.itensProntos.size(); i++){
+        for(int i = 0; i < itensProntos.size(); i++){
             int rnd = new Random().nextInt(10);
-            int rnd2 = new Random().nextInt(Jogo.itensProntos.size());
-            String nomeItens = Jogo.itensProntos.get(rnd2);
+            int rnd2 = new Random().nextInt(itensProntos.size());
+            String nomeItens = itensProntos.get(rnd2);
             int pontoAtk = rnd;
             int pontoDef = 0;
             Item item3 = new Item(nomeItens,pontoAtk,pontoDef);
