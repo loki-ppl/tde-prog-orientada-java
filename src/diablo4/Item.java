@@ -34,7 +34,7 @@ public class  Item {
             int pontoDef = 0;
             Item item3 = new Item(nomeItens,pontoAtk,pontoDef);
             Jogo.fases.get(j).monstros.get(k).itens.add(item3); 
-            System.out.println((Jogo.fases.get(0).monstros.get(0).itens.get(0).nomeItens)+" "+(Jogo.fases.get(0).monstros.get(0).itens.get(0).pontoAtk)+" "+(Jogo.fases.get(0).monstros.get(0).itens.get(0).pontoDef));
+            //System.out.println((Jogo.fases.get(0).monstros.get(0).itens.get(0).nomeItens)+" "+(Jogo.fases.get(0).monstros.get(0).itens.get(0).pontoAtk)+" "+(Jogo.fases.get(0).monstros.get(0).itens.get(0).pontoDef));
         }
         
     }       
