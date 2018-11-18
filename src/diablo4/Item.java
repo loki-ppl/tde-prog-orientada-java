@@ -26,7 +26,7 @@ public class  Item {
     }
     public static void randomItensStats(int j, int k){
         for(int i = 0; i < Item.itensProntos.size(); i++){
-            int rnd = new Random(1).nextInt(11);
+            int rnd = new Random().nextInt(10);
             int rnd2 = new Random().nextInt(Item.itensProntos.size());
             String nomeItens = Item.itensProntos.get(rnd2);
             int pontoAtk = rnd;
