@@ -110,8 +110,26 @@ public final class Jogo {
         }
     }
     
+    public static void gameOver(){
+        if (Jogo.heroi2.saude> 0){
+        System.out.println("\n/===/ Voce completou o jogo! /===/");
+        }
+        else{
+        System.out.println("\n*** morreu =( ***");
+        System.out.println("Deseja criar outro Heroi?");
+        System.out.println("1 - Criar outro heroi\n 0 - Sair do jogo");
+        Scanner in3 = new Scanner(System.in);
+        int nf3 = in3.nextInt();
+        if (nf3 == 1){criarHeroi();
+        }        
+        else{
+        System.exit(0);
+        }
+        }
+    
+    }
+    
     public static void opcaoAtacar(){
-       
         Scanner in = new Scanner(System.in);
         for(int i = 0; i < fases.size(); i++){              
             while((fases.get(i).monstros.get(fases.get(i).monstros.size()-1).saude)>0){
@@ -128,6 +146,7 @@ public final class Jogo {
                     
                     //Boss ataca
                     fases.get(i).monstros.get(fases.get(nf).monstros.size()-1).contraGolpe(heroi2, i, nf);
+                    gameOver();
                     
                     fases.get(i).monstros.get(fases.get(nf).monstros.size()-1).saude -= heroi2.ataque;
                     System.out.println("Saude restante do Boss: "+fases.get(i).monstros.get(fases.get(nf).monstros.size()-1).saude);  
@@ -163,6 +182,7 @@ public final class Jogo {
                     
                     //Monstro ataca                   
                     fases.get(i).monstros.get(nf-1).contraGolpe(heroi2, i, nf);
+                    gameOver();
                     
                     fases.get(i).monstros.get(nf-1).saude -= heroi2.ataque;
                     System.out.println("Saude restante do monstro: "+ (fases.get(i).monstros.get(nf-1).saude)); 
