@@ -26,14 +26,14 @@ public class  Item {
     }
     public static void randomItensStats(int j, int k){
         for(int i = 0; i < Item.itensProntos.size(); i++){
-            int rnd = new Random().nextInt(10);
+            int rnd = new Random(1).nextInt(11);
             int rnd2 = new Random().nextInt(Item.itensProntos.size());
             String nomeItens = Item.itensProntos.get(rnd2);
             int pontoAtk = rnd;
             int pontoDef = 0;
             Item item3 = new Item(nomeItens,pontoAtk,pontoDef);
             Jogo.fases.get(j).monstros.get(k).itens.add(item3); 
-            //System.out.println((Jogo.fases.get(0).monstros.get(0).itens.get(0).nomeItens) + (Jogo.fases.get(0).monstros.get(0).itens.get(0).pontoAtk) + (Jogo.fases.get(0).monstros.get(0).itens.get(0).pontoDef));
+            System.out.println((Jogo.fases.get(0).monstros.get(0).itens.get(0).nomeItens)+" "+(Jogo.fases.get(0).monstros.get(0).itens.get(0).pontoAtk)+" "+(Jogo.fases.get(0).monstros.get(0).itens.get(0).pontoDef));
         }
         
     }
