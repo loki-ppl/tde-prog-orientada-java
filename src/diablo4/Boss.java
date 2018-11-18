@@ -67,13 +67,14 @@ public class Boss extends Monstro{
     public void contraGolpe(Heroi heroi2, int i, int nf){
     int rnd = new Random().nextInt(10);
     if (rnd>3){
-        System.out.println("\nBoss contra atacou! Heroi recebeu "+Jogo.fases.get(i).monstros.get(Jogo.fases.get(nf).monstros.size()-1).forca+" de dano!");
+        System.out.println("--> Boss contra atacou! Heroi recebeu "+Jogo.fases.get(i).monstros.get(Jogo.fases.get(nf).monstros.size()-1).forca+" de dano!");
         heroi2.saude -= Jogo.fases.get(i).monstros.get(Jogo.fases.get(nf).monstros.size()-1).forca;
-        System.out.println("Saude do heroi:"+heroi2.saude);
+        System.out.println("\nSaude do heroi:"+heroi2.saude);
     }
     else{
-        System.out.println("\nBoss contra atacou!");
-        System.out.println("Heroi desviou!");
+        System.out.println("--> Boss contra atacou!");
+        System.out.println("--> Heroi desviou!");
+        System.out.println("\nSaude do heroi:"+heroi2.saude);
     
     }
     }    

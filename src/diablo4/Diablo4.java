@@ -72,9 +72,7 @@ public class Diablo4 {
      //Jogo.mostraFase();
      //Jogo.mostraMonstro();
      //Jogo.mostraBoss();
-     //Jogo.opcaoAtacar();
-
-     
+     Jogo.opcaoAtacar();     
     }  
   
 }
