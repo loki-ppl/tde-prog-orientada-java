@@ -6,6 +6,7 @@
 package diablo4;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -16,10 +17,84 @@ import java.util.Scanner;
 public final class Jogo {
     static ArrayList<Fase> fases = new ArrayList<Fase>();
     static ArrayList<Fase> fasesteste = new ArrayList<Fase>();
+    static ArrayList<String> itensProntos = new ArrayList();
     
     static Heroi heroi2;
+
     
-     public static void criarItem(){
+     public static void criarItem(){         
+        Collections.addAll(Jogo.itensProntos, "Argon Axe",
+"Neon Scythe",
+"Krypton Sword",
+"Equalizer",
+"Siegebreaker",
+"Razorblade",
+"Ranger",
+"Terminator",
+"Hunter-Killer",
+"Hammercrush",
+"Deathstalker",
+"Deathray",
+"Tigerjaw",
+"Roomsweeper",
+"Thunderbolt",
+"Longarm Enforcer",
+"The Bear",
+"Nightlcaw",
+"Maverick",
+"Stampede",
+"Backbreaker",
+"Viper",
+"Thrasher",
+"Monsoon",
+"Bolt Bolt",
+"Dragon’s Breath",
+"Tiny Instrument Of Death",
+"Judge",
+"Falcon",
+"Haywire Storm",
+"Jackal",
+"Space Invader",
+"Zap Zapp",
+"Bald Eagle",
+"Zapotron",
+"Deathwing",
+"Scoped Dragonfly",
+"One Shot",
+"Super Shredder",
+"Triple Tap",
+"Dragonfly",
+"Thumper",
+"Stabsworth The III",
+"Slice N’ Dice",
+"Huskcleaver",
+"Stormblade",
+"Claxe",
+"Revenant’s Wrath",
+"Stormchaser’s Revenge",
+"Armaggeddon",
+"Whirling Doom",
+"Dissector",
+"Farmer’s Glory",
+"Elegant Scythe",
+"Reaper Scythe",
+"Fortsville Slugger 3000",
+"Masters Drive",
+"Hydra",
+"Nailer",
+"Pummeller",
+"Piston Spitter",
+"Tsunami",
+"Dam Bauster",
+"Pressure Cutter",
+"Sawtooth",
+"Pulverizer",
+"Dragon’s Roar",
+"Dragon’s Fury",
+"Dragon’s Might",
+"Dragon’s Claw",
+"Dragon’s Tooth",
+"Dragon’s Fang");
         int escolhas = 0;
         boolean foi = true;
         boolean itemAtkCriado = true;
@@ -81,6 +156,7 @@ public final class Jogo {
                     Item item2 = new Item(nomeItens,pontoAtk,pontoDef);
                     for (int j = 0; j < fases.size(); j++){                        
                         for (int k = 0; k < fases.get(j).monstros.size(); k++){
+                            //Item.randomItensStats(j, k);
                             fases.get(j).monstros.get(k).itens.add(item2);
                         }
                     }
@@ -204,9 +280,9 @@ public final class Jogo {
                         System.out.println("\n** Monstro "+fases.get(i).monstros.get(nf-1).nome+" derrotado!");
                         int rnd = new Random().nextInt(fases.get(i).monstros.get(nf-1).itens.size());   
                         
-                        System.out.println(fases.get(i).monstros.get(nf-1).itens.get(0).nomeItens);
+                       /* System.out.println(fases.get(i).monstros.get(nf-1).itens.get(0).nomeItens);
                         System.out.println(fases.get(i).monstros.get(nf-1).itens.get(1).nomeItens);
-                        System.out.println(fases.get(i).monstros.get(nf-1).itens.get(2).nomeItens);
+                        System.out.println(fases.get(i).monstros.get(nf-1).itens.get(2).nomeItens);*/
                         
                         System.out.println("\n$ Dropou o item: " +fases.get(i).monstros.get(nf-1).itens.get(rnd).nomeItens+"");
                         System.out.println("Ataque: " +fases.get(i).monstros.get(nf-1).itens.get(rnd).pontoAtk+"");

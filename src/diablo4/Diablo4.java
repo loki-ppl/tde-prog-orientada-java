@@ -21,7 +21,7 @@ public class Diablo4 {
         boolean faseCriada = false;
         boolean itensCriados = false;
         
-        Item.listaItensProntos();
+        //Item.listaItensProntos();
         
         Scanner start = new Scanner(System.in);     
         Scanner inputItem = new Scanner(System.in); 
