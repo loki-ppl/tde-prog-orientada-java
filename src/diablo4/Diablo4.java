@@ -1,7 +1,9 @@
 package diablo4;
 
 import java.util.Scanner;
-
+import java.util.concurrent.TimeUnit;
+import java.util.ArrayList;
+import java.util.Random;
 public class Diablo4 {
 
     public static void main(String[] args) throws InterruptedException {            
@@ -10,14 +12,10 @@ public class Diablo4 {
     /** TESTE GIT 1 **/
   
         int opcao = 0;
-        int opcaoItem = 0;
-        int quantItem;
-        int excluirItem;
         boolean faseCriada = false;
         boolean itensCriados = false;
         
-        Scanner start = new Scanner(System.in);     
-        Scanner inputItem = new Scanner(System.in); 
+        Scanner start = new Scanner(System.in);          
         System.out.println("Diablo 4");
         System.out.println("\n/===/ Menu /===/");
         System.out.println("Digite 1 para iniciar o jogo default.");
@@ -45,25 +43,6 @@ public class Diablo4 {
             case 2:      
                 Jogo.criarFase();
                 Jogo.criarItem();
-                switch(opcaoItem){
-                    case 1:
-                        Jogo.mostrarItens();
-                        System.out.println("Caso deseje excluir algum item, digite 2, se nao digite 0"); 
-                        opcaoItem = inputItem.nextInt();
-                        if (opcaoItem == 0)
-                            break;
-                    case 2:
-                        Jogo.mostrarItens();
-                        System.out.println("Digite quantos itens quer excluir");
-                        quantItem = inputItem.nextInt();
-                        for(int i =0; i < quantItem; i++){
-                            Jogo.mostrarItens();
-                            System.out.println("Digite o numero do item que queira excluir");
-                            excluirItem = inputItem.nextInt();
-                            Jogo.excluirItem(excluirItem);
-                        }
-                        break;
-                }
                 Jogo.criarHeroi();                
                 faseCriada = true;
                 itensCriados = true;
@@ -73,9 +52,6 @@ public class Diablo4 {
     if (faseCriada == true || itensCriados == true){
         System.out.println("Digite 1 para iniciar o jogo."); 
         }
-    while(Jogo.heroi2.saude> 0){
-     Jogo.opcoesHeroi();
-    }
      // INICIANDO JOGO 
      /*TimeUnit.SECONDS.sleep(1);
      System.out.println("Iniciando jogo em 5");

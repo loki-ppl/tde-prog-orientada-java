@@ -113,12 +113,11 @@ public final class Jogo {
     public static void opcaoAtacar(){
        
         Scanner in = new Scanner(System.in);
-        boolean bossDerrotado = false;
-        for(int i = 0; i < fases.size(); i++){
-            while(bossDerrotado == false){
+        for(int i = 0; i < fases.size(); i++){              
+            while((fases.get(i).monstros.get(fases.get(i).monstros.size()-1).saude)>0){
+            //while(bossDerrotado == false){
                 Jogo.mostraMonstro(i);
                 Jogo.mostraBoss(i);
-                bossDerrotado = false;
                 System.out.println("\n/===/ Atacar /===/");  
                 System.out.println("Insira o numero do monstro que deseja atacar:"); 
                 int nf = in.nextInt();
@@ -149,12 +148,12 @@ public final class Jogo {
                             heroi2.pegarItem(fases.get(i).monstros.get(i).itens.get(rnd));
                             heroi2.ataque += fases.get(i).monstros.get(i).itens.get(rnd).getPontoAtk();
                             heroi2.defesa += fases.get(i).monstros.get(i).itens.get(rnd).getPontoDef();
-                            System.out.println("Item equipado.");
+                            System.out.println("Item equipado.");                           
                         }
                         if (drop == 2){
-                            System.out.println("Item descartado.");
+                            System.out.println("Item descartado.");                            
                         }
-                        bossDerrotado = true;
+                        
                     }                   
 
                 }
@@ -182,15 +181,16 @@ public final class Jogo {
                             heroi2.pegarItem(fases.get(i).monstros.get(nf-1).itens.get(rnd));
                             heroi2.ataque += fases.get(i).monstros.get(nf-1).itens.get(rnd).getPontoAtk();
                             heroi2.defesa += fases.get(i).monstros.get(nf-1).itens.get(rnd).getPontoDef();
-                            System.out.println("Item equipado.");
+                            System.out.println("Item equipado.");                            
                         }
                         if (drop == 2){
                             System.out.println("Item descartado.");
+                            
                         }
-                        bossDerrotado = true;
+                        
                     }                   
                     
-                }
+                }                
                 opcoesHeroi();
             }
         }
