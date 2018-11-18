@@ -188,7 +188,7 @@ public final class JogoTeste {
                                 heroi2.defesa += fasesteste.get(i).monstros.get(i).itens.get(rnd).pontoDef;
                                 System.out.println("Item equipado."); 
                             }
-                            if(fasesteste.get(i).monstros.get(i).itens.get(rnd).pontoAtk == 0){
+                            if(fasesteste.get(i).monstros.get(i).itens.get(rnd).pontoDef == 0){
                                 heroi2.ataque = 1;
                                 heroi2.ataque += fasesteste.get(i).monstros.get(i).itens.get(rnd).pontoAtk;
                                 System.out.println("Item equipado."); 
