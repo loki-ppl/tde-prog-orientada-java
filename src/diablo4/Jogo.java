@@ -37,77 +37,77 @@ public final class Jogo {
         int nf = escolhas;  
         
         while (nf < 1 || nf > 2){
-        System.out.println("\n/===/ Criar Itens /===/");  
-        System.out.println("Digite 1 para criar itens de ataque.");  
-        System.out.println("Digite 2 para criar itens de defesa.");  
-        
-        try {
-           escolhas = Integer.parseInt(in2.nextLine().trim());    
-        }        
-        catch(NumberFormatException e) {}        
-        }
-        int nf2 = escolhas;
-        
+            System.out.println("\n/===/ Criar Itens /===/");  
+            System.out.println("Digite 1 para criar itens de ataque.");  
+            System.out.println("Digite 2 para criar itens de defesa.");  
+
+            try {
+               escolhas = Integer.parseInt(in2.nextLine().trim());    
+            }        
+            catch(NumberFormatException e) {}        
+            }
+            int nf2 = escolhas;
+
             if (nf2 == 1 && itemAtkCriado == true){
                 System.out.println("Quantos itens de Ataque voce deseja criar?");
                 int ni = in.nextInt();
                 for(int i= 0; i < ni; i++){                  
-                System.out.println("Insira o nome do item "+(i+1)+":"); 
-                String nomeItens = in.next();
-                System.out.println("Insira o Ataque do item "+(i+1)+":"); 
-                int pontoAtk = in.nextInt();   
-                int pontoDef = 0;
-                Item item1 = new Item(nomeItens,pontoAtk,pontoDef);
-                for (int j = 0; j < fases.size(); j++){
+                    System.out.println("Insira o nome do item "+(i+1)+":"); 
+                    String nomeItens = in.next();
+                    System.out.println("Insira o Ataque do item "+(i+1)+":"); 
+                    int pontoAtk = in.nextInt();   
+                    int pontoDef = 0;
+                    Item item1 = new Item(nomeItens,pontoAtk,pontoDef);
+                    for (int j = 0; j < fases.size(); j++){
                         for (int k = 0; k < fases.get(j).monstros.size(); k++){
                             fases.get(j).monstros.get(k).itens.add(item1);
                         }
                     }
                 }
                 itemAtkCriado = false;
-                
-        }
+
+            }
             else if(nf2 == 2 && itemDefCriado == true){
                 System.out.println("Quantos itens de Defesa voce deseja criar?");
                 int ni = in.nextInt();
                 for(int i= 0; i < ni; i++){  
-                System.out.println("Insira o nome do item "+(i+1)+":"); 
-                String nomeItens = in.next();
-                System.out.println("Insira a Defesa do item "+(i+1)+":");  
-                int pontoAtk = 0; 
-                int pontoDef = in.nextInt(); 
-                Item item2 = new Item(nomeItens,pontoAtk,pontoDef);
-                for (int j = 0; j < fases.size(); j++){
+                    System.out.println("Insira o nome do item "+(i+1)+":"); 
+                    String nomeItens = in.next();
+                    System.out.println("Insira a Defesa do item "+(i+1)+":");  
+                    int pontoAtk = 0; 
+                    int pontoDef = in.nextInt(); 
+                    Item item2 = new Item(nomeItens,pontoAtk,pontoDef);
+                    for (int j = 0; j < fases.size(); j++){
                         for (int k = 0; k < fases.get(j).monstros.size(); k++){
                             fases.get(j).monstros.get(k).itens.add(item2);
                         }
                     }
                 }
                 itemDefCriado = false;
-                
-        }
+
+            }
         
         }
      }
       
     
     public static void opcoesHeroi(){
-    Scanner in = new Scanner(System.in);
-    System.out.println("\n/===/ Menu Heroi /===/");     
-    System.out.println("/===/ Digite 1 para atacar os monstros/===/");    
-    System.out.println("/===/ Digite 2 para mostrar os status/===/"); 
-    int nf = in.nextInt();
-    while (nf < 1 || nf > 2){
-    System.out.println("\n/===/ Menu Heroi /===/");     
-    System.out.println("/===/ Digite 1 para atacar os monstros/===/");    
-    System.out.println("/===/ Digite 2 para mostrar os status/===/");     
-    }
-    if (nf == 1){
-        opcaoAtacar();
-    }
-    else if(nf == 2){
-     mostrarStatus();
-    }
+        Scanner in = new Scanner(System.in);
+        System.out.println("\n/===/ Menu Heroi /===/");     
+        System.out.println("/===/ Digite 1 para atacar os monstros/===/");    
+        System.out.println("/===/ Digite 2 para mostrar os status/===/"); 
+        int nf = in.nextInt();
+        while (nf < 1 || nf > 2){
+            System.out.println("\n/===/ Menu Heroi /===/");     
+            System.out.println("/===/ Digite 1 para atacar os monstros/===/");    
+            System.out.println("/===/ Digite 2 para mostrar os status/===/");     
+        }
+        if (nf == 1){
+            opcaoAtacar();
+        }
+        else if(nf == 2){
+            mostrarStatus();
+        }
     }
     
     public static void opcaoAtacar(){
@@ -134,22 +134,22 @@ public final class Jogo {
                     System.out.println("Saude restante do Boss: "+fases.get(i).monstros.get(fases.get(nf).monstros.size()-1).saude);  
                     
                     if((fases.get(i).monstros.get(fases.get(i).monstros.size()-1).saude)<=0){
-                    System.out.println("\n** Boss "+fases.get(i).monstros.get(fases.get(nf).monstros.size()-1).nome+" derrotado!");
-                    int rnd = new Random().nextInt(fases.get(i).monstros.get(nf).itens.size());   
-                    System.out.println("\n$ Dropou o item: " +fases.get(i).monstros.get(nf).itens.get(rnd).getNomeItens()+"");
-                    System.out.println("Ataque: " +fases.get(i).monstros.get(nf).itens.get(rnd).getPontoAtk()+"");
-                    System.out.println("Defesa: " +fases.get(i).monstros.get(nf).itens.get(rnd).getPontoDef()+"");
-                    
-                    System.out.println("\nInsira 1 para equipar o item dropado ou 0 para descartar:");
-                    int drop = in.nextInt();
-                    if (drop == 1){
-                        heroi2.pegarItem(fases.get(i).monstros.get(i).itens.get(rnd));
-                        System.out.println("Item equipado.");
-                    }
-                    if (drop == 2){
-                        System.out.println("Item descartado.");
-                    }
-                    bossDerrotado = true;
+                        System.out.println("\n** Boss "+fases.get(i).monstros.get(fases.get(nf).monstros.size()-1).nome+" derrotado!");
+                        int rnd = new Random().nextInt(fases.get(i).monstros.get(nf).itens.size());   
+                        System.out.println("\n$ Dropou o item: " +fases.get(i).monstros.get(nf).itens.get(rnd).getNomeItens()+"");
+                        System.out.println("Ataque: " +fases.get(i).monstros.get(nf).itens.get(rnd).getPontoAtk()+"");
+                        System.out.println("Defesa: " +fases.get(i).monstros.get(nf).itens.get(rnd).getPontoDef()+"");
+
+                        System.out.println("\nInsira 1 para equipar o item dropado ou 0 para descartar:");
+                        int drop = in.nextInt();
+                        if (drop == 1){
+                            heroi2.pegarItem(fases.get(i).monstros.get(i).itens.get(rnd));
+                            System.out.println("Item equipado.");
+                        }
+                        if (drop == 2){
+                            System.out.println("Item descartado.");
+                        }
+                        bossDerrotado = true;
                     }                   
                     
                    
@@ -166,24 +166,24 @@ public final class Jogo {
                     //fases.get(i).monstros.get(j).saude          
                    // if((fases.get(i).monstros.get(fases.get(i).monstros.size()-1).saude)<=0){
                     if((fases.get(i).monstros.get(nf-1).saude)<=0){
-                    System.out.println("\n** Monstro "+fases.get(i).monstros.get(nf-1).nome+" derrotado!");
-                    int rnd = new Random().nextInt(fases.get(i).monstros.get(nf-1).itens.size());   
-                    System.out.println("\n$ Dropou o item: " +fases.get(i).monstros.get(nf-1).itens.get(rnd).getNomeItens()+"");
-                    System.out.println("Ataque: " +fases.get(i).monstros.get(nf-1).itens.get(rnd).getPontoAtk()+"");
-                    System.out.println("Defesa: " +fases.get(i).monstros.get(nf-1).itens.get(rnd).getPontoDef()+"");
-                    
-                    System.out.println("\nInsira 1 para equipar o item dropado ou 0 para descartar:");
-                    int drop = in.nextInt();
-                    if (drop == 1){
-                        heroi2.pegarItem(fases.get(i).monstros.get(nf-1).itens.get(rnd));
-                        heroi2.ataque += fases.get(i).monstros.get(nf-1).itens.get(rnd).getPontoAtk();
-                        heroi2.defesa += fases.get(i).monstros.get(nf-1).itens.get(rnd).getPontoDef();
-                        System.out.println("Item equipado.");
-                    }
-                    if (drop == 2){
-                        System.out.println("Item descartado.");
-                    }
-                    bossDerrotado = true;
+                        System.out.println("\n** Monstro "+fases.get(i).monstros.get(nf-1).nome+" derrotado!");
+                        int rnd = new Random().nextInt(fases.get(i).monstros.get(nf-1).itens.size());   
+                        System.out.println("\n$ Dropou o item: " +fases.get(i).monstros.get(nf-1).itens.get(rnd).getNomeItens()+"");
+                        System.out.println("Ataque: " +fases.get(i).monstros.get(nf-1).itens.get(rnd).getPontoAtk()+"");
+                        System.out.println("Defesa: " +fases.get(i).monstros.get(nf-1).itens.get(rnd).getPontoDef()+"");
+
+                        System.out.println("\nInsira 1 para equipar o item dropado ou 0 para descartar:");
+                        int drop = in.nextInt();
+                        if (drop == 1){
+                            heroi2.pegarItem(fases.get(i).monstros.get(nf-1).itens.get(rnd));
+                            heroi2.ataque += fases.get(i).monstros.get(nf-1).itens.get(rnd).getPontoAtk();
+                            heroi2.defesa += fases.get(i).monstros.get(nf-1).itens.get(rnd).getPontoDef();
+                            System.out.println("Item equipado.");
+                        }
+                        if (drop == 2){
+                            System.out.println("Item descartado.");
+                        }
+                        bossDerrotado = true;
                     }                   
                     
                 }
@@ -204,13 +204,13 @@ public final class Jogo {
         }        
         catch(NumberFormatException e) {} 
         while(foi == true){
-        System.out.println("\n/===/ Criação de fases /===/");        
-        System.out.println("Insira o numero de fases a serem criadas:");
-        try {
-                escolhas = Integer.parseInt(in.nextLine().trim());                
-                foi = false;
-         }
-           catch(NumberFormatException e) {}
+            System.out.println("\n/===/ Criação de fases /===/");        
+            System.out.println("Insira o numero de fases a serem criadas:");
+            try {
+                    escolhas = Integer.parseInt(in.nextLine().trim());                
+                    foi = false;
+             }
+               catch(NumberFormatException e) {}
          }
         int nf = escolhas;
         for(int i= 0; i < nf; i++){
@@ -344,6 +344,20 @@ public final class Jogo {
             System.out.println("/==/ Boss da fase "+(fases.indexOf(fases.get(i))+1)+" /==/");
             System.out.println("Nome: "+fases.get(i).monstros.get(fases.get(i).monstros.size()-1).nome+" - Saude: "+fases.get(i).monstros.get(fases.get(i).monstros.size()-1).saude+" - Digite "+ i +" para atacar.");
 
+    }
+    public static void mostrarItens(){
+        for(int i = 0; i < fases.get(0).monstros.get(0).itens.size(); i++){
+            System.out.println("[" + (i+1) + "]"+fases.get(0).monstros.get(0).itens.get(i).getNomeItens());
+            System.out.println("   " + fases.get(0).monstros.get(0).itens.get(i).getPontoAtk());
+            System.out.println("   " + fases.get(0).monstros.get(0).itens.get(i).getPontoDef());
+        }
+    }
+    public static void excluirItem(int numItem){
+        for (int j = 0; j < fases.size(); j++){
+            for (int k = 0; k < fases.get(j).monstros.size(); k++){
+                fases.get(j).monstros.get(k).itens.remove(numItem-1);
+            }
+        }   
     }
     public static void mostrarStatus(){
                     System.out.println("\n/==/ Status Gerais /==/");
