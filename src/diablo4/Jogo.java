@@ -214,6 +214,7 @@ public final class Jogo {
                 opcoesHeroi();
             }
         }
+        gameOver();
     }    
     
     public static void criarFase(){
