@@ -13,7 +13,7 @@ import java.util.Random;
  * @author Cliente
  */
 public class Boss extends Monstro{
-    private String lore;
+    
     
     public Boss(String nome, String descricao, String lore, int saude, int forca){
         this.nome = nome;
@@ -22,6 +22,7 @@ public class Boss extends Monstro{
         this.saude = saude;
         this.forca = forca;
     }
+    @Override
     public void dropaItem(){}
     public String getLore() {
         return lore;
@@ -47,6 +48,7 @@ public class Boss extends Monstro{
         this.descricao = descricao;
     }
 
+    @Override
     public int getSaude() {
         return saude;
     }
@@ -55,6 +57,7 @@ public class Boss extends Monstro{
         this.saude = saude;
     }
 
+    @Override
     public int getForca() {
         return forca;
     }
@@ -78,5 +81,21 @@ public class Boss extends Monstro{
     
     }
     }    
+
+    @Override
+    public void contraGolpeTeste(Heroi heroi2, int i, int nf) {
+    int rnd = new Random().nextInt(10);
+    if (rnd>3){
+        System.out.println("--> Boss contra atacou! Heroi recebeu "+Jogo.fasesteste.get(i).monstros.get(Jogo.fasesteste.get(nf).monstros.size()-1).forca+" de dano!");
+        heroi2.saude -= Jogo.fasesteste.get(i).monstros.get(Jogo.fasesteste.get(nf).monstros.size()-1).forca;
+        System.out.println("\nSaude do heroi:"+heroi2.saude);
+    }
+    else{
+        System.out.println("--> Boss contra atacou!");
+        System.out.println("--> Heroi desviou!");
+        System.out.println("\nSaude do heroi:"+heroi2.saude);
+    
+    }
+    }
     
 }

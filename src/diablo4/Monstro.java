@@ -16,6 +16,7 @@ public abstract class Monstro {
     
     protected String nome;
     protected String descricao;
+    protected String lore;
     protected int saude;
     protected int forca;
     protected ArrayList<Item> itens = new ArrayList<Item>();
@@ -30,7 +31,7 @@ public abstract class Monstro {
     abstract void dropaItem();
     
     abstract void contraGolpe(Heroi heroi2, int i, int nf);
-
+    abstract void contraGolpeTeste(Heroi heroi2, int i, int nf);
     
     
     

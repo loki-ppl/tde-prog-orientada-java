@@ -15,6 +15,7 @@ import java.util.Scanner;
  */
 public final class Jogo {
     static ArrayList<Fase> fases = new ArrayList<Fase>();
+    static ArrayList<Fase> fasesteste = new ArrayList<Fase>();
     
     static Heroi heroi2;
     
@@ -110,9 +111,11 @@ public final class Jogo {
         }
     }
     
+    
     public static void gameOver(){
         if (Jogo.heroi2.saude> 0){
         System.out.println("\n/===/ Voce completou o jogo! /===/");
+        System.exit(0);
         }
         else{
         System.out.println("\n*** morreu =( ***");
@@ -146,8 +149,10 @@ public final class Jogo {
                     
                     //Boss ataca
                     fases.get(i).monstros.get(fases.get(nf).monstros.size()-1).contraGolpe(heroi2, i, nf);
+                    if(heroi2.saude>0){}
+                    else{
                     gameOver();
-                    
+                    }
                     fases.get(i).monstros.get(fases.get(nf).monstros.size()-1).saude -= heroi2.ataque;
                     System.out.println("Saude restante do Boss: "+fases.get(i).monstros.get(fases.get(nf).monstros.size()-1).saude);  
                     
@@ -182,7 +187,10 @@ public final class Jogo {
                     
                     //Monstro ataca                   
                     fases.get(i).monstros.get(nf-1).contraGolpe(heroi2, i, nf);
+                    if(heroi2.saude>0){}
+                    else{
                     gameOver();
+                    }
                     
                     fases.get(i).monstros.get(nf-1).saude -= heroi2.ataque;
                     System.out.println("Saude restante do monstro: "+ (fases.get(i).monstros.get(nf-1).saude)); 
@@ -216,7 +224,6 @@ public final class Jogo {
         }
         gameOver();
     }    
-    
     public static void criarFase(){
         int escolhas = 0;
         boolean foi = true;
@@ -359,17 +366,19 @@ public final class Jogo {
     public static void mostraMonstro(int i){
 
         System.out.println("\n/==/ Monstros da fase "+(fases.indexOf(fases.get(i))+1)+" /==/");
-        for(int j = 0; j < Jogo.fases.get(i).monstros.size()-1; j++){
+        for(int j = 0; j < fases.get(i).monstros.size()-1; j++){
             System.out.println("Nome: "+fases.get(i).monstros.get(j).nome+" - Saude: "+fases.get(i).monstros.get(j).saude+" - Digite "+(j+1)+" para atacar.");
         }
 
     }
+   
     public static void mostraBoss(int i){
 
             System.out.println("/==/ Boss da fase "+(fases.indexOf(fases.get(i))+1)+" /==/");
             System.out.println("Nome: "+fases.get(i).monstros.get(fases.get(i).monstros.size()-1).nome+" - Saude: "+fases.get(i).monstros.get(fases.get(i).monstros.size()-1).saude+" - Digite "+ i +" para atacar.");
 
     }
+    
     public static void mostrarItens(){
         for(int i = 0; i < fases.get(0).monstros.get(0).itens.size(); i++){
             System.out.println("[" + (i+1) + "]"+fases.get(0).monstros.get(0).itens.get(i).getNomeItens());
@@ -394,8 +403,9 @@ public final class Jogo {
                     System.out.println("Ataque: " + heroi2.ataque);
                     System.out.println("Defesa: " + heroi2.defesa);
                     System.out.println("Moedas: " + heroi2.moeda);
-                    opcoesHeroi();
+                   
 
     }
+      
 }
 //
