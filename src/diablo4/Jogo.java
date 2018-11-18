@@ -15,7 +15,7 @@ import java.util.Scanner;
  */
 public final class Jogo {
     static ArrayList<Fase> fases = new ArrayList<Fase>();
-    //static Heroi[] heroi = new Heroi[1];
+    
     static Heroi heroi2;
     
      public static void criarItem(){
@@ -115,7 +115,7 @@ public final class Jogo {
         Scanner in = new Scanner(System.in);
         boolean bossDerrotado = false;
         for(int i = 0; i < fases.size(); i++){
-            while((fases.get(i).monstros.get(fases.get(i).monstros.size()-1).saude)>0 || bossDerrotado == false){
+            while(bossDerrotado == false){
                 Jogo.mostraMonstro(i);
                 Jogo.mostraBoss(i);
                 bossDerrotado = false;
@@ -136,7 +136,10 @@ public final class Jogo {
                     if((fases.get(i).monstros.get(fases.get(i).monstros.size()-1).saude)<=0){
                         System.out.println("\n** Boss "+fases.get(i).monstros.get(fases.get(nf).monstros.size()-1).nome+" derrotado!");
                         int rnd = new Random().nextInt(fases.get(i).monstros.get(nf).itens.size());   
+                        int moedarnd = new Random().nextInt(100);
                         System.out.println("\n$ Dropou o item: " +fases.get(i).monstros.get(nf).itens.get(rnd).getNomeItens()+"");
+                        System.out.println("\n$ Dropou "+ moedarnd+" moedas!");
+                        heroi2.moeda += moedarnd;
                         System.out.println("Ataque: " +fases.get(i).monstros.get(nf).itens.get(rnd).getPontoAtk()+"");
                         System.out.println("Defesa: " +fases.get(i).monstros.get(nf).itens.get(rnd).getPontoDef()+"");
 
@@ -144,6 +147,8 @@ public final class Jogo {
                         int drop = in.nextInt();
                         if (drop == 1){
                             heroi2.pegarItem(fases.get(i).monstros.get(i).itens.get(rnd));
+                            heroi2.ataque += fases.get(i).monstros.get(i).itens.get(rnd).getPontoAtk();
+                            heroi2.defesa += fases.get(i).monstros.get(i).itens.get(rnd).getPontoDef();
                             System.out.println("Item equipado.");
                         }
                         if (drop == 2){
@@ -151,8 +156,7 @@ public final class Jogo {
                         }
                         bossDerrotado = true;
                     }                   
-                    
-                   
+
                 }
                 else{
                     System.out.println(("\nVoce atacou o monstro "+fases.get(i).monstros.get(nf-1).nome)+"!"); 
