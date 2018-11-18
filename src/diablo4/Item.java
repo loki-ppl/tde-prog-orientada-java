@@ -16,16 +16,92 @@ import java.util.Random;
 public class  Item {
     protected String nomeItens;
     protected int pontoAtk;
-    protected int pontoDef;
+    protected int pontoDef;   
+    static ArrayList<String> itensProntos = new ArrayList();
     
-
     public Item(String nomeItens, int pontoAtk, int pontoDef) {
         this.nomeItens = nomeItens;
         this.pontoAtk = pontoAtk;
         this.pontoDef = pontoDef;
     }
     
-       public static void randomItensStats(int j, int k){
+    public static void addNomeItensAtk(){
+            Collections.addAll(itensProntos, "Argon Axe",
+"Neon Scythe",
+"Krypton Sword",
+"Equalizer",
+"Siegebreaker",
+"Razorblade",
+"Ranger",
+"Terminator",
+"Hunter-Killer",
+"Hammercrush",
+"Deathstalker",
+"Deathray",
+"Tigerjaw",
+"Roomsweeper",
+"Thunderbolt",
+"Longarm Enforcer",
+"The Bear",
+"Nightlcaw",
+"Maverick",
+"Stampede",
+"Backbreaker",
+"Viper",
+"Thrasher",
+"Monsoon",
+"Bolt Bolt",
+"Dragon’s Breath",
+"Tiny Instrument Of Death",
+"Judge",
+"Falcon",
+"Haywire Storm",
+"Jackal",
+"Space Invader",
+"Zap Zapp",
+"Bald Eagle",
+"Zapotron",
+"Deathwing",
+"Scoped Dragonfly",
+"One Shot",
+"Super Shredder",
+"Triple Tap",
+"Dragonfly",
+"Thumper",
+"Stabsworth The III",
+"Slice N’ Dice",
+"Huskcleaver",
+"Stormblade",
+"Claxe",
+"Revenant’s Wrath",
+"Stormchaser’s Revenge",
+"Armaggeddon",
+"Whirling Doom",
+"Dissector",
+"Farmer’s Glory",
+"Elegant Scythe",
+"Reaper Scythe",
+"Fortsville Slugger 3000",
+"Masters Drive",
+"Hydra",
+"Nailer",
+"Pummeller",
+"Piston Spitter",
+"Tsunami",
+"Dam Bauster",
+"Pressure Cutter",
+"Sawtooth",
+"Pulverizer",
+"Dragon’s Roar",
+"Dragon’s Fury",
+"Dragon’s Might",
+"Dragon’s Claw",
+"Dragon’s Tooth",
+"Dragon’s Fang");
+
+    }
+    
+       public static void randomItensAtk(int j, int k){
         for(int i = 0; i < Jogo.itensProntos.size(); i++){
             int rnd = new Random().nextInt(10);
             int rnd2 = new Random().nextInt(Jogo.itensProntos.size());
@@ -39,11 +115,11 @@ public class  Item {
         
     }       
        
-       public static void randomItensStatsTeste(int j, int k){
-        for(int i = 0; i < JogoTeste.itensProntosTeste.size(); i++){
+       public static void randomItensAtkTeste(int j, int k){
+        for(int i = 0; i < itensProntos.size(); i++){
             int rnd = new Random().nextInt(10);
-            int rnd2 = new Random().nextInt(JogoTeste.itensProntosTeste.size());
-            String nomeItens = JogoTeste.itensProntosTeste.get(rnd2);
+            int rnd2 = new Random().nextInt(itensProntos.size());
+            String nomeItens = itensProntos.get(rnd2);
             int pontoAtk = rnd;
             int pontoDef = 0;
             Item item3 = new Item(nomeItens,pontoAtk,pontoDef);

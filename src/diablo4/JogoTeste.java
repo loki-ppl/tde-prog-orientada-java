@@ -16,8 +16,7 @@ import java.util.Scanner;
  */
 public final class JogoTeste {
     
-    static ArrayList<Fase> fasesteste = new ArrayList<Fase>();
-    static ArrayList<String> itensProntosTeste = new ArrayList();
+    static ArrayList<Fase> fasesteste = new ArrayList<Fase>();    
     
     static Heroi heroi2;
     
@@ -114,88 +113,16 @@ public final class JogoTeste {
         }
     }
   public static void criarItemTeste(){
-        Collections.addAll(JogoTeste.itensProntosTeste, "Argon Axe",
-"Neon Scythe",
-"Krypton Sword",
-"Equalizer",
-"Siegebreaker",
-"Razorblade",
-"Ranger",
-"Terminator",
-"Hunter-Killer",
-"Hammercrush",
-"Deathstalker",
-"Deathray",
-"Tigerjaw",
-"Roomsweeper",
-"Thunderbolt",
-"Longarm Enforcer",
-"The Bear",
-"Nightlcaw",
-"Maverick",
-"Stampede",
-"Backbreaker",
-"Viper",
-"Thrasher",
-"Monsoon",
-"Bolt Bolt",
-"Dragon’s Breath",
-"Tiny Instrument Of Death",
-"Judge",
-"Falcon",
-"Haywire Storm",
-"Jackal",
-"Space Invader",
-"Zap Zapp",
-"Bald Eagle",
-"Zapotron",
-"Deathwing",
-"Scoped Dragonfly",
-"One Shot",
-"Super Shredder",
-"Triple Tap",
-"Dragonfly",
-"Thumper",
-"Stabsworth The III",
-"Slice N’ Dice",
-"Huskcleaver",
-"Stormblade",
-"Claxe",
-"Revenant’s Wrath",
-"Stormchaser’s Revenge",
-"Armaggeddon",
-"Whirling Doom",
-"Dissector",
-"Farmer’s Glory",
-"Elegant Scythe",
-"Reaper Scythe",
-"Fortsville Slugger 3000",
-"Masters Drive",
-"Hydra",
-"Nailer",
-"Pummeller",
-"Piston Spitter",
-"Tsunami",
-"Dam Bauster",
-"Pressure Cutter",
-"Sawtooth",
-"Pulverizer",
-"Dragon’s Roar",
-"Dragon’s Fury",
-"Dragon’s Might",
-"Dragon’s Claw",
-"Dragon’s Tooth",
-"Dragon’s Fang");
-
+        Item.addNomeItensAtk();
         for (int j = 0; j < fasesteste.size(); j++){
             for (int k = 0; k < fasesteste.get(j).monstros.size(); k++){
-                Item.randomItensStatsTeste(j, k);
+                Item.randomItensAtkTeste(j, k);
             }
         }
 
         for (int j = 0; j < fasesteste.size(); j++){
             for (int k = 0; k < fasesteste.get(j).monstros.size(); k++){
-                Item.randomItensStatsTeste(j, k);
+                Item.randomItensAtkTeste(j, k);
             }
         }               
     }
