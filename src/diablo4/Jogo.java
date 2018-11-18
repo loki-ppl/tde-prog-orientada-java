@@ -16,7 +16,6 @@ import java.util.Scanner;
  */
 public final class Jogo {
     static ArrayList<Fase> fases = new ArrayList<Fase>();
-    static ArrayList<Fase> fasesteste = new ArrayList<Fase>();
     static ArrayList<String> itensProntos = new ArrayList();
     
     static Heroi heroi2;
@@ -237,9 +236,6 @@ public final class Jogo {
                         System.out.println("\n** Boss "+fases.get(i).monstros.get(fases.get(nf).monstros.size()-1).nome+" derrotado!");
                         int rnd = new Random().nextInt(fases.get(i).monstros.get(nf).itens.size());   
                         int moedarnd = new Random().nextInt(100);
-                                                System.out.println(fases.get(i).monstros.get(nf-1).itens.get(0).nomeItens);
-                        System.out.println(fases.get(i).monstros.get(nf-1).itens.get(1).nomeItens);
-                        System.out.println(fases.get(i).monstros.get(nf-1).itens.get(2).nomeItens);
                         System.out.println("\n$ Dropou o item: " +fases.get(i).monstros.get(nf).itens.get(rnd).nomeItens+"");
                         System.out.println("\n$ Dropou "+ moedarnd+" moedas!");
                         heroi2.moeda += moedarnd;

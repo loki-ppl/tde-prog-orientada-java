@@ -38,6 +38,20 @@ public class  Item {
         }
         
     }       
+       
+       public static void randomItensStatsTeste(int j, int k){
+        for(int i = 0; i < JogoTeste.itensProntosTeste.size(); i++){
+            int rnd = new Random().nextInt(10);
+            int rnd2 = new Random().nextInt(JogoTeste.itensProntosTeste.size());
+            String nomeItens = JogoTeste.itensProntosTeste.get(rnd2);
+            int pontoAtk = rnd;
+            int pontoDef = 0;
+            Item item3 = new Item(nomeItens,pontoAtk,pontoDef);
+            JogoTeste.fasesteste.get(j).monstros.get(k).itens.add(item3); 
+            //System.out.println((Jogo.fases.get(0).monstros.get(0).itens.get(0).nomeItens)+" "+(Jogo.fases.get(0).monstros.get(0).itens.get(0).pontoAtk)+" "+(Jogo.fases.get(0).monstros.get(0).itens.get(0).pontoDef));
+        }
+        
+    }    
 
     
     public String getNomeItens() {

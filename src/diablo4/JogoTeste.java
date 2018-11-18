@@ -6,6 +6,7 @@
 package diablo4;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -16,6 +17,7 @@ import java.util.Scanner;
 public final class JogoTeste {
     
     static ArrayList<Fase> fasesteste = new ArrayList<Fase>();
+    static ArrayList<String> itensProntosTeste = new ArrayList();
     
     static Heroi heroi2;
     
@@ -76,9 +78,7 @@ public final class JogoTeste {
            System.out.println("Força: " +fasesteste.get(i).monstros.get(fasesteste.get(i).monstros.size()-1).forca);
            System.out.println("Saude: " + fasesteste.get(i).monstros.get(fasesteste.get(i).monstros.size()-1).saude);
            System.out.println("-------------------");
-       }
-       
-       
+       }      
        
    }
     public static void mostraMonstroteste(int i){
@@ -114,76 +114,91 @@ public final class JogoTeste {
         }
     }
   public static void criarItemTeste(){
-        int escolhas = 0;
-        boolean foi = true;
-        boolean itemAtkCriado = true;
-        boolean itemDefCriado = true;
-        Scanner in = new Scanner(System.in);
-        Scanner in2 = new Scanner(System.in);
-        while (itemAtkCriado == true || itemDefCriado == true){
-        System.out.println("\n/===/ Criar Itens /===/");  
-        System.out.println("Digite 1 para criar itens de ataque.");  
-        System.out.println("Digite 2 para criar itens de defesa."); 
-        try {
-           escolhas = Integer.parseInt(in2.nextLine().trim());  
-        }        
-        catch(NumberFormatException e) {} 
-        
-        int nf = escolhas;  
-        
-        while (nf < 1 || nf > 2){
-            System.out.println("\n/===/ Criar Itens /===/");  
-            System.out.println("Digite 1 para criar itens de ataque.");  
-            System.out.println("Digite 2 para criar itens de defesa.");  
+        Collections.addAll(JogoTeste.itensProntosTeste, "Argon Axe",
+"Neon Scythe",
+"Krypton Sword",
+"Equalizer",
+"Siegebreaker",
+"Razorblade",
+"Ranger",
+"Terminator",
+"Hunter-Killer",
+"Hammercrush",
+"Deathstalker",
+"Deathray",
+"Tigerjaw",
+"Roomsweeper",
+"Thunderbolt",
+"Longarm Enforcer",
+"The Bear",
+"Nightlcaw",
+"Maverick",
+"Stampede",
+"Backbreaker",
+"Viper",
+"Thrasher",
+"Monsoon",
+"Bolt Bolt",
+"Dragon’s Breath",
+"Tiny Instrument Of Death",
+"Judge",
+"Falcon",
+"Haywire Storm",
+"Jackal",
+"Space Invader",
+"Zap Zapp",
+"Bald Eagle",
+"Zapotron",
+"Deathwing",
+"Scoped Dragonfly",
+"One Shot",
+"Super Shredder",
+"Triple Tap",
+"Dragonfly",
+"Thumper",
+"Stabsworth The III",
+"Slice N’ Dice",
+"Huskcleaver",
+"Stormblade",
+"Claxe",
+"Revenant’s Wrath",
+"Stormchaser’s Revenge",
+"Armaggeddon",
+"Whirling Doom",
+"Dissector",
+"Farmer’s Glory",
+"Elegant Scythe",
+"Reaper Scythe",
+"Fortsville Slugger 3000",
+"Masters Drive",
+"Hydra",
+"Nailer",
+"Pummeller",
+"Piston Spitter",
+"Tsunami",
+"Dam Bauster",
+"Pressure Cutter",
+"Sawtooth",
+"Pulverizer",
+"Dragon’s Roar",
+"Dragon’s Fury",
+"Dragon’s Might",
+"Dragon’s Claw",
+"Dragon’s Tooth",
+"Dragon’s Fang");
 
-            try {
-               escolhas = Integer.parseInt(in2.nextLine().trim());    
-            }        
-            catch(NumberFormatException e) {}        
+        for (int j = 0; j < fasesteste.size(); j++){
+            for (int k = 0; k < fasesteste.get(j).monstros.size(); k++){
+                Item.randomItensStatsTeste(j, k);
             }
-            int nf2 = escolhas;
-
-            if (nf2 == 1 && itemAtkCriado == true){
-                System.out.println("Quantos itens de Ataque voce deseja criar?");
-                int ni = in.nextInt();
-                for(int i= 0; i < ni; i++){                  
-                    System.out.println("Insira o nome do item "+(i+1)+":"); 
-                    String nomeItens = in.next();
-                    System.out.println("Insira o Ataque do item "+(i+1)+":"); 
-                    int pontoAtk = in.nextInt();   
-                    int pontoDef = 0;
-                    Item item1 = new Item(nomeItens,pontoAtk,pontoDef);
-                    for (int j = 0; j < fasesteste.size(); j++){
-                        for (int k = 0; k < fasesteste.get(j).monstros.size(); k++){
-                            fasesteste.get(j).monstros.get(k).itens.add(item1);
-                        }
-                    }
-                }
-                itemAtkCriado = false;
-
-            }
-            else if(nf2 == 2 && itemDefCriado == true){
-                System.out.println("Quantos itens de Defesa voce deseja criar?");
-                int ni = in.nextInt();
-                for(int i= 0; i < ni; i++){  
-                    System.out.println("Insira o nome do item "+(i+1)+":"); 
-                    String nomeItens = in.next();
-                    System.out.println("Insira a Defesa do item "+(i+1)+":");  
-                    int pontoAtk = 0; 
-                    int pontoDef = in.nextInt(); 
-                    Item item2 = new Item(nomeItens,pontoAtk,pontoDef);
-                    for (int j = 0; j < fasesteste.size(); j++){
-                        for (int k = 0; k < fasesteste.get(j).monstros.size(); k++){
-                            fasesteste.get(j).monstros.get(k).itens.add(item2);
-                        }
-                    }
-                }
-                itemDefCriado = false;
-
-            }
-        
         }
-     }
+
+        for (int j = 0; j < fasesteste.size(); j++){
+            for (int k = 0; k < fasesteste.get(j).monstros.size(); k++){
+                Item.randomItensStatsTeste(j, k);
+            }
+        }               
+    }
   public static void gameOver(){
         if (heroi2.saude> 0){
         System.out.println("\n/===/ Voce completou o jogo! /===/");
@@ -272,9 +287,9 @@ public final class JogoTeste {
                     if((fasesteste.get(i).monstros.get(nf-1).saude)<=0){
                         System.out.println("\n** Monstro "+fasesteste.get(i).monstros.get(nf-1).nome+" derrotado!");
                         int rnd = new Random().nextInt(fasesteste.get(i).monstros.get(nf-1).itens.size());   
-                        System.out.println("\n$ Dropou o item: " +fasesteste.get(i).monstros.get(nf-1).itens.get(rnd).getNomeItens()+"");
-                        System.out.println("Ataque: " +fasesteste.get(i).monstros.get(nf-1).itens.get(rnd).getPontoAtk()+"");
-                        System.out.println("Defesa: " +fasesteste.get(i).monstros.get(nf-1).itens.get(rnd).getPontoDef()+"");
+                        System.out.println("\n$ Dropou o item: " +fasesteste.get(i).monstros.get(nf-1).itens.get(rnd).nomeItens+"");
+                        System.out.println("Ataque: " +fasesteste.get(i).monstros.get(nf-1).itens.get(rnd).pontoAtk+"");
+                        System.out.println("Defesa: " +fasesteste.get(i).monstros.get(nf-1).itens.get(rnd).pontoDef+"");
 
                         System.out.println("\nInsira 1 para equipar o item dropado ou 0 para descartar:");
                         int drop = in.nextInt();
