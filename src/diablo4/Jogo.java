@@ -15,11 +15,10 @@ import java.util.Scanner;
  * @author augusto.coelho
  */
 public final class Jogo {
-    static ArrayList<Fase> fases = new ArrayList<Fase>();
-    static ArrayList<String> itensProntos = new ArrayList();
-    
+    static ArrayList<Fase> fases = new ArrayList<Fase>();    
     static Heroi heroi2;
-
+    static int salvarItemAtk = 0;
+    static int salvarItemDef = 0;
     
      public static void criarItem(){         
         Item.addNomeItensAtk();
@@ -90,32 +89,37 @@ public final class Jogo {
                     }
                 }
                 itemDefCriado = false;
-
-            }
-        
+            }        
         }
-     }
-      
+     }      
     
     public static void opcoesHeroi(){
         Scanner in = new Scanner(System.in);
         System.out.println("\n/===/ Menu Heroi /===/");     
         System.out.println("/===/ Digite 1 para atacar os monstros/===/");    
         System.out.println("/===/ Digite 2 para mostrar os status/===/"); 
-        int nf = in.nextInt();
+        int nf = in.nextInt();        
+                try {
+           nf = Integer.parseInt(in.nextLine().trim());  
+        }        
+        catch(NumberFormatException e) {} 
         while (nf < 1 || nf > 2){
             System.out.println("\n/===/ Menu Heroi /===/");     
             System.out.println("/===/ Digite 1 para atacar os monstros/===/");    
-            System.out.println("/===/ Digite 2 para mostrar os status/===/");     
-        }
-        if (nf == 1){
+            System.out.println("/===/ Digite 2 para mostrar os status/===/"); 
+                        try {
+               nf = Integer.parseInt(in.nextLine().trim());    
+            }        
+            catch(NumberFormatException e) {}        
+            }
+        int nf2 = in.nextInt();
+        if (nf2 == 1){
             opcaoAtacar();
         }
-        else if(nf == 2){
+        else if(nf2 == 2){
             mostrarStatus();
         }
-    }
-    
+    }    
     
     public static void gameOver(){
         if (Jogo.heroi2.saude> 0){
@@ -133,8 +137,7 @@ public final class Jogo {
         else{
         System.exit(0);
         }
-        }
-    
+      }    
     }
     
     public static void opcaoAtacar(){
@@ -169,11 +172,14 @@ public final class Jogo {
                         System.out.println("\n$ Dropou "+ moedarnd+" moedas!");
                         heroi2.moeda += moedarnd;
                         System.out.println("Ataque: " +fases.get(i).monstros.get(nf).itens.get(rnd).pontoAtk+"");
+                        int salvarItemAtk = fases.get(i).monstros.get(nf-1).itens.get(rnd).pontoAtk; 
                         System.out.println("Defesa: " +fases.get(i).monstros.get(nf).itens.get(rnd).pontoDef+"");
-
+                        int salvarItemDef = fases.get(i).monstros.get(nf-1).itens.get(rnd).pontoDef;
                         System.out.println("\nInsira 1 para equipar o item dropado ou 0 para descartar:");
                         int drop = in.nextInt();
                         if (drop == 1){
+                            heroi2.ataque -= salvarItemAtk;
+                            heroi2.defesa -= salvarItemDef;
                             heroi2.pegarItem(fases.get(i).monstros.get(i).itens.get(rnd));
                             heroi2.ataque += fases.get(i).monstros.get(i).itens.get(rnd).pontoAtk;
                             heroi2.defesa += fases.get(i).monstros.get(i).itens.get(rnd).pontoDef;
@@ -181,10 +187,8 @@ public final class Jogo {
                         }
                         if (drop == 2){
                             System.out.println("Item descartado.");                            
-                        }
-                        
-                    }                   
-
+                        }                        
+                    }                 
                 }
                 else{
                     System.out.println(("\nVoce atacou o monstro "+fases.get(i).monstros.get(nf-1).nome)+"!"); 
@@ -211,11 +215,14 @@ public final class Jogo {
                         
                         System.out.println("\n$ Dropou o item: " +fases.get(i).monstros.get(nf-1).itens.get(rnd).nomeItens+"");
                         System.out.println("Ataque: " +fases.get(i).monstros.get(nf-1).itens.get(rnd).pontoAtk+"");
+                        int salvarItemAtk = fases.get(i).monstros.get(nf-1).itens.get(rnd).pontoAtk;                        
                         System.out.println("Defesa: " +fases.get(i).monstros.get(nf-1).itens.get(rnd).pontoDef+"");
-
+                        int salvarItemDef = fases.get(i).monstros.get(nf-1).itens.get(rnd).pontoDef;
                         System.out.println("\nInsira 1 para equipar o item dropado ou 0 para descartar:");
                         int drop = in.nextInt();
                         if (drop == 1){
+                            heroi2.ataque -= salvarItemAtk;
+                            heroi2.defesa -= salvarItemDef;
                             heroi2.pegarItem(fases.get(i).monstros.get(nf-1).itens.get(rnd));
                             heroi2.ataque += fases.get(i).monstros.get(nf-1).itens.get(rnd).getPontoAtk();
                             heroi2.defesa += fases.get(i).monstros.get(nf-1).itens.get(rnd).getPontoDef();
@@ -224,10 +231,8 @@ public final class Jogo {
                         if (drop == 2){
                             System.out.println("Item descartado.");
                             
-                        }
-                        
-                    }                   
-                    
+                        }                        
+                    }                  
                 }                
                 opcoesHeroi();
             }
