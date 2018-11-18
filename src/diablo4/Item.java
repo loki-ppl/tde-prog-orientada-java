@@ -5,31 +5,113 @@
  */
 package diablo4;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Random;
+
 /**
  *
  * @author augusto.coelho
  */
 public class  Item {
-    private int idItem;
-    private String nomeItens;
-    private int pontoAtk;
-    private int pontoDef;
+    static String nomeItens;
+    static int pontoAtk;
+    static int pontoDef;
+    static ArrayList<String> itensProntos = new ArrayList();
 
     public Item(String nomeItens, int pontoAtk, int pontoDef) {
-
         this.nomeItens = nomeItens;
         this.pontoAtk = pontoAtk;
         this.pontoDef = pontoDef;
+    }
+    public static void randomItensStats(int j, int k){
+        for(int i = 0; i < Item.itensProntos.size(); i++){
+            int rnd = new Random().nextInt(10);
+            int rnd2 = new Random().nextInt(Item.itensProntos.size());
+            String nomeItens = Item.itensProntos.get(rnd2);
+            int pontoAtk = rnd;
+            int pontoDef = 0;
+            Item item3 = new Item(nomeItens,pontoAtk,pontoDef);
+            Jogo.fases.get(j).monstros.get(k).itens.add(item3); 
+            //System.out.println((Jogo.fases.get(0).monstros.get(0).itens.get(0).nomeItens) + (Jogo.fases.get(0).monstros.get(0).itens.get(0).pontoAtk) + (Jogo.fases.get(0).monstros.get(0).itens.get(0).pontoDef));
+        }
         
     }
-
-    public int getIdItem() {
-        return idItem;
-    }
-
-    public void setIdItem(int idItem) {
-        this.idItem = idItem;
-    }
+    
+    public static void listaItensProntos(){   
+        Collections.addAll(itensProntos, "Argon Axe",
+"Neon Scythe",
+"Krypton Sword",
+"Equalizer",
+"Siegebreaker",
+"Razorblade",
+"Ranger",
+"Terminator",
+"Hunter-Killer",
+"Hammercrush",
+"Deathstalker",
+"Deathray",
+"Tigerjaw",
+"Roomsweeper",
+"Thunderbolt",
+"Longarm Enforcer",
+"The Bear",
+"Nightlcaw",
+"Maverick",
+"Stampede",
+"Backbreaker",
+"Viper",
+"Thrasher",
+"Monsoon",
+"Bolt Bolt",
+"Dragon’s Breath",
+"Tiny Instrument Of Death",
+"Judge",
+"Falcon",
+"Haywire Storm",
+"Jackal",
+"Space Invader",
+"Zap Zapp",
+"Bald Eagle",
+"Zapotron",
+"Deathwing",
+"Scoped Dragonfly",
+"One Shot",
+"Super Shredder",
+"Triple Tap",
+"Dragonfly",
+"Thumper",
+"Stabsworth The III",
+"Slice N’ Dice",
+"Huskcleaver",
+"Stormblade",
+"Claxe",
+"Revenant’s Wrath",
+"Stormchaser’s Revenge",
+"Armaggeddon",
+"Whirling Doom",
+"Dissector",
+"Farmer’s Glory",
+"Elegant Scythe",
+"Reaper Scythe",
+"Fortsville Slugger 3000",
+"Masters Drive",
+"Hydra",
+"Nailer",
+"Pummeller",
+"Piston Spitter",
+"Tsunami",
+"Dam Bauster",
+"Pressure Cutter",
+"Sawtooth",
+"Pulverizer",
+"Dragon’s Roar",
+"Dragon’s Fury",
+"Dragon’s Might",
+"Dragon’s Claw",
+"Dragon’s Tooth",
+"Dragon’s Fang");
+    }   
     
     public String getNomeItens() {
         return nomeItens;
