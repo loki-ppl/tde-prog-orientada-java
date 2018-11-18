@@ -178,10 +178,10 @@ public final class Jogo {
                         heroi2.pegarItem(fases.get(i).monstros.get(nf-1).itens.get(rnd));
                         heroi2.ataque += fases.get(i).monstros.get(nf-1).itens.get(rnd).getPontoAtk();
                         heroi2.defesa += fases.get(i).monstros.get(nf-1).itens.get(rnd).getPontoDef();
-                        
+                        System.out.println("Item equipado.");
                     }
                     if (drop == 2){
-                        System.out.println("Item desmanchado");
+                        System.out.println("Item descartado.");
                     }
                     bossDerrotado = true;
                     }                   
