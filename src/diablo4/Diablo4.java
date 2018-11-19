@@ -59,6 +59,9 @@ public class Diablo4 {
             case 2:      
                 Jogo.criarFase();
                 Jogo.criarItem();
+                System.out.println("Digite 1 para ver os item criados");
+                System.out.println("Digite 2 para excluir algum item");
+                opcaoItem = inputItem.nextInt();                              
                 switch(opcaoItem){
                     case 1:
                         Jogo.mostrarItens();

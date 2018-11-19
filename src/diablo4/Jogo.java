@@ -54,7 +54,7 @@ public final class Jogo {
                 int ni = in.nextInt();
                 for(int i= 0; i < ni; i++){                  
                     System.out.println("Insira o nome do item "+(i+1)+":"); 
-                    String nomeItens = in.next();
+                    String nomeItens = in.nextLine();
                     System.out.println("Insira o Ataque do item "+(i+1)+":"); 
                     int pontoAtk = in.nextInt();   
                     int pontoDef = 0;
@@ -74,7 +74,7 @@ public final class Jogo {
                 int ni = in.nextInt();
                 for(int i= 0; i < ni; i++){  
                     System.out.println("Insira o nome do item "+(i+1)+":"); 
-                    String nomeItens = in.next();
+                    String nomeItens = in.nextLine();
                     System.out.println("Insira a Defesa do item "+(i+1)+":");  
                     int pontoAtk = 0; 
                     int pontoDef = in.nextInt(); 
@@ -247,13 +247,13 @@ public final class Jogo {
         int escolhas = 0;
         boolean foi = true;
         Scanner in = new Scanner(System.in);
-        System.out.println("\n/===/ Criação de fases /===/");        
+        /*System.out.println("\n/===/ Criação de fases /===/");        
         System.out.println("Insira o numero de fases a serem criadas:");
         try {
            escolhas = Integer.parseInt(in.nextLine().trim());
            foi = false;
         }        
-        catch(NumberFormatException e) {} 
+        catch(NumberFormatException e) {} */
         while(foi == true){
             System.out.println("\n/===/ Criação de fases /===/");        
             System.out.println("Insira o numero de fases a serem criadas:");
@@ -263,12 +263,13 @@ public final class Jogo {
              }
                catch(NumberFormatException e) {}
          }
+        foi = true;
         int nf = escolhas;
         for(int i= 0; i < nf; i++){
             Fase fase = new Fase();        
             System.out.println("\n/===/ Fase "+ (i+1)+" /===/ ");
             System.out.println("Insira o nome da "+ (i+1+"°") +" fase: ");
-            String nomefase = in.next();
+            String nomefase = in.nextLine();
             System.out.println("\n/===/ Cadastrar monstros /===/");
             System.out.println("Insira numero de monstros a serem criados:");
             int nm = in.nextInt();
@@ -276,9 +277,9 @@ public final class Jogo {
                 Scanner sc = new Scanner(System.in);
                 Scanner input = new Scanner(System.in);
                 System.out.println("Insira o nome do "+ (j+1+"° "+ "monstro:")); 
-                String nome = sc.next();
+                String nome = sc.nextLine();
                 System.out.println("Insira a descrição do "+ (j+1+"° "+ "monstro:")); 
-                String descricao = sc.next();
+                String descricao = sc.nextLine();
                 System.out.println("Insira quanto de vida tera o "+ (j+1+"° "+ "monstro:")); 
                 int saude = input.nextInt();
                 System.out.println("Insira a força do "+ (j+1+"° "+ "monstro:")); 
@@ -291,11 +292,11 @@ public final class Jogo {
             Scanner ss = new Scanner(System.in);
             System.out.println("\n/===/ Cadastrar Boss /===/ ");
             System.out.println("Insira o nome do Boss:");
-            String nomeboss = ss.next();
+            String nomeboss = ss.nextLine();
             System.out.println("Insira a descrição do Boss:");
-            String descricao = ss.next();
+            String descricao = ss.nextLine();
             System.out.println("Insira a lore do Boss:");
-            String lore = ss.next();
+            String lore = ss.nextLine();
             System.out.println("Insira quanto de vida tera o Boss:");
             int saude = ss.nextInt();
             System.out.println("Insira a força do Boss:");
