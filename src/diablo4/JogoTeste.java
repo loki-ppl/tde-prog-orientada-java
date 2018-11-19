@@ -95,15 +95,17 @@ public final class JogoTeste {
     }
   public static void opcoesHeroiteste(){
         Scanner in = new Scanner(System.in);
-        System.out.println("\n/===/ Menu Heroi /===/");     
-        System.out.println("/===/ Digite 1 para atacar os monstros/===/");    
-        System.out.println("/===/ Digite 2 para mostrar os status/===/"); 
-        int nf = in.nextInt();
-        while (nf < 1 || nf > 2){
+        boolean foi = true;
+        int nf = 0;
+        while(foi == true || nf < 1 || nf > 2){
             System.out.println("\n/===/ Menu Heroi /===/");     
             System.out.println("/===/ Digite 1 para atacar os monstros/===/");    
             System.out.println("/===/ Digite 2 para mostrar os status/===/");     
-        }
+             try {
+           nf = Integer.parseInt(in.nextLine().trim());
+           foi = false;
+        }        
+        catch(NumberFormatException e) {} }
         if (nf == 1){
             opcaoAtacarteste();
         }
@@ -145,19 +147,26 @@ public final class JogoTeste {
     
     }
   public static void opcaoAtacarteste(){
+      boolean foi = true;
+      int nf = 0;
         Scanner in = new Scanner(System.in);
         for(int i = 0; i < fasesteste.size(); i++){              
-            while((fasesteste.get(i).monstros.get(fasesteste.get(i).monstros.size()-1).saude)>0){
-            
+            while((fasesteste.get(i).monstros.get(fasesteste.get(i).monstros.size()-1).saude)>0){            
                 mostraMonstroteste(i);
                 mostraBossteste(i);
+                while(foi == true || nf < 0 || nf > fasesteste.size()){
                 System.out.println("\n/===/ Atacar /===/");  
                 System.out.println("Insira o numero do monstro que deseja atacar:"); 
-                int nf = in.nextInt();
+                try {
+                    nf = Integer.parseInt(in.nextLine().trim());
+                    foi = false;
+                }        
+                 catch(NumberFormatException e) {} 
+                }
+                
                 if (nf == 0){            
                     System.out.println(("\nVoce atacou o Boss "+fasesteste.get(i).monstros.get(fasesteste.get(nf).monstros.size()-1).nome)+"!");
-
-                    System.out.println("\n--> Atacou e aplicou " + heroi2.ataque+" de dano!");
+                    System.out.println("\n--> Atacou e aplicou " + heroi2.ataque+" de dano!"); 
                     
                     //Boss ataca
                     fasesteste.get(i).monstros.get(fasesteste.get(nf).monstros.size()-1).contraGolpeTeste(heroi2, i, nf);
@@ -178,9 +187,18 @@ public final class JogoTeste {
                         System.out.println("\n$ Dropou "+ moedarnd+" moedas!");
                         heroi2.moeda += moedarnd;
                         System.out.println("Ataque: " +fasesteste.get(i).monstros.get(nf).itens.get(rnd).pontoAtk+"");                           
-                        System.out.println("Defesa: " +fasesteste.get(i).monstros.get(nf).itens.get(rnd).pontoDef+"");                    
+                        System.out.println("Defesa: " +fasesteste.get(i).monstros.get(nf).itens.get(rnd).pontoDef+"");  
+                        foi = true;
+                        int drop = 0;
+                        while (foi == true || drop < 0 || drop > 1){
                         System.out.println("\nInsira 1 para equipar o item dropado ou 0 para descartar:");
-                        int drop = in.nextInt();
+                        try {
+                            drop = Integer.parseInt(in.nextLine().trim());
+                            foi = false;
+                           }        
+                        catch(NumberFormatException e) {}                   
+                        }
+                        foi = true;
                         if (drop == 1){
                             heroi2.pegarItem(fasesteste.get(i).monstros.get(i).itens.get(rnd));
                             if(fasesteste.get(i).monstros.get(i).itens.get(rnd).pontoAtk == 0){
@@ -214,13 +232,22 @@ public final class JogoTeste {
                     System.out.println("Saude restante do monstro: "+ (fasesteste.get(i).monstros.get(nf-1).saude)); 
                     
                     if((fasesteste.get(i).monstros.get(nf-1).saude)<=0){
+                        int drop = 0;
                         System.out.println("\n** Monstro "+fasesteste.get(i).monstros.get(nf-1).nome+" derrotado!");
                         int rnd = new Random().nextInt(fasesteste.get(i).monstros.get(nf-1).itens.size());   
                         System.out.println("\n$ Dropou o item: " +fasesteste.get(i).monstros.get(nf-1).itens.get(rnd).nomeItens+"");
                         System.out.println("Ataque: " +fasesteste.get(i).monstros.get(nf-1).itens.get(rnd).pontoAtk+"");
                         System.out.println("Defesa: " +fasesteste.get(i).monstros.get(nf-1).itens.get(rnd).pontoDef+"");
+                        foi = true;
+                        
+                        while (foi == true || drop < 0 || drop > 1){
                         System.out.println("\nInsira 1 para equipar o item dropado ou 0 para descartar:");
-                        int drop = in.nextInt();
+                        try {
+                            drop = Integer.parseInt(in.nextLine().trim());
+                            foi = false;
+                            }        
+                        catch(NumberFormatException e) {}                   
+                        }
                         if (drop == 1){
                             heroi2.pegarItem(fasesteste.get(i).monstros.get(nf-1).itens.get(rnd));
                             if(fasesteste.get(i).monstros.get(nf-1).itens.get(rnd).pontoAtk == 0){
