@@ -25,6 +25,36 @@ public class  Item {
         this.pontoDef = pontoDef;
     }
     
+    public static void addNomeItensDef(){
+        Collections.addAll(itensProntos, "Mail coif",
+"Nasal helmet",
+"Enclosed helmet",
+"Great helm",
+"Cervelliere",
+"Bassinet",
+"Sallet",
+"Barbute",
+"Armet",
+"Close helmet",
+"Burgonet",
+"Bevor",
+"Gorget",
+"Brigandine",
+"Hauberk",
+"Cuirass",
+"Plackart",
+"Culet",
+"Spaulder",
+"Pauldron",
+"Rerebrace",
+"Besagew",
+"Vambrace",
+"Gauntlet",
+"Greave",
+"Sabaton",
+"Tasset");
+    }
+    
     public static void addNomeItensAtk(){
             Collections.addAll(itensProntos, "Argon Axe",
 "Neon Scythe",
@@ -110,8 +140,7 @@ public class  Item {
             Item item3 = new Item(nomeItens,pontoAtk,pontoDef);
             Jogo.fases.get(j).monstros.get(k).itens.add(item3); 
             //System.out.println((Jogo.fases.get(0).monstros.get(0).itens.get(0).nomeItens)+" "+(Jogo.fases.get(0).monstros.get(0).itens.get(0).pontoAtk)+" "+(Jogo.fases.get(0).monstros.get(0).itens.get(0).pontoDef));
-        }
-        
+        }        
     }       
        
        public static void randomItensAtkTeste(int j, int k){
@@ -124,10 +153,34 @@ public class  Item {
             Item item3 = new Item(nomeItens,pontoAtk,pontoDef);
             JogoTeste.fasesteste.get(j).monstros.get(k).itens.add(item3); 
             //System.out.println((Jogo.fases.get(0).monstros.get(0).itens.get(0).nomeItens)+" "+(Jogo.fases.get(0).monstros.get(0).itens.get(0).pontoAtk)+" "+(Jogo.fases.get(0).monstros.get(0).itens.get(0).pontoDef));
-        }
-        
+        }        
     }    
-
+       
+      public static void randomItensDef(int j, int k){
+        for(int i = 0; i < itensProntos.size(); i++){
+            int rnd = new Random().nextInt(10);
+            int rnd2 = new Random().nextInt(itensProntos.size());
+            String nomeItens = itensProntos.get(rnd2);
+            int pontoAtk = 0;
+            int pontoDef = rnd;
+            Item item3 = new Item(nomeItens,pontoAtk,pontoDef);
+            Jogo.fases.get(j).monstros.get(k).itens.add(item3); 
+            //System.out.println((Jogo.fases.get(0).monstros.get(0).itens.get(0).nomeItens)+" "+(Jogo.fases.get(0).monstros.get(0).itens.get(0).pontoAtk)+" "+(Jogo.fases.get(0).monstros.get(0).itens.get(0).pontoDef));
+        }        
+    }       
+       
+       public static void randomItensDefTeste(int j, int k){
+        for(int i = 0; i < itensProntos.size(); i++){
+            int rnd = new Random().nextInt(10);
+            int rnd2 = new Random().nextInt(itensProntos.size());
+            String nomeItens = itensProntos.get(rnd2);
+            int pontoAtk = 0;
+            int pontoDef = rnd;
+            Item item3 = new Item(nomeItens,pontoAtk,pontoDef);
+            JogoTeste.fasesteste.get(j).monstros.get(k).itens.add(item3); 
+            //System.out.println((Jogo.fases.get(0).monstros.get(0).itens.get(0).nomeItens)+" "+(Jogo.fases.get(0).monstros.get(0).itens.get(0).pontoAtk)+" "+(Jogo.fases.get(0).monstros.get(0).itens.get(0).pontoDef));
+        }        
+    }   
     
     public String getNomeItens() {
         return nomeItens;
@@ -151,7 +204,5 @@ public class  Item {
 
     public void setPontoDef(int pontoDef) {
         this.pontoDef = pontoDef;
-    }
-    
-    
+    }   
 }

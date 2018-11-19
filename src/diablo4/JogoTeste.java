@@ -56,8 +56,7 @@ public final class JogoTeste {
    }
    public static void mostraMonstrosCriados(){
        
-       for(int i = 0; i < fasesteste.size(); i++){
-           
+       for(int i = 0; i < fasesteste.size(); i++){           
            System.out.println("-------------------");
            System.out.println("Monstros fase "+(i+1) +" :");
            for(int j = 0; j < fasesteste.get(i).monstros.size()-1; j++){
@@ -115,6 +114,7 @@ public final class JogoTeste {
     }
   public static void criarItemTeste(){
         Item.addNomeItensAtk();
+        Item.addNomeItensDef();
         for (int j = 0; j < fasesteste.size(); j++){
             for (int k = 0; k < fasesteste.get(j).monstros.size(); k++){
                 Item.randomItensAtkTeste(j, k);
@@ -123,7 +123,7 @@ public final class JogoTeste {
 
         for (int j = 0; j < fasesteste.size(); j++){
             for (int k = 0; k < fasesteste.get(j).monstros.size(); k++){
-                Item.randomItensAtkTeste(j, k);
+                Item.randomItensDefTeste(j, k);
             }
         }               
     }
@@ -248,6 +248,7 @@ public final class JogoTeste {
                             }        
                         catch(NumberFormatException e) {}                   
                         }
+                        foi = true;
                         if (drop == 1){
                             heroi2.pegarItem(fasesteste.get(i).monstros.get(nf-1).itens.get(rnd));
                             if(fasesteste.get(i).monstros.get(nf-1).itens.get(rnd).pontoAtk == 0){
