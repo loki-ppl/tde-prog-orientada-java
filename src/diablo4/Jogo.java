@@ -56,7 +56,7 @@ public final class Jogo {
                     System.out.println("Insira o nome do item "+(i+1)+":"); 
                     String nomeItens = in.nextLine();
                     System.out.println("Insira o Ataque do item "+(i+1)+":"); 
-                    int pontoAtk = in.nextInt();   
+                    int pontoAtk = in2.nextInt();   
                     int pontoDef = 0;
                     Item item1 = new Item(nomeItens,pontoAtk,pontoDef);
                     for (int j = 0; j < fases.size(); j++){
@@ -77,7 +77,7 @@ public final class Jogo {
                     String nomeItens = in.nextLine();
                     System.out.println("Insira a Defesa do item "+(i+1)+":");  
                     int pontoAtk = 0; 
-                    int pontoDef = in.nextInt(); 
+                    int pontoDef = in2.nextInt(); 
                     Item item2 = new Item(nomeItens,pontoAtk,pontoDef);
                     for (int j = 0; j < fases.size(); j++){                        
                         for (int k = 0; k < fases.get(j).monstros.size(); k++){
@@ -177,6 +177,7 @@ public final class Jogo {
                             heroi2.pegarItem(fases.get(i).monstros.get(i).itens.get(rnd));
                             if(fases.get(i).monstros.get(i).itens.get(rnd).pontoAtk == 0){ 
                                 heroi2.defesa = 1;
+                                        
                                 heroi2.defesa += fases.get(i).monstros.get(i).itens.get(rnd).pontoDef;
                                 
                              if(fases.get(i).monstros.get(i).itens.get(rnd).pontoDef == 0){
