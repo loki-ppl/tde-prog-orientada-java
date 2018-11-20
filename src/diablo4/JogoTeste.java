@@ -26,12 +26,13 @@ public final class JogoTeste {
   }
     
 public static void excluirItem(int i){
+    System.out.println("Item: "+ fasesteste.get(0).monstros.get(0).itens.get(i-1).nomeItens+ " removido com sucesso!");  
 for (int j = 0; j < fasesteste.size(); j++){
                         for (int k = 0; k < fasesteste.get(j).monstros.size(); k++){
                             fasesteste.get(j).monstros.get(k).itens.remove(i-1);
-        }
-      System.out.println("Item: "+ fasesteste.get(0).monstros.get(0).itens.get(i-1).nomeItens+ " removido com sucesso!");   
+        }                   
     }
+opcoesHeroiteste();
 }
     
     public static void mostrarStatus(){
@@ -113,7 +114,7 @@ for (int j = 0; j < fasesteste.size(); j++){
                 JogoTeste.mostrarItensTeste();
                 int opcaoitemteste = 0;
                 boolean foi = true;
-                while (foi == true || opcaoitemteste < 0 || opcaoitemteste > fasesteste.get(0).monstros.get(0).itens.size()){
+                while (foi == true || opcaoitemteste < 0 || opcaoitemteste > fasesteste.get(0).monstros.get(0).itens.size()-1){
                 System.out.println("  ");
                 System.out.println("Digite 0 para excluir item");
                 System.out.println("Digite 1 para continuar");
@@ -127,7 +128,7 @@ for (int j = 0; j < fasesteste.size(); j++){
                     case 0: System.out.println("Insira o item pra excvluir: ");
                             int a = ms.nextInt();
                             JogoTeste.excluirItem(a);
-                            System.out.println();
+                            opcoesHeroiteste();
                             break;
                     case 1: 
                         opcoesHeroiteste();
