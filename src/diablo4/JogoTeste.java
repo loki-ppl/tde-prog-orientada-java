@@ -30,6 +30,7 @@ for (int j = 0; j < fasesteste.size(); j++){
                         for (int k = 0; k < fasesteste.get(j).monstros.size(); k++){
                             fasesteste.get(j).monstros.get(k).itens.remove(i-1);
         }
+      System.out.println("Item: "+ fasesteste.get(0).monstros.get(0).itens.get(i-1).nomeItens+ " removido com sucesso!");   
     }
 }
     
@@ -106,14 +107,41 @@ for (int j = 0; j < fasesteste.size(); j++){
             System.out.println("Nome: "+fasesteste.get(i).monstros.get(fasesteste.get(i).monstros.size()-1).nome+" - Saude: "+fasesteste.get(i).monstros.get(fasesteste.get(i).monstros.size()-1).saude+" - Digite "+ i +" para atacar.");
 
     }
+    
+  public static void menuExcluirItens(){
+      Scanner ms = new Scanner(System.in);
+                JogoTeste.mostrarItensTeste();
+                int opcaoitemteste = 0;
+                boolean foi = true;
+                while (foi == true || opcaoitemteste < 0 || opcaoitemteste > fasesteste.get(0).monstros.get(0).itens.size()){
+                System.out.println("  ");
+                System.out.println("Digite 0 para excluir item");
+                System.out.println("Digite 1 para continuar");
+                             try {
+           opcaoitemteste = Integer.parseInt(ms.nextLine().trim());
+           foi = false;
+        }       
+                             catch(NumberFormatException e) {} }
+                              
+                switch(opcaoitemteste){
+                    case 0: System.out.println("Insira o item pra excvluir: ");
+                            int a = ms.nextInt();
+                            JogoTeste.excluirItem(a);
+                            System.out.println();
+                            break;
+                    case 1: 
+                        opcoesHeroiteste();
+                        break;}
+  }
   public static void opcoesHeroiteste(){
         Scanner in = new Scanner(System.in);
         boolean foi = true;
         int nf = 0;
-        while(foi == true || nf < 1 || nf > 2){
+        while(foi == true || nf < 1 || nf > 3){
             System.out.println("\n/===/ Menu Heroi /===/");     
-            System.out.println("/===/ Digite 1 para atacar os monstros/===/");    
-            System.out.println("/===/ Digite 2 para mostrar os status/===/");     
+            System.out.println("/===/ Digite 1 para atacar os monstros /===/");    
+            System.out.println("/===/ Digite 2 para mostrar os status /===/");  
+            System.out.println("/===/ Digite 3 para excluir itens do jogo /===/");
              try {
            nf = Integer.parseInt(in.nextLine().trim());
            foi = false;
@@ -124,6 +152,9 @@ for (int j = 0; j < fasesteste.size(); j++){
         }
         else if(nf == 2){
             mostrarStatus();
+        }
+        else if(nf == 3){
+        menuExcluirItens();
         }
     }
   public static void criarItemTeste(){
