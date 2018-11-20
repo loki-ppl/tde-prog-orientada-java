@@ -62,18 +62,19 @@ opcoesHeroiteste();
             switch (classe) {
                 case 1:
                     Arqueiro arqueiro = new Arqueiro("Arqueiro Eduardo Linux", 23, 30);
-                    heroi2 = arqueiro;
-                                        break;                    
+                    heroi2 = arqueiro;                    
+                    break;                    
                 case 2:
                     Guerreiro guerreiro = new Guerreiro("Guerreiro Eduardo Linux", 23, 30);
                     heroi2 = guerreiro;
-                                        break;
+                     break;
                 case 3:
                     Mago mago = new Mago("Mago Eduardo Linux", 23, 30);
-                    heroi2 = mago;
-                                    default:
+                    heroi2 = mago;                                    
                     break;
+                    default:
              }
+            
          } 
        
         catch(NumberFormatException e) {}   
@@ -124,7 +125,6 @@ opcoesHeroiteste();
        
    }
     public static void mostraMonstroteste(int i){
-
         System.out.println("\n/==/ Monstros da fase "+(fasesteste.indexOf(fasesteste.get(i))+1)+" /==/");
         for(int j = 0; j < fasesteste.get(i).monstros.size()-1; j++){
             System.out.println("Nome: "+fasesteste.get(i).monstros.get(j).nome+" - Saude: "+fasesteste.get(i).monstros.get(j).saude+" - Digite "+(j+1)+" para atacar.");
@@ -132,10 +132,8 @@ opcoesHeroiteste();
 
     }
     public static void mostraBossteste(int i){
-
             System.out.println("/==/ Boss da fase "+(fasesteste.indexOf(fasesteste.get(i))+1)+" /==/");
             System.out.println("Nome: "+fasesteste.get(i).monstros.get(fasesteste.get(i).monstros.size()-1).nome+" - Saude: "+fasesteste.get(i).monstros.get(fasesteste.get(i).monstros.size()-1).saude+" - Digite "+ i +" para atacar.");
-
     }
     
   public static void menuExcluirItens(){
@@ -244,7 +242,13 @@ opcoesHeroiteste();
                     System.out.println("\n--> Atacou e aplicou " + heroi2.ataque+" de dano!"); 
                     
                     //Boss ataca
+                    int atckboss = new Random().nextInt(10);
+                    if (atckboss>9){
                     fasesteste.get(i).monstros.get(fasesteste.get(nf).monstros.size()-1).contraGolpeTeste(heroi2, i, nf);
+                    }
+                    else{
+                    heroi2.especial(heroi2, i, nf);
+                    }
                     if(heroi2.saude>0){
                     }
                     else{
@@ -295,13 +299,18 @@ opcoesHeroiteste();
                 else{
                     System.out.println(("\nVoce atacou o monstro "+fasesteste.get(i).monstros.get(nf-1).nome)+"!"); 
                     System.out.println("\n--> Atacou e aplicou " + heroi2.ataque+" de dano!");
-                    
+                    int atckmonstro = new Random().nextInt(10);
+                    if (atckmonstro>3){
                     //Monstro ataca                   
                     fasesteste.get(i).monstros.get(nf-1).contraGolpeTeste(heroi2, i, nf);
+                    }
+                    else{
+                    heroi2.especial(heroi2, i , nf);
+                    }
                     if(heroi2.saude>0){}
                     else{
                     gameOver();
-                    }                   
+                    }                 
                     
                     fasesteste.get(i).monstros.get(nf-1).saude -= heroi2.ataque;
                     System.out.println("Saude restante do monstro: "+ (fasesteste.get(i).monstros.get(nf-1).saude)); 

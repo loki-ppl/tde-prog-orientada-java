@@ -29,9 +29,7 @@ public class Arqueiro extends Heroi{
     @Override
     void pegarItem(Item item) {
         items.add(item);
-    }
-
-    
+    }    
 
     public String getNome() {
         return nome;
@@ -95,6 +93,11 @@ public class Arqueiro extends Heroi{
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
-
-    
+        @Override
+    public void especial(Heroi heroi2, int i, int nf) {
+        System.out.println("--> *ESPECIAL* Boss contra atacou! Arqueiro perfurou!!");
+        System.out.println("--> *ESPECIAL* Bonus de dano ao Boss:"+heroi2.ataque);
+        JogoTeste.fasesteste.get(i).monstros.get(nf-1).saude -= heroi2.ataque;
+        System.out.println("\nSaude do heroi:"+heroi2.saude);
+    }    
 }

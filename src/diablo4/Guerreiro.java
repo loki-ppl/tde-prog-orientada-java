@@ -6,6 +6,7 @@
 package diablo4;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  *
@@ -89,6 +90,12 @@ public class Guerreiro extends Heroi {
 
     public void setDefesa(int defesa) {
         this.defesa = defesa;
+    }
+    
+    @Override
+    public void especial(Heroi heroi2, int i, int nf) {
+        System.out.println("--> *ESPECIAL* Boss contra atacou! Guerreiro bloqueou!");
+        System.out.println("\nSaude do heroi:"+heroi2.saude);
     }
 
     
