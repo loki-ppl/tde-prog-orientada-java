@@ -55,7 +55,7 @@ opcoesHeroiteste();
         System.out.println("\nEscolha sua classe:");
         System.out.println("1 - Arqueiro - (Chance de perfurar inimigo)");
         System.out.println("2 - Guerreiro - (Chance de bloquear dano recebido)");
-        System.out.println("3 - Mago - (Chance de congelar inimigo");
+        System.out.println("3 - Mago - (Chance de congelar inimigo)");
         Scanner scanClasse = new Scanner(System.in);         
         try {
            classe = Integer.parseInt(scanNome.nextLine().trim());    
@@ -267,6 +267,7 @@ opcoesHeroiteste();
                         int moedarnd = new Random().nextInt(100);
                         System.out.println("\n$ Dropou o item: " +fasesteste.get(i).monstros.get(nf).itens.get(rnd).nomeItens+"");
                         System.out.println("\n$ Dropou "+ moedarnd+" moedas!");
+                        heroi2.level += 1;
                         heroi2.moeda += moedarnd;
                         System.out.println("Ataque: " +fasesteste.get(i).monstros.get(nf).itens.get(rnd).pontoAtk+"");                           
                         System.out.println("Defesa: " +fasesteste.get(i).monstros.get(nf).itens.get(rnd).pontoDef+"");  

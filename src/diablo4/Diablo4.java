@@ -44,8 +44,8 @@ public class Diablo4 {
                 JogoTeste.heroiCriado();
                 JogoTeste.faseCriada();
                 JogoTeste.criarItemTeste();
-                JogoTeste.mostrarStatus();
                 JogoTeste.mostraMonstrosCriados();
+                JogoTeste.mostrarStatus();
                 JogoTeste.opcoesHeroiteste();
                 System.exit(0);
                 break;
