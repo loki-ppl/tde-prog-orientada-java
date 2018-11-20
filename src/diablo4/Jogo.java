@@ -21,24 +21,26 @@ public final class Jogo {
      public static void criarItem(){         
         Item.addNomeItensAtk();
         int escolhas = 0;
+        int nf= 0;
+        
         boolean foi = true;
         boolean itemAtkCriado = true;
         boolean itemDefCriado = true;
-        int nf= 0;
+        
         Scanner in = new Scanner(System.in);
         Scanner in2 = new Scanner(System.in);
         while (itemAtkCriado == true || itemDefCriado == true){
-            System.out.println("\n/===/ Criar Itens /===/");  
-            System.out.println("Digite 1 para criar itens de ataque.");  
-            System.out.println("Digite 2 para criar itens de defesa.");
             while(foi == true || nf < 1 || nf > 2){
-                 
-            
+                System.out.println("\n/===/ Criar Itens /===/");  
+                System.out.println("Digite 1 para criar itens de ataque.");  
+                System.out.println("Digite 2 para criar itens de defesa.");
                 try {
                    nf = Integer.parseInt(in2.nextLine().trim());  
                    foi = false;
                 }        
-                catch(Exception e) {} 
+                catch(Exception e) {
+                    System.out.println("Por Favor, digite apenas numeros");
+                } 
             }
               
             foi = true;
@@ -50,9 +52,19 @@ public final class Jogo {
                 for(int i= 0; i < ni; i++){                  
                     System.out.println("Insira o nome do item "+(i+1)+":"); 
                     String nomeItens = in2.nextLine();
-                    System.out.println("Insira o Ataque do item "+(i+1)+":"); 
-                    int pontoAtk = in.nextInt();   
+                    System.out.println("Insira o Ataque do item "+(i+1)+":");
+                    int pontoAtk = 0;
                     int pontoDef = 0;
+                    while (true){
+                        try{
+                            pontoAtk = Integer.parseInt(in.nextLine().trim()); 
+                            break;
+                        }
+                        catch(NumberFormatException e){
+                            System.out.println("Digite apenas numeros");
+                        }
+                    }
+                    
                     Item item1 = new Item(nomeItens,pontoAtk,pontoDef);
                     for (int j = 0; j < fases.size(); j++){
                         for (int k = 0; k < fases.get(j).monstros.size(); k++){
@@ -67,12 +79,21 @@ public final class Jogo {
             else if(nf == 2 && itemDefCriado == true){
                 System.out.println("Quantos itens de Defesa voce deseja criar?");
                 int ni = in.nextInt();
+                int pontoDef = 0;
                 for(int i= 0; i < ni; i++){  
                     System.out.println("Insira o nome do item "+(i+1)+":"); 
                     String nomeItens = in2.nextLine();
                     System.out.println("Insira a Defesa do item "+(i+1)+":");  
-                    int pontoAtk = 0; 
-                    int pontoDef = in.nextInt(); 
+                    int pontoAtk = 0;
+                    while(true){
+                        try{
+                            pontoDef = Integer.parseInt(in.nextLine().trim()); 
+                            break;
+                        }
+                        catch(NumberFormatException e){
+                            System.out.println("Digite apenas numeros");
+                        }
+                    }
                     Item item2 = new Item(nomeItens,pontoAtk,pontoDef);
                     for (int j = 0; j < fases.size(); j++){                        
                         for (int k = 0; k < fases.get(j).monstros.size(); k++){
@@ -88,49 +109,55 @@ public final class Jogo {
     
     public static void opcoesHeroi(){
         Scanner in = new Scanner(System.in);
-        System.out.println("\n/===/ Menu Heroi /===/");     
-        System.out.println("/===/ Digite 1 para atacar os monstros/===/");    
-        System.out.println("/===/ Digite 2 para mostrar os status/===/"); 
-        int nf = in.nextInt();        
-                try {
-           nf = Integer.parseInt(in.nextLine().trim());  
-        }        
-        catch(NumberFormatException e) {} 
-        while (nf < 1 || nf > 2){
+        boolean foi =true;
+        int nf = 0;         
+        while (foi != true || nf < 1 || nf > 2){
             System.out.println("\n/===/ Menu Heroi /===/");     
             System.out.println("/===/ Digite 1 para atacar os monstros/===/");    
             System.out.println("/===/ Digite 2 para mostrar os status/===/"); 
-                        try {
-               nf = Integer.parseInt(in.nextLine().trim());    
+            try {
+                nf = Integer.parseInt(in.nextLine().trim());  
+                foi =false;
             }        
-            catch(NumberFormatException e) {}        
-            }
-        int nf2 = in.nextInt();
-        if (nf2 == 1){
+            catch(NumberFormatException e) {
+                System.out.println("Digite apenas numeros");
+            }        
+        }
+        foi = true;
+        
+        if (nf == 1){
             opcaoAtacar();
         }
-        else if(nf2 == 2){
+        else if(nf == 2){
             mostrarStatus();
         }
     }    
     
     public static void gameOver(){
+        int nf3 = 0;
         if (Jogo.heroi2.saude> 0){
         System.out.println("\n/===/ Voce completou o jogo! /===/");
         System.exit(0);
         }
         else{
-        System.out.println("\n*** morreu =( ***");
-        System.out.println("Deseja criar outro Heroi?");
-        System.out.println("1 - Criar outro heroi\n 0 - Sair do jogo");
-        Scanner in3 = new Scanner(System.in);
-        int nf3 = in3.nextInt();
-        if (nf3 == 1){criarHeroi();
-        }        
-        else{
-        System.exit(0);
-        }
-      }    
+            System.out.println("\n*** morreu =( ***");
+            System.out.println("Deseja criar outro Heroi?");
+            System.out.println("1 - Criar outro heroi\n 0 - Sair do jogo");
+            Scanner in3 = new Scanner(System.in);
+            while (true){
+                try{
+                    nf3 = Integer.parseInt(in3.nextLine().trim());
+                    break;
+                }
+                catch(NumberFormatException e){
+                    System.out.println("DIgite apenas numeros");
+                }
+            }
+            if (nf3 == 1)
+                criarHeroi();        
+            else
+                System.exit(0);
+        }    
     }
     
     public static void opcaoAtacar(){
@@ -138,11 +165,18 @@ public final class Jogo {
         for(int i = 0; i < fases.size(); i++){              
             while((fases.get(i).monstros.get(fases.get(i).monstros.size()-1).saude)>0){
             //while(bossDerrotado == false){
+                int nf = 0;
                 Jogo.mostraMonstro(i);
                 Jogo.mostraBoss(i);
                 System.out.println("\n/===/ Atacar /===/");  
                 System.out.println("Insira o numero do monstro que deseja atacar:"); 
-                int nf = in.nextInt();
+                while(true){
+                    try{
+                        nf = Integer.parseInt(in.nextLine().trim());
+                        break;
+                    }
+                    catch(NumberFormatException e){}
+                }
                 if (nf == 0){            
                     System.out.println(("\nVoce atacou o Boss "+fases.get(i).monstros.get(fases.get(nf).monstros.size()-1).nome)+"!");
 
@@ -150,14 +184,15 @@ public final class Jogo {
                     
                     //Boss ataca
                     fases.get(i).monstros.get(fases.get(nf).monstros.size()-1).contraGolpe(heroi2, i, nf);
-                    if(heroi2.saude>0){}
-                    else{
-                    gameOver();
+                    if(heroi2.saude<=0){
+                        gameOver();
                     }
+                    
                     fases.get(i).monstros.get(fases.get(nf).monstros.size()-1).saude -= heroi2.ataque;
                     System.out.println("Saude restante do Boss: "+fases.get(i).monstros.get(fases.get(nf).monstros.size()-1).saude);  
                     
                     if((fases.get(i).monstros.get(fases.get(i).monstros.size()-1).saude)<=0){
+                        int drop = 0;
                         System.out.println("\n** Boss "+fases.get(i).monstros.get(fases.get(nf).monstros.size()-1).nome+" derrotado!");
                         int rnd = new Random().nextInt(fases.get(i).monstros.get(nf).itens.size());   
                         int moedarnd = new Random().nextInt(100);
@@ -167,7 +202,15 @@ public final class Jogo {
                         System.out.println("Ataque: " +fases.get(i).monstros.get(nf).itens.get(rnd).pontoAtk+"");
                         System.out.println("Defesa: " +fases.get(i).monstros.get(nf).itens.get(rnd).pontoDef+"");
                         System.out.println("\nInsira 1 para equipar o item dropado ou 0 para descartar:");
-                        int drop = in.nextInt();
+                        while(true){
+                            try{
+                                drop = Integer.parseInt(in.nextLine().trim());
+                                break;
+                            }
+                            catch(NumberFormatException e){
+                                System.out.println("Digite apenas numeros");
+                            }
+                        }
                         if (drop == 1){
                             heroi2.pegarItem(fases.get(i).monstros.get(i).itens.get(rnd));
                             if(fases.get(i).monstros.get(i).itens.get(rnd).pontoAtk == 0){ 
@@ -194,28 +237,30 @@ public final class Jogo {
                     
                     //Monstro ataca                   
                     fases.get(i).monstros.get(nf-1).contraGolpe(heroi2, i, nf);
-                    if(heroi2.saude>0){}
-                    else{
-                    gameOver();
+                    if(heroi2.saude<=0){
+                        gameOver();
                     }
                     
                     fases.get(i).monstros.get(nf-1).saude -= heroi2.ataque;
                     System.out.println("Saude restante do monstro: "+ (fases.get(i).monstros.get(nf-1).saude)); 
-                    //fases.get(i).monstros.get(j).saude          
-                   // if((fases.get(i).monstros.get(fases.get(i).monstros.size()-1).saude)<=0){
+
                     if((fases.get(i).monstros.get(nf-1).saude)<=0){
                         System.out.println("\n** Monstro "+fases.get(i).monstros.get(nf-1).nome+" derrotado!");
                         int rnd = new Random().nextInt(fases.get(i).monstros.get(nf-1).itens.size());   
-                        
-                       /* System.out.println(fases.get(i).monstros.get(nf-1).itens.get(0).nomeItens);
-                        System.out.println(fases.get(i).monstros.get(nf-1).itens.get(1).nomeItens);
-                        System.out.println(fases.get(i).monstros.get(nf-1).itens.get(2).nomeItens);*/
-                        
                         System.out.println("\n$ Dropou o item: " +fases.get(i).monstros.get(nf-1).itens.get(rnd).nomeItens+"");
                         System.out.println("Ataque: " +fases.get(i).monstros.get(nf-1).itens.get(rnd).pontoAtk+"");                     
                         System.out.println("Defesa: " +fases.get(i).monstros.get(nf-1).itens.get(rnd).pontoDef+"");
                         System.out.println("\nInsira 1 para equipar o item dropado ou 0 para descartar:");
-                        int drop = in.nextInt();
+                        int drop = 0;
+                        while(true){
+                            try{
+                                drop = Integer.parseInt(in.nextLine().trim());
+                                break;
+                            }
+                            catch(Exception e){
+                                System.out.println("Digite apenas numeros");
+                            }
+                        }
                         if (drop == 1){
                             heroi2.pegarItem(fases.get(i).monstros.get(nf-1).itens.get(rnd));
                             if(fases.get(i).monstros.get(nf-1).itens.get(rnd).getPontoAtk() == 0){
@@ -241,25 +286,19 @@ public final class Jogo {
     }    
     public static void criarFase(){
         int escolhas = 0;
-        boolean foi = true;
         Scanner in = new Scanner(System.in);
-        /*System.out.println("\n/===/ Criação de fases /===/");        
-        System.out.println("Insira o numero de fases a serem criadas:");
-        try {
-           escolhas = Integer.parseInt(in.nextLine().trim());
-           foi = false;
-        }        
-        catch(NumberFormatException e) {} */
-        while(foi == true){
+
+        while(true){
             System.out.println("\n/===/ Criação de fases /===/");        
             System.out.println("Insira o numero de fases a serem criadas:");
             try {
-                    escolhas = Integer.parseInt(in.nextLine().trim());                
-                    foi = false;
+                escolhas = Integer.parseInt(in.nextLine().trim());                
+                break;
              }
-               catch(NumberFormatException e) {}
+               catch(NumberFormatException e) {
+                   System.out.println("Digite apenas numeros");
+               }
          }
-        foi = true;
         int nf = escolhas;
         for(int i= 0; i < nf; i++){
             Fase fase = new Fase();        
@@ -268,7 +307,16 @@ public final class Jogo {
             String nomefase = in.nextLine();
             System.out.println("\n/===/ Cadastrar monstros /===/");
             System.out.println("Insira numero de monstros a serem criados:");
-            int nm = in.nextInt();
+            int nm = 0;
+            while(true){
+                try{
+                    nm = Integer.parseInt(in.nextLine().trim());   
+                    break;
+                }
+                catch(NumberFormatException e){
+                    System.out.println("Digite apenas numeros");
+                }
+            }
             for(int j = 0; j < nm; j++){
                 Scanner sc = new Scanner(System.in);
                 Scanner input = new Scanner(System.in);
@@ -277,9 +325,27 @@ public final class Jogo {
                 System.out.println("Insira a descrição do "+ (j+1+"° "+ "monstro:")); 
                 String descricao = sc.nextLine();
                 System.out.println("Insira quanto de vida tera o "+ (j+1+"° "+ "monstro:")); 
-                int saude = input.nextInt();
+                int saude = 0;
+                while(true){
+                    try{
+                        saude = Integer.parseInt(in.nextLine().trim()); 
+                        break;
+                    }
+                    catch(NumberFormatException e){
+                        System.out.println("Digite apenas numeros");
+                    }
+                }
                 System.out.println("Insira a força do "+ (j+1+"° "+ "monstro:")); 
-                int forca = input.nextInt();
+                int forca = 0;
+                while(true){
+                    try{
+                        forca = Integer.parseInt(in.nextLine().trim()); 
+                        break;
+                    }
+                    catch(NumberFormatException e){
+                        System.out.println("Digite apenas numeros");
+                    }
+                }
                 
                 MonstroN monstroNormal = new MonstroN(nome,descricao, saude, forca);
                 fase.addMostro(monstroNormal);
@@ -294,9 +360,27 @@ public final class Jogo {
             System.out.println("Insira a lore do Boss:");
             String lore = ss.nextLine();
             System.out.println("Insira quanto de vida tera o Boss:");
-            int saude = ss.nextInt();
+            int saude =0;
+            while(true){
+                try{
+                    saude = Integer.parseInt(ss.nextLine().trim()); 
+                    break;
+                }
+                catch(NumberFormatException e){
+                    System.out.println("Digite apenas numeros");
+                }
+            }
             System.out.println("Insira a força do Boss:");
-            int forca = ss.nextInt();
+            int forca = 0;
+            while(true){
+                try{
+                    forca = Integer.parseInt(ss.nextLine().trim()); 
+                    break;
+                }
+                catch(NumberFormatException e){
+                    System.out.println("Digite apenas numeros");
+                }
+            }
             Boss boss = new Boss(nomeboss, descricao, lore, saude, forca);
             fase.addMostro(boss);
             fase.setNome(nomefase);
@@ -307,7 +391,7 @@ public final class Jogo {
         
     }
     public static void criarHeroi(){
-        int classe; 
+        int classe = 0; 
         Scanner scanNome = new Scanner(System.in);  
         System.out.println("\n/===/ Criar Heroi /===/");        
         System.out.println("Qual o seu nome?");
@@ -322,51 +406,105 @@ public final class Jogo {
         Scanner scanClasse = new Scanner(System.in); 
         
         try {
-           classe = Integer.parseInt(scanNome.nextLine().trim());    
-            switch (classe) {
-                case 1:
-                    
-                    System.out.println("\n/===/ Status do Heroi /===/");   
-                    System.out.println("Insira idade do seu personagem: ");
-                    int idadearq = scanClasse.nextInt();
-                    System.out.println("Insira a vida do seu personagem: ");
-                    int saudearq = scanClasse.nextInt();
-                    Arqueiro arqueiro = new Arqueiro(nome, idadearq, saudearq);
-                    heroi2 = arqueiro;
-                    mostrarStatus();
-                    break;
-                    
-                case 2:
-                    
-                    System.out.println("\n/===/ Status do Heroi /===/"); 
-                    System.out.println("Insira idade do seu personagem: ");
-                    int idadeguerr = scanClasse.nextInt();
-                    System.out.println("Insira a vida do seu personagem: ");
-                    int saudeguerr = scanClasse.nextInt();
-                    Guerreiro guerreiro = new Guerreiro(nome, idadeguerr, saudeguerr);
-                    heroi2 = guerreiro;
-                    mostrarStatus();
-                    
-                    break;
-                case 3:
-                    
-                    System.out.println("\n/===/ Status do Heroi /===/"); 
-                    System.out.println("Insira idade do seu personagem: ");
-                    int idademago = scanClasse.nextInt();
-                    System.out.println("Insira a vida do seu personagem: ");
-                    int saudemago = scanClasse.nextInt();
-                    Mago mago = new Mago(nome, idademago, saudemago);
-                    heroi2 = mago;
-                    mostrarStatus();
-                    
-                    break;
-                default:
-                    break;
-            }
-         } 
-       
-        catch(NumberFormatException e) {}    
-    
+           classe = Integer.parseInt(scanNome.nextLine().trim()); 
+        }
+        catch(NumberFormatException e){
+            System.out.println("Digite apenas numeros");
+        }
+        switch (classe) {
+            case 1:
+
+                System.out.println("\n/===/ Status do Heroi /===/");   
+                System.out.println("Insira idade do seu personagem: ");
+                int idadearq = scanClasse.nextInt();
+                while(true){
+                    try{
+                        idadearq = Integer.parseInt(scanClasse.nextLine().trim()); 
+                        break;
+                    }
+                    catch(NumberFormatException e){
+                        System.out.println("Digite apenas numeros");
+                    }
+                }
+                System.out.println("Insira a vida do seu personagem: ");
+                int saudearq = 0;
+                 while(true){
+                    try{
+                        saudearq = Integer.parseInt(scanClasse.nextLine().trim()); 
+                        break;
+                    }
+                    catch(NumberFormatException e){
+                        System.out.println("Digite apenas numeros");
+                    }
+                }
+                Arqueiro arqueiro = new Arqueiro(nome, idadearq, saudearq);
+                heroi2 = arqueiro;
+                mostrarStatus();
+                break;
+
+            case 2:
+
+                System.out.println("\n/===/ Status do Heroi /===/"); 
+                System.out.println("Insira idade do seu personagem: ");
+                int idadeguerr = 0;
+                while(true){
+                    try{
+                        idadeguerr = Integer.parseInt(scanClasse.nextLine().trim()); 
+                        break;
+                    }
+                    catch(NumberFormatException e){
+                        System.out.println("Digite apenas numeros");
+                    }
+                }
+                System.out.println("Insira a vida do seu personagem: ");
+                int saudeguerr = scanClasse.nextInt();
+                while(true){
+                    try{
+                        saudeguerr = Integer.parseInt(scanClasse.nextLine().trim()); 
+                        break;
+                    }
+                    catch(NumberFormatException e){
+                        System.out.println("Digite apenas numeros");
+                    }
+                }
+                Guerreiro guerreiro = new Guerreiro(nome, idadeguerr, saudeguerr);
+                heroi2 = guerreiro;
+                mostrarStatus();
+
+                break;
+            case 3:
+
+                System.out.println("\n/===/ Status do Heroi /===/"); 
+                System.out.println("Insira idade do seu personagem: ");
+                int idademago = 0;
+                while(true){
+                    try{
+                        idademago = Integer.parseInt(scanClasse.nextLine().trim()); 
+                        break;
+                    }
+                    catch(NumberFormatException e){
+                        System.out.println("Digite apenas numeros");
+                    }
+                }
+                System.out.println("Insira a vida do seu personagem: ");
+                int saudemago;
+                while(true){
+                    try{
+                        saudemago = Integer.parseInt(scanClasse.nextLine().trim()); 
+                        break;
+                    }
+                    catch(NumberFormatException e){
+                        System.out.println("Digite apenas numeros");
+                    }
+                }
+                Mago mago = new Mago(nome, idademago, saudemago);
+                heroi2 = mago;
+                mostrarStatus();
+                break;
+            default:
+                break;
+        }
+              
     }
     
     public static void comecajogo(){
@@ -413,6 +551,7 @@ public final class Jogo {
         int opcaoItem = 0;
         int quantItem = 0;
         int excluirItem = 0;
+        boolean foi = true;
         Scanner inputItem = new Scanner(System.in);
         System.out.println("Digite 1 para ver os item criados");
         System.out.println("Digite 2 para excluir algum item");
@@ -420,14 +559,30 @@ public final class Jogo {
         switch(opcaoItem){
             case 1:
                 mostrarItens();
-                System.out.println("Caso deseje excluir algum item, digite 2, se nao digite 0"); 
-                opcaoItem = inputItem.nextInt();
+                while(foi == true || opcaoItem!= 2 || opcaoItem != 0){
+                    System.out.println("Caso deseje excluir algum item, digite 2, se nao digite 0"); 
+                    try{
+                        opcaoItem =Integer.parseInt(inputItem.nextLine().trim()); 
+                    }
+                    catch(NumberFormatException e){
+                        System.out.println("Digite apenas numeros");
+                    }
+                }
                 if (opcaoItem == 0)
                     break;
             case 2:
                 mostrarItens();
                 System.out.println("Digite quantos itens quer excluir");
-                quantItem = inputItem.nextInt();
+
+                while(foi == true || quantItem!= 2 || quantItem != 0){
+                    System.out.println("Digite quantos itens quer excluir");
+                    try{
+                        quantItem =Integer.parseInt(inputItem.nextLine().trim()); 
+                    }
+                    catch(NumberFormatException e){
+                        System.out.println("Digite apenas numeros");
+                    }
+                }
                 for(int i =0; i < quantItem; i++){
                     mostrarItens();
                     System.out.println("Digite o numero do item que queira excluir");
@@ -452,4 +607,3 @@ public final class Jogo {
     }
       
 }
-//
