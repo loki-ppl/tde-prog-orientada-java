@@ -19,6 +19,20 @@ public final class JogoTeste {
     static ArrayList<Fase> fasesteste = new ArrayList<Fase>();        
     static Heroi heroi2;
     
+    public static void mostrarItensTeste(){
+      for(int i = 0; i < fasesteste.get(0).monstros.get(0).itens.size(); i++){
+          System.out.println("Item " +(i+1)+" "+fasesteste.get(0).monstros.get(0).itens.get(i).nomeItens);
+              }
+  }
+    
+public static void excluirItem(int i){
+for (int j = 0; j < fasesteste.size(); j++){
+                        for (int k = 0; k < fasesteste.get(j).monstros.size(); k++){
+                            fasesteste.get(j).monstros.get(k).itens.remove(i-1);
+        }
+    }
+}
+    
     public static void mostrarStatus(){
                     System.out.println("\n/==/ Status Gerais /==/");
                     System.out.println("Classe: "+ heroi2.getClass().getCanonicalName().substring(8));

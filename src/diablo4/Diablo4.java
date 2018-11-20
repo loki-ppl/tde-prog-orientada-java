@@ -46,11 +46,24 @@ public class Diablo4 {
          }
                  
          switch (opcao) {
-            case 1:  
+            case 1:
                 System.out.println("Iniciando jogo pronto"); 
                 JogoTeste.heroiCriado();
                 JogoTeste.faseCriada();
                 JogoTeste.criarItemTeste();
+                JogoTeste.mostrarItensTeste();
+                System.out.println("  ");
+                System.out.println("Digite 0 para excluir item");
+                System.out.println("Digite 1 para continuar");
+                int opcaoitemteste = start.nextInt();
+                switch(opcaoitemteste){
+                    case 0: System.out.println("Insira o item pra excvluir: ");
+                            int a = start.nextInt();
+                            JogoTeste.excluirItem(a);
+                            System.out.println();
+                            break;
+                    case 1: break;
+                }
                 JogoTeste.mostrarStatus();
                 JogoTeste.mostraMonstrosCriados();
                 JogoTeste.opcoesHeroiteste();
