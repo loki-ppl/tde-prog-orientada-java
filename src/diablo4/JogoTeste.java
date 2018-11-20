@@ -243,7 +243,7 @@ opcoesHeroiteste();
                     
                     //Boss ataca
                     int atckboss = new Random().nextInt(10);
-                    if (atckboss>9){
+                    if (atckboss>3){
                     fasesteste.get(i).monstros.get(fasesteste.get(nf).monstros.size()-1).contraGolpeTeste(heroi2, i, nf);
                     }
                     else{

@@ -186,7 +186,13 @@ public final class Jogo {
                     System.out.println("\n--> Atacou e aplicou " + heroi2.ataque+" de dano!");
                     
                     //Boss ataca
-                    fases.get(i).monstros.get(fases.get(nf).monstros.size()-1).contraGolpe(heroi2, i, nf);
+                    int atckboss = new Random().nextInt(10);                                                           
+                    if (atckboss>3){
+                    fases.get(i).monstros.get(fases.get(nf).monstros.size()-1).contraGolpe(heroi2, i, nf);    
+                    }                   
+                    else{
+                    heroi2.especial(heroi2, i, nf);
+                    }
                     if(heroi2.saude<=0){
                         gameOver();
                     }
@@ -239,12 +245,17 @@ public final class Jogo {
                 else{
                     System.out.println(("\nVoce atacou o monstro "+fases.get(i).monstros.get(nf-1).nome)+"!"); 
                     System.out.println("\n--> Atacou e aplicou " + heroi2.ataque+" de dano!");
-                    
-                    //Monstro ataca                   
-                    fases.get(i).monstros.get(nf-1).contraGolpe(heroi2, i, nf);
+                    int atckboss = new Random().nextInt(10);
+                    //Monstro ataca                                                                        
+                    if (atckboss>3){
+                    fases.get(i).monstros.get(nf-1).contraGolpe(heroi2, i, nf);    
+                    }                   
+                    else{
+                    heroi2.especial(heroi2, i, nf);
+                    }
                     if(heroi2.saude<=0){
                         gameOver();
-                    }
+                    }                   
                     
                     fases.get(i).monstros.get(nf-1).saude -= heroi2.ataque;
                     System.out.println("Saude restante do monstro: "+ (fases.get(i).monstros.get(nf-1).saude)); 
@@ -392,10 +403,8 @@ public final class Jogo {
             fase.addMostro(boss);
             fase.setNome(nomefase);
             System.out.println("\nFase "+ fase.getNome()+" criada com sucesso!");
-            fases.add(fase);
-            
-        }   
-        
+            fases.add(fase);            
+        }           
     }
     public static void criarHeroi(){
         int classe = 0; 
@@ -513,8 +522,7 @@ public final class Jogo {
                 break;
             default:
                 break;
-        }
-              
+        }              
     }
     
     public static void comecajogo(){
@@ -632,8 +640,5 @@ public final class Jogo {
                     System.out.println("Ataque: " + heroi2.ataque);
                     System.out.println("Defesa: " + heroi2.defesa);
                     System.out.println("Moedas: " + heroi2.moeda);
-                   
-
-    }
-      
+    }      
 }

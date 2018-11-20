@@ -132,7 +132,7 @@ public class  Item {
     
        public static void randomItensAtk(int j, int k){
         for(int i = 0; i < itensProntos.size(); i++){
-            int rnd = new Random().nextInt(10);
+            int rnd = new Random().nextInt(10) + 1;
             int rnd2 = new Random().nextInt(itensProntos.size());
             String nomeItens = itensProntos.get(rnd2);
             int pontoAtk = rnd;
@@ -145,7 +145,7 @@ public class  Item {
        
        public static void randomItensAtkTeste(int j, int k){
         for(int i = 0; i < itensProntos.size(); i++){
-            int rnd = new Random().nextInt(10);
+            int rnd = new Random().nextInt(10) + 1;
             int rnd2 = new Random().nextInt(itensProntos.size());
             String nomeItens = itensProntos.get(rnd2);
             int pontoAtk = rnd;
@@ -158,7 +158,7 @@ public class  Item {
        
       public static void randomItensDef(int j, int k){
         for(int i = 0; i < itensProntos.size(); i++){
-            int rnd = new Random().nextInt(10);
+            int rnd = new Random().nextInt(10) + 1;
             int rnd2 = new Random().nextInt(itensProntos.size());
             String nomeItens = itensProntos.get(rnd2);
             int pontoAtk = 0;
@@ -171,7 +171,7 @@ public class  Item {
        
        public static void randomItensDefTeste(int j, int k){
         for(int i = 0; i < itensProntos.size(); i++){
-            int rnd = new Random().nextInt(10);
+            int rnd = new Random().nextInt(10) + 1;
             int rnd2 = new Random().nextInt(itensProntos.size());
             String nomeItens = itensProntos.get(rnd2);
             int pontoAtk = 0;
