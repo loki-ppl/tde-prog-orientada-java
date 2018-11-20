@@ -27,4 +27,5 @@ public abstract class Heroi {
     abstract void pegarItem(Item item);
     abstract void soltarItem(Item item);
     abstract void especial(Heroi heroi2, int i, int nf);   
+    abstract void especialTeste(Heroi heroi2, int i, int nf); 
 }

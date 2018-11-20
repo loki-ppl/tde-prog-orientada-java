@@ -253,15 +253,13 @@ public final class Jogo {
                         if (drop == 1){
                             heroi2.pegarItem(fases.get(i).monstros.get(i).itens.get(rnd));
                             if(fases.get(i).monstros.get(i).itens.get(rnd).pontoAtk == 0){ 
-                                heroi2.defesa = 1;
-                                        
+                                heroi2.defesa = 1;                                        
                                 heroi2.defesa += fases.get(i).monstros.get(i).itens.get(rnd).pontoDef;
                                 
                              if(fases.get(i).monstros.get(i).itens.get(rnd).pontoDef == 0){
                                 heroi2.ataque = 1;
                                 heroi2.ataque += fases.get(i).monstros.get(i).itens.get(rnd).pontoAtk;
-                            }                            
-                            
+                            }                          
                             System.out.println("Item equipado."); 
                             }            
                         }
@@ -289,13 +287,13 @@ public final class Jogo {
                     System.out.println("Saude restante do monstro: "+ (fases.get(i).monstros.get(nf-1).saude)); 
 
                     if((fases.get(i).monstros.get(nf-1).saude)<=0){
+                        int drop = 0;
                         System.out.println("\n** Monstro "+fases.get(i).monstros.get(nf-1).nome+" derrotado!");
                         int rnd = new Random().nextInt(fases.get(i).monstros.get(nf-1).itens.size());   
                         System.out.println("\n$ Dropou o item: " +fases.get(i).monstros.get(nf-1).itens.get(rnd).nomeItens+"");
                         System.out.println("Ataque: " +fases.get(i).monstros.get(nf-1).itens.get(rnd).pontoAtk+"");                     
-                        System.out.println("Defesa: " +fases.get(i).monstros.get(nf-1).itens.get(rnd).pontoDef+"");
+                        System.out.println("Defesa: " +fases.get(i).monstros.get(nf-1).itens.get(rnd).pontoDef+"");                        
                         
-                        int drop = 0;
                         while(foi == true || drop < 0 || drop > 1){
                             System.out.println("\nInsira 1 para equipar o item dropado ou 0 para descartar:");
                             try{
@@ -311,14 +309,13 @@ public final class Jogo {
                             heroi2.pegarItem(fases.get(i).monstros.get(nf-1).itens.get(rnd));
                             if(fases.get(i).monstros.get(nf-1).itens.get(rnd).getPontoAtk() == 0){
                                 heroi2.defesa = 1;
-                                heroi2.defesa += fases.get(i).monstros.get(nf-1).itens.get(rnd).getPontoDef();
-                                System.out.println("Item equipado."); 
+                                heroi2.defesa += fases.get(i).monstros.get(nf-1).itens.get(rnd).getPontoDef();                                 
                             }
-                            if(fases.get(i).monstros.get(nf-1).itens.get(rnd).getPontoAtk() == 0){
+                            if(fases.get(i).monstros.get(nf-1).itens.get(rnd).getPontoDef() == 0){
                                 heroi2.ataque = 1;
-                                heroi2.ataque += fases.get(i).monstros.get(nf-1).itens.get(rnd).getPontoAtk();
-                                System.out.println("Item equipado."); 
-                            }                                                               
+                                heroi2.ataque += fases.get(i).monstros.get(nf-1).itens.get(rnd).getPontoAtk();                                 
+                            } 
+                            System.out.println("Item equipado.");
                         }
                         if (drop == 2){
                             System.out.println("Item descartado.");      
@@ -615,16 +612,17 @@ public final class Jogo {
         switch(opcaoItem){
             case 1:
                 mostrarItens();
-                while(foi == true || opcaoItem!= 2 || opcaoItem != 0){
+                while(foi == true || opcaoItem!= 2 && opcaoItem != 0){
                     System.out.println("Caso deseje excluir algum item, digite 2, se nao digite 0"); 
                     try{
                         opcaoItem =Integer.parseInt(inputItem.nextLine().trim()); 
+                        foi = false;
                     }
                     catch(NumberFormatException e){
                         System.out.println("Digite apenas numeros");
                     }
                 }
-                if (opcaoItem == 0)
+                if (opcaoItem == 0)                    
                     break;
             case 2:
                 mostrarItens();

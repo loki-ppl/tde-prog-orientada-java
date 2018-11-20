@@ -91,10 +91,16 @@ public class Mago extends Heroi{
         this.defesa = defesa;
     }
 
-        @Override
+    @Override
     public void especial(Heroi heroi2, int i, int nf) {
         System.out.println("--> *ESPECIAL* Boss contra atacou! Mago congelou o monstro!");
         System.out.println("\nSaude do heroi:"+heroi2.saude);
     } 
+    
+    @Override
+    public void especialTeste(Heroi heroi2, int i, int nf) {
+        System.out.println("--> *ESPECIAL* Boss contra atacou! Mago congelou o monstro!");
+        System.out.println("\nSaude do heroi:"+heroi2.saude);
+    }
     
 }

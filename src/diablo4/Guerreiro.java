@@ -97,6 +97,12 @@ public class Guerreiro extends Heroi {
         System.out.println("--> *ESPECIAL* Boss contra atacou! Guerreiro bloqueou!");
         System.out.println("\nSaude do heroi:"+heroi2.saude);
     }
+    
+    @Override
+    public void especialTeste(Heroi heroi2, int i, int nf) {
+        System.out.println("--> *ESPECIAL* Boss contra atacou! Guerreiro bloqueou!");
+        System.out.println("\nSaude do heroi:"+heroi2.saude);
+    }
 
     
 }

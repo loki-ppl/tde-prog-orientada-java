@@ -200,6 +200,9 @@ opcoesHeroiteste();
             }
         }               
     }
+  
+
+  
   public static void gameOver(){
         if (heroi2.saude> 0){
         System.out.println("\n/===/ Voce completou o jogo! /===/");
@@ -247,7 +250,7 @@ opcoesHeroiteste();
                     fasesteste.get(i).monstros.get(fasesteste.get(nf).monstros.size()-1).contraGolpeTeste(heroi2, i, nf);
                     }
                     else{
-                    heroi2.especial(heroi2, i, nf);
+                    heroi2.especialTeste(heroi2, i, nf);
                     }
                     if(heroi2.saude>0){
                     }
@@ -305,7 +308,7 @@ opcoesHeroiteste();
                     fasesteste.get(i).monstros.get(nf-1).contraGolpeTeste(heroi2, i, nf);
                     }
                     else{
-                    heroi2.especial(heroi2, i , nf);
+                    heroi2.especialTeste(heroi2, i , nf);
                     }
                     if(heroi2.saude>0){}
                     else{
