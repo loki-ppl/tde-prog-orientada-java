@@ -48,8 +48,37 @@ opcoesHeroiteste();
                     opcoesHeroiteste();
     }                
     public static void heroiCriado(){ 
-        Arqueiro arqueiro = new Arqueiro("Arqueiro Eduardo Linux", 23, 30);
-        heroi2 = arqueiro;
+        int classe; 
+        Scanner scanNome = new Scanner(System.in);  
+        System.out.println("\n/===/ Criar Heroi /===/");        
+
+        System.out.println("\nEscolha sua classe:");
+        System.out.println("1 - Arqueiro - (Chance de perfurar inimigo)");
+        System.out.println("2 - Guerreiro - (Chance de bloquear dano recebido)");
+        System.out.println("3 - Mago - (Chance de congelar inimigo");
+        Scanner scanClasse = new Scanner(System.in);         
+        try {
+           classe = Integer.parseInt(scanNome.nextLine().trim());    
+            switch (classe) {
+                case 1:
+                    Arqueiro arqueiro = new Arqueiro("Arqueiro Eduardo Linux", 23, 30);
+                    heroi2 = arqueiro;
+                                        break;                    
+                case 2:
+                    Guerreiro guerreiro = new Guerreiro("Guerreiro Eduardo Linux", 23, 30);
+                    heroi2 = guerreiro;
+                                        break;
+                case 3:
+                    Mago mago = new Mago("Mago Eduardo Linux", 23, 30);
+                    heroi2 = mago;
+                                    default:
+                    break;
+             }
+         } 
+       
+        catch(NumberFormatException e) {}   
+        
+        
    }
    public static void faseCriada(){
        Fase fase1 = new Fase();
@@ -151,10 +180,10 @@ opcoesHeroiteste();
         if (nf == 1){
             opcaoAtacarteste();
         }
-        else if(nf == 2){
+        if(nf == 2){
             mostrarStatus();
         }
-        else if(nf == 3){
+        if(nf == 3){
         menuExcluirItens();
         }
     }
