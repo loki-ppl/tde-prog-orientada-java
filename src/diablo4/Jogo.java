@@ -855,5 +855,106 @@ public final class Jogo {
                     System.out.println("Defesa: " + heroi2.defesa);
                     System.out.println("Moedas: " + heroi2.moeda);
                     opcoesHeroi();
-    }      
+    }     
+    
+    public static void editarMonstros(){
+    int opcaoMonstro = 0;
+        int editFase;
+        boolean foi = true;
+        Scanner inputFase = new Scanner(System.in);
+        int editfase;
+        int editm;
+        int forcam;
+        int saudem;
+        
+        while(foi == true || opcaoMonstro < 1 || opcaoMonstro > 2){
+            System.out.println("Digite 1 para ver os monstros");
+            System.out.println("Digite 2 para editar monstros");
+            try{
+                opcaoMonstro = Integer.parseInt(inputFase.nextLine().trim()); 
+                foi = false;
+            }
+            catch(NumberFormatException e){
+                System.out.println("Digite apenas numeros");
+            }
+        }
+        foi = true;
+        switch(opcaoMonstro){
+            
+            case 1:
+                for(int i = 0; i < fases.size(); i++){
+                    System.out.println("Fase: "+ fases.get(i).getNome());
+                    for(int j = 0; j < fases.get(i).monstros.size()-1 ; j ++){
+                    mostraMonstro(j);
+                    }
+                }
+                        
+                break;
+            case 2:
+                for(int i = 0; i < fases.size(); i++){
+                    System.out.println("Fase: "+ fases.get(i).getNome());
+                    for(int j = 0; j < fases.get(i).monstros.size()-1 ; j ++){
+                    mostraMonstro(j);
+                    }
+                }
+                System.out.println("Digite a fase: ");
+                while(true){
+                        try{
+                            editfase =Integer.parseInt(inputFase.nextLine().trim()); 
+                            break;
+                        }
+                        catch(NumberFormatException e){
+                            System.out.println("Digite apenas numeros");
+                        }
+                    }          
+                System.out.println("Digite o monstro  para editar: ");
+                while(true){
+                        try{
+                            editm =Integer.parseInt(inputFase.nextLine().trim()); 
+                            break;
+                        }
+                        catch(NumberFormatException e){
+                            System.out.println("Digite apenas numeros");
+                        }
+                    }
+                System.out.println("Digite o novo nome do monstro: ");
+                String nomem = inputFase.next();
+                System.out.println("Digite a nova descrição do monstro: ");
+                String descm = inputFase.next();
+                Scanner int2 = new Scanner(System.in);
+                System.out.println("Digite a nova força do monstro: ");
+                while(true){
+                        try{
+                            forcam =Integer.parseInt(int2.nextLine().trim()); 
+                            break;
+                        }
+                        catch(NumberFormatException e){
+                            System.out.println("Digite apenas numeros");
+                        }
+                    }
+                
+                System.out.println("Digite a nova saude do monstro: ");
+                while(true){
+                        try{
+                            saudem =Integer.parseInt(int2.nextLine().trim()); 
+                            break;
+                        }
+                        catch(NumberFormatException e){
+                            System.out.println("Digite apenas numeros");
+                        }
+                    }
+                
+                fases.get(editfase-1).monstros.get(editm-1).nome = nomem;
+                fases.get(editfase-1).monstros.get(editm-1).descricao = descm;
+                fases.get(editfase-1).monstros.get(editm-1).forca = forcam;
+                fases.get(editfase-1).monstros.get(editm-1).saude = saudem; 
+                break;
+                
+
+        }
+    
+    
+    
+    
+    }
 }
