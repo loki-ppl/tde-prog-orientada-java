@@ -60,28 +60,7 @@ public class Diablo4 {
             case 2:      
                 Jogo.criarFase();
                 Jogo.criarItem();
-                System.out.println("Digite 1 para ver os item criados");
-                System.out.println("Digite 2 para excluir algum item");
-                opcaoItem = inputItem.nextInt();                              
-                switch(opcaoItem){
-                    case 1:
-                        Jogo.mostrarItens();
-                        System.out.println("Caso deseje excluir algum item, digite 2, se nao digite 0"); 
-                        opcaoItem = inputItem.nextInt();
-                        if (opcaoItem == 0)
-                            break;
-                    case 2:
-                        Jogo.mostrarItens();
-                        System.out.println("Digite quantos itens quer excluir");
-                        quantItem = inputItem.nextInt();
-                        for(int i =0; i < quantItem; i++){
-                            Jogo.mostrarItens();
-                            System.out.println("Digite o numero do item que queira excluir");
-                            excluirItem = inputItem.nextInt();
-                            Jogo.excluirItem(excluirItem);
-                        }
-                        break;
-                }
+                Jogo.menuExcluiItem();
                 Jogo.criarHeroi();
                 faseCriada = true;
                 itensCriados = true;

@@ -24,39 +24,34 @@ public final class Jogo {
         boolean foi = true;
         boolean itemAtkCriado = true;
         boolean itemDefCriado = true;
+        int nf= 0;
         Scanner in = new Scanner(System.in);
         Scanner in2 = new Scanner(System.in);
         while (itemAtkCriado == true || itemDefCriado == true){
-        System.out.println("\n/===/ Criar Itens /===/");  
-        System.out.println("Digite 1 para criar itens de ataque.");  
-        System.out.println("Digite 2 para criar itens de defesa."); 
-        try {
-           escolhas = Integer.parseInt(in2.nextLine().trim());  
-        }        
-        catch(NumberFormatException e) {} 
-        
-        int nf = escolhas;  
-        
-        while (nf < 1 || nf > 2){
             System.out.println("\n/===/ Criar Itens /===/");  
             System.out.println("Digite 1 para criar itens de ataque.");  
-            System.out.println("Digite 2 para criar itens de defesa.");  
-
-            try {
-               escolhas = Integer.parseInt(in2.nextLine().trim());    
-            }        
-            catch(NumberFormatException e) {}        
+            System.out.println("Digite 2 para criar itens de defesa.");
+            while(foi == true || nf < 1 || nf > 2){
+                 
+            
+                try {
+                   nf = Integer.parseInt(in2.nextLine().trim());  
+                   foi = false;
+                }        
+                catch(Exception e) {} 
             }
-            int nf2 = escolhas;
+              
+            foi = true;
+        
 
-            if (nf2 == 1 && itemAtkCriado == true){
+            if (nf == 1 && itemAtkCriado == true){
                 System.out.println("Quantos itens de Ataque voce deseja criar?");
                 int ni = in.nextInt();
                 for(int i= 0; i < ni; i++){                  
                     System.out.println("Insira o nome do item "+(i+1)+":"); 
-                    String nomeItens = in.nextLine();
+                    String nomeItens = in2.nextLine();
                     System.out.println("Insira o Ataque do item "+(i+1)+":"); 
-                    int pontoAtk = in2.nextInt();   
+                    int pontoAtk = in.nextInt();   
                     int pontoDef = 0;
                     Item item1 = new Item(nomeItens,pontoAtk,pontoDef);
                     for (int j = 0; j < fases.size(); j++){
@@ -69,19 +64,19 @@ public final class Jogo {
                 itemAtkCriado = false;
 
             }
-            else if(nf2 == 2 && itemDefCriado == true){
+            else if(nf == 2 && itemDefCriado == true){
                 System.out.println("Quantos itens de Defesa voce deseja criar?");
                 int ni = in.nextInt();
                 for(int i= 0; i < ni; i++){  
                     System.out.println("Insira o nome do item "+(i+1)+":"); 
-                    String nomeItens = in.nextLine();
+                    String nomeItens = in2.nextLine();
                     System.out.println("Insira a Defesa do item "+(i+1)+":");  
                     int pontoAtk = 0; 
-                    int pontoDef = in2.nextInt(); 
+                    int pontoDef = in.nextInt(); 
                     Item item2 = new Item(nomeItens,pontoAtk,pontoDef);
                     for (int j = 0; j < fases.size(); j++){                        
                         for (int k = 0; k < fases.get(j).monstros.size(); k++){
-                            //Item.randomItensStats(j, k);
+                            Item.randomItensDef(j, k);
                             fases.get(j).monstros.get(k).itens.add(item2);
                         }
                     }
@@ -381,7 +376,7 @@ public final class Jogo {
     }
     public static void mostraFase(){
         for(int i = 0; i < fases.size(); i++){
-                    System.out.println(Jogo.fases.get(i).getNome());
+            System.out.println(Jogo.fases.get(i).getNome());
                         }
     }
     public static void mostraMonstro(int i){
@@ -395,16 +390,16 @@ public final class Jogo {
    
     public static void mostraBoss(int i){
 
-            System.out.println("/==/ Boss da fase "+(fases.indexOf(fases.get(i))+1)+" /==/");
-            System.out.println("Nome: "+fases.get(i).monstros.get(fases.get(i).monstros.size()-1).nome+" - Saude: "+fases.get(i).monstros.get(fases.get(i).monstros.size()-1).saude+" - Digite "+ i +" para atacar.");
+        System.out.println("/==/ Boss da fase "+(fases.indexOf(fases.get(i))+1)+" /==/");
+        System.out.println("Nome: "+fases.get(i).monstros.get(fases.get(i).monstros.size()-1).nome+" - Saude: "+fases.get(i).monstros.get(fases.get(i).monstros.size()-1).saude+" - Digite "+ i +" para atacar.");
 
     }
     
     public static void mostrarItens(){
         for(int i = 0; i < fases.get(0).monstros.get(0).itens.size(); i++){
-            System.out.println("[" + (i+1) + "]"+fases.get(0).monstros.get(0).itens.get(i).getNomeItens());
-            System.out.println("   " + fases.get(0).monstros.get(0).itens.get(i).getPontoAtk());
-            System.out.println("   " + fases.get(0).monstros.get(0).itens.get(i).getPontoDef());
+            System.out.println("[" + (i+1) + "]"+"Nome: "+fases.get(0).monstros.get(0).itens.get(i).getNomeItens());
+            System.out.println("   " +"Ataque: "+ fases.get(0).monstros.get(0).itens.get(i).getPontoAtk());
+            System.out.println("   " +"Defesa: " +fases.get(0).monstros.get(0).itens.get(i).getPontoDef());
         }
     }
     public static void excluirItem(int numItem){
@@ -413,6 +408,34 @@ public final class Jogo {
                 fases.get(j).monstros.get(k).itens.remove(numItem-1);
             }
         }   
+    }
+    public static void menuExcluiItem(){
+        int opcaoItem = 0;
+        int quantItem = 0;
+        int excluirItem = 0;
+        Scanner inputItem = new Scanner(System.in);
+        System.out.println("Digite 1 para ver os item criados");
+        System.out.println("Digite 2 para excluir algum item");
+        opcaoItem = inputItem.nextInt();                              
+        switch(opcaoItem){
+            case 1:
+                mostrarItens();
+                System.out.println("Caso deseje excluir algum item, digite 2, se nao digite 0"); 
+                opcaoItem = inputItem.nextInt();
+                if (opcaoItem == 0)
+                    break;
+            case 2:
+                mostrarItens();
+                System.out.println("Digite quantos itens quer excluir");
+                quantItem = inputItem.nextInt();
+                for(int i =0; i < quantItem; i++){
+                    mostrarItens();
+                    System.out.println("Digite o numero do item que queira excluir");
+                    excluirItem = inputItem.nextInt();
+                    excluirItem(excluirItem);
+                }
+                break;
+        }
     }
     public static void mostrarStatus(){
                     System.out.println("\n/==/ Status Gerais /==/");
