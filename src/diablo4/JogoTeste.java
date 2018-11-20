@@ -262,15 +262,15 @@ opcoesHeroiteste();
                     System.out.println("Saude restante do Boss: "+fasesteste.get(i).monstros.get(fasesteste.get(i).monstros.size()-1).saude);  
                     
                     if((fasesteste.get(i).monstros.get(fasesteste.get(i).monstros.size()-1).saude)<=0){
-                        System.out.println("\n** Boss "+fasesteste.get(i).monstros.get(fasesteste.get(nf).monstros.size()-1).nome+" derrotado!");
-                        int rnd = new Random().nextInt(fasesteste.get(i).monstros.get(nf).itens.size());   
+                        System.out.println("\n** Boss "+fasesteste.get(i).monstros.get(fasesteste.get(i).monstros.size()-1).nome+" derrotado!");
+                        int rnd = new Random().nextInt(fasesteste.get(i).monstros.get(i).itens.size());   
                         int moedarnd = new Random().nextInt(100);
-                        System.out.println("\n$ Dropou o item: " +fasesteste.get(i).monstros.get(nf).itens.get(rnd).nomeItens+"");
+                        System.out.println("\n$ Dropou o item: " +fasesteste.get(i).monstros.get(i).itens.get(rnd).nomeItens+"");
                         System.out.println("\n$ Dropou "+ moedarnd+" moedas!");
                         heroi2.level += 1;
                         heroi2.moeda += moedarnd;
-                        System.out.println("Ataque: " +fasesteste.get(i).monstros.get(nf).itens.get(rnd).pontoAtk+"");                           
-                        System.out.println("Defesa: " +fasesteste.get(i).monstros.get(nf).itens.get(rnd).pontoDef+"");  
+                        System.out.println("Ataque: " +fasesteste.get(i).monstros.get(i).itens.get(rnd).pontoAtk+"");                           
+                        System.out.println("Defesa: " +fasesteste.get(i).monstros.get(i).itens.get(rnd).pontoDef+"");  
                         foi = true;
                         int drop = 0;
                         while (foi == true || drop < 0 || drop > 1){
