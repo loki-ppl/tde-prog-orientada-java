@@ -460,7 +460,7 @@ public final class Jogo {
             case 1:
                 System.out.println("\n/===/ Status do Heroi /===/");   
                 System.out.println("Insira idade do seu personagem: ");
-                int idadearq = scanClasse.nextInt();
+                int idadearq ;
                 while(true){
                     try{
                         idadearq = Integer.parseInt(scanClasse.nextLine().trim()); 
@@ -471,7 +471,7 @@ public final class Jogo {
                     }
                 }
                 System.out.println("Insira a vida do seu personagem: ");
-                int saudearq = 0;
+                int saudearq ;
                  while(true){
                     try{
                         saudearq = Integer.parseInt(scanClasse.nextLine().trim()); 
@@ -490,7 +490,7 @@ public final class Jogo {
 
                 System.out.println("\n/===/ Status do Heroi /===/"); 
                 System.out.println("Insira idade do seu personagem: ");
-                int idadeguerr = 0;
+                int idadeguerr;
                 while(true){
                     try{
                         idadeguerr = Integer.parseInt(scanClasse.nextLine().trim()); 
@@ -501,7 +501,7 @@ public final class Jogo {
                     }
                 }
                 System.out.println("Insira a vida do seu personagem: ");
-                int saudeguerr = scanClasse.nextInt();
+                int saudeguerr;
                 while(true){
                     try{
                         saudeguerr = Integer.parseInt(scanClasse.nextLine().trim()); 
