@@ -38,7 +38,7 @@ public final class Jogo {
                    nf = Integer.parseInt(in2.nextLine().trim());  
                    foi = false;
                 }        
-                catch(Exception e) {
+                catch(NumberFormatException e) {
                     System.out.println("Por Favor, digite apenas numeros");
                 } 
             }
@@ -48,7 +48,16 @@ public final class Jogo {
 
             if (nf == 1 && itemAtkCriado == true){
                 System.out.println("Quantos itens de Ataque voce deseja criar?");
-                int ni = in.nextInt();
+                int ni = 0;
+                while (true){
+                    try{
+                        ni = Integer.parseInt(in2.nextLine().trim());
+                        break;
+                    }
+                    catch(NumberFormatException e){
+                        System.out.println("DIgite apenas numeros");
+                    }
+                }
                 for(int i= 0; i < ni; i++){                  
                     System.out.println("Insira o nome do item "+(i+1)+":"); 
                     String nomeItens = in2.nextLine();
@@ -57,7 +66,7 @@ public final class Jogo {
                     int pontoDef = 0;
                     while (true){
                         try{
-                            pontoAtk = Integer.parseInt(in.nextLine().trim()); 
+                            pontoAtk = Integer.parseInt(in2.nextLine().trim()); 
                             break;
                         }
                         catch(NumberFormatException e){
@@ -78,7 +87,16 @@ public final class Jogo {
             }
             else if(nf == 2 && itemDefCriado == true){
                 System.out.println("Quantos itens de Defesa voce deseja criar?");
-                int ni = in.nextInt();
+                int ni = 0;
+                while (true){
+                    try{
+                        ni = Integer.parseInt(in2.nextLine().trim());
+                        break;
+                    }
+                    catch(NumberFormatException e){
+                        System.out.println("DIgite apenas numeros");
+                    }
+                }
                 int pontoDef = 0;
                 for(int i= 0; i < ni; i++){  
                     System.out.println("Insira o nome do item "+(i+1)+":"); 
@@ -87,7 +105,7 @@ public final class Jogo {
                     int pontoAtk = 0;
                     while(true){
                         try{
-                            pontoDef = Integer.parseInt(in.nextLine().trim()); 
+                            pontoDef = Integer.parseInt(in2.nextLine().trim()); 
                             break;
                         }
                         catch(NumberFormatException e){
@@ -105,7 +123,17 @@ public final class Jogo {
                 itemDefCriado = false;
             }        
         }
-     }      
+     } 
+    public static void criarItensDefault(){
+        Item.addNomeItensAtk();
+        Item.addNomeItensDef();
+          for (int j = 0; j < fases.size(); j++){
+            for (int k = 0; k < fases.get(j).monstros.size(); k++){
+                Item.randomItensAtk(j, k);
+                Item.randomItensDef(j, k);
+            }
+  }
+    }     
     
     public static void opcoesHeroi(){
         Scanner in = new Scanner(System.in);
@@ -640,5 +668,6 @@ public final class Jogo {
                     System.out.println("Ataque: " + heroi2.ataque);
                     System.out.println("Defesa: " + heroi2.defesa);
                     System.out.println("Moedas: " + heroi2.moeda);
+                    opcoesHeroi();
     }      
 }
