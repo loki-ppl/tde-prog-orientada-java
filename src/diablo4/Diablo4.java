@@ -100,7 +100,7 @@ public class Diablo4 {
                     if(opcoesadm == 5){Jogo.menuEditarItem();}
                     if(opcoesadm == 6){Jogo.menuEditarFase();}   
                     if(opcoesadm == 7){Jogo.editarMonstros();}
-                    if(opcoesadm == 8){}  
+                    if(opcoesadm == 8){Jogo.excluirMonstros();}  
                     if(opcoesadm == 0){     
                         Jogo.criarHeroi();
                         Jogo.opcoesHeroi();

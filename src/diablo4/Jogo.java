@@ -234,10 +234,10 @@ public final class Jogo {
                         int rnd = new Random().nextInt(fases.get(i).monstros.get(nf).itens.size());   
                         int moedarnd = new Random().nextInt(100);
                         System.out.println("\n$ Dropou o item: " +fases.get(i).monstros.get(nf).itens.get(rnd).nomeItens+"");
-                        System.out.println("\n$ Dropou "+ moedarnd+" moedas!");
-                        heroi2.moeda += moedarnd;
                         System.out.println("Ataque: " +fases.get(i).monstros.get(nf).itens.get(rnd).pontoAtk+"");
                         System.out.println("Defesa: " +fases.get(i).monstros.get(nf).itens.get(rnd).pontoDef+"");
+                        System.out.println("\n$ Dropou "+ moedarnd+" moedas!");
+                        heroi2.moeda += moedarnd;
                         
                         while(foi == true || drop < 0 || drop > 1){
                             System.out.println("\nInsira 1 para equipar o item dropado ou 0 para descartar:");
@@ -320,7 +320,8 @@ public final class Jogo {
                         if (drop == 2){
                             System.out.println("Item descartado.");      
                         }                        
-                    }                  
+                    }
+                    fases.get(i).monstros.remove(nf-1);
                 }                
                 opcoesHeroi();
             }
@@ -859,7 +860,6 @@ public final class Jogo {
     
     public static void editarMonstros(){
     int opcaoMonstro = 0;
-        int editFase;
         boolean foi = true;
         Scanner inputFase = new Scanner(System.in);
         int editfase;
@@ -952,6 +952,83 @@ public final class Jogo {
                 
 
         }
+    
+    
+    
+    
+    }
+    public static void excluirMonstros(){
+        int opcaoMonstro = 0;
+        boolean foi = true;
+        Scanner inputFase = new Scanner(System.in);
+        int editfase;
+        int excm;
+        
+        
+        while(foi == true || opcaoMonstro < 1 || opcaoMonstro > 2){
+            System.out.println("Digite 1 para ver os monstros");
+            System.out.println("Digite 2 para excluir monstros");
+            try{
+                opcaoMonstro = Integer.parseInt(inputFase.nextLine().trim()); 
+                foi = false;
+            }
+            catch(NumberFormatException e){
+                System.out.println("Digite apenas numeros");
+            }
+        }
+        foi = true;
+        switch(opcaoMonstro){
+            
+            case 1:
+                for(int i = 0; i < fases.size(); i++){
+                    System.out.println("Fase: "+ fases.get(i).getNome());
+                    for(int j = 0; j < fases.get(i).monstros.size()-1 ; j ++){
+                    mostraMonstro(j);
+                    }
+                }
+                        
+                break;
+            case 2:
+                
+                for(int i = 0; i < fases.size(); i++){
+                    System.out.println("Fase: "+ fases.get(i).getNome());
+                    for(int j = 0; j < fases.get(i).monstros.size()-1 ; j ++){
+                    mostraMonstro(j);
+                    }
+                }
+                System.out.println("Digite a fase que deseja excluir o monstro: ");
+                while(true){
+                        try{
+                            editfase =Integer.parseInt(inputFase.nextLine().trim()); 
+                            break;
+                        }
+                        catch(NumberFormatException e){
+                            System.out.println("Digite apenas numeros");
+                        }
+                    }
+                if(fases.get(editfase-1).monstros.size()-1 != 1){    
+                System.out.println("Digite o monstro  para excluir: ");
+                while(true){
+                        try{
+                            excm =Integer.parseInt(inputFase.nextLine().trim()); 
+                            break;
+                        }
+                        catch(NumberFormatException e){
+                            System.out.println("Digite apenas numeros");
+                        }
+                    }
+                fases.get(editfase-1).monstros.remove(excm-1);
+                
+                break;
+                
+                }
+                else{
+                    System.out.println("Você nao pode excluir seu único monstro!");
+                    break;
+                }
+        }
+    
+    
     
     
     

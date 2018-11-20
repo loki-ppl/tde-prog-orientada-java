@@ -133,7 +133,7 @@ opcoesHeroiteste();
     }
     public static void mostraBossteste(int i){
             System.out.println("/==/ Boss da fase "+(fasesteste.indexOf(fasesteste.get(i))+1)+" /==/");
-            System.out.println("Nome: "+fasesteste.get(i).monstros.get(fasesteste.get(i).monstros.size()-1).nome+" - Saude: "+fasesteste.get(i).monstros.get(fasesteste.get(i).monstros.size()-1).saude+" - Digite "+ i +" para atacar.");
+            System.out.println("Nome: "+fasesteste.get(i).monstros.get(fasesteste.get(i).monstros.size()-1).nome+" - Saude: "+fasesteste.get(i).monstros.get(fasesteste.get(i).monstros.size()-1).saude+" - Digite "+ 0 +" para atacar.");
     }
     
   public static void menuExcluirItens(){
@@ -241,13 +241,13 @@ opcoesHeroiteste();
                 }
                 
                 if (nf == 0){            
-                    System.out.println(("\nVoce atacou o Boss "+fasesteste.get(i).monstros.get(fasesteste.get(nf).monstros.size()-1).nome)+"!");
+                    System.out.println(("\nVoce atacou o Boss "+fasesteste.get(i).monstros.get(fasesteste.get(i).monstros.size()-1).nome)+"!");
                     System.out.println("\n--> Atacou e aplicou " + heroi2.ataque+" de dano!"); 
                     
                     //Boss ataca
                     int atckboss = new Random().nextInt(10);
                     if (atckboss>3){
-                    fasesteste.get(i).monstros.get(fasesteste.get(nf).monstros.size()-1).contraGolpeTeste(heroi2, i, nf);
+                    fasesteste.get(i).monstros.get(fasesteste.get(i).monstros.size()-1).contraGolpeTeste(heroi2, i, nf);
                     }
                     else{
                     heroi2.especialBossTeste(heroi2, i, nf);
@@ -258,8 +258,8 @@ opcoesHeroiteste();
                     gameOver();
                     }
                     
-                    fasesteste.get(i).monstros.get(fasesteste.get(nf).monstros.size()-1).saude -= heroi2.ataque;
-                    System.out.println("Saude restante do Boss: "+fasesteste.get(i).monstros.get(fasesteste.get(nf).monstros.size()-1).saude);  
+                    fasesteste.get(i).monstros.get(fasesteste.get(i).monstros.size()-1).saude -= heroi2.ataque;
+                    System.out.println("Saude restante do Boss: "+fasesteste.get(i).monstros.get(fasesteste.get(i).monstros.size()-1).saude);  
                     
                     if((fasesteste.get(i).monstros.get(fasesteste.get(i).monstros.size()-1).saude)<=0){
                         System.out.println("\n** Boss "+fasesteste.get(i).monstros.get(fasesteste.get(nf).monstros.size()-1).nome+" derrotado!");
