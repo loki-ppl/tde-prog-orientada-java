@@ -62,27 +62,10 @@ public class Diablo4 {
                         }
                     catch(NumberFormatException e) {}
                          
-                    if(opcoesadm == 1){Jogo.criarFase();faseCriada=true;}
-                    if(opcoesadm != 1){System.out.println("Voce primeiro precisa criar uma fase para acessar esse menu.");}
-                }                
-                while (faseCriada == true || itensCriados == false){
-                    System.out.println("\n/===/ Menu ADM /===/");
-                    System.out.println("Digite 1 para criar fases."); 
-                    System.out.println("Digite 2 para criar itens.");
-                    System.out.println("Digite 3 para excluir itens.");
-                    System.out.println("Digite 0 para iniciar o jogo.");
-                     try {
-                    opcoesadm = Integer.parseInt(ina.nextLine().trim());
-                        }
-                    catch(NumberFormatException e) {}                        
-                    if(opcoesadm == 1){Jogo.criarFase();}
-                    if(opcoesadm == 2){Jogo.criarItem(); itensCriados=true;}
-                    if(opcoesadm == 3){ System.out.println("Voce primeiro precisa criar itens para cessar esse menu.");} 
-                    if(opcoesadm == 0){     
-                        Jogo.criarHeroi();
-                        Jogo.opcoesHeroi();
-                    }
-                    } 
+                    if(opcoesadm == 1){Jogo.criarFase();faseCriada=true; Jogo.criarItensDefault(); itensCriados=true;}
+                    if(opcoesadm != 1){System.out.println("Voce primeiro precisa criar uma fase para acessar essa opção.");}
+                }               
+
                 while (faseCriada == true || itensCriados == true){
                     System.out.println("\n/===/ Menu ADM /===/");
                     System.out.println("Digite 1 para criar fases."); 
@@ -102,8 +85,6 @@ public class Diablo4 {
                         Jogo.opcoesHeroi();
                     }
                  }              
-
-                itensCriados = true;
                 break;
                 }
                 
