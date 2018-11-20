@@ -718,12 +718,12 @@ public final class Jogo {
         switch(opcaoFase){
             case 1:
                 for(int f = 0; f < fases.size(); f++){
-                System.out.println("Fase"+(f+1)+fases.get(f).getNome());
+                System.out.println("["+f+1+"]"+"Fase"+(f+1)+" " +fases.get(f).getNome());
                 }
                 break;
             case 2:
                 for(int f = 0; f < fases.size(); f++){
-                System.out.println("Fase"+(f) +fases.get(f).getNome());
+                System.out.println("["+(f+1)+"]"+"Fase"+(f+1)+" " +fases.get(f).getNome());
                 } 
                 System.out.println("Digite a fase que deseja excluir: ");
                 
@@ -837,6 +837,12 @@ public final class Jogo {
                         }
                         catch(NumberFormatException e){
                             System.out.println("Digite apenas numeros");
+                        }
+                        catch(IndexOutOfBoundsException e){
+                            System.out.println("DIgite um item existente");
+                        }
+                        catch(Exception e){
+                            System.out.println("Erro:"+e);
                         }
                     }
                     excluirItem(excluirItem);
