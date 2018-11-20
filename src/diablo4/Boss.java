@@ -71,13 +71,17 @@ public class Boss extends Monstro{
     int rnd = new Random().nextInt(10);
     if (rnd>3){
         System.out.println("--> Boss contra atacou! Heroi recebeu "+Jogo.fases.get(i).monstros.get(Jogo.fases.get(nf).monstros.size()-1).forca+" de dano!");
-        heroi2.saude -= Jogo.fases.get(i).monstros.get(Jogo.fases.get(nf).monstros.size()-1).forca;
+        int danoRecebido = Jogo.fases.get(i).monstros.get(Jogo.fases.get(nf).monstros.size()-1).forca;
+        if (danoRecebido < 0){danoRecebido = 0;}
+        System.out.println("--> Defesa do Heroi: "+heroi2.defesa);
+        System.out.println("--> Dano recebido reduzido para: "+danoRecebido);
+        heroi2.saude -= danoRecebido;
         System.out.println("\nSaude do heroi:"+heroi2.saude);
     }
     else{
         System.out.println("--> Boss contra atacou!");
         System.out.println("--> Heroi desviou!");
-        System.out.println("\nSaude do heroi:"+heroi2.saude);
+        System.out.println("\nSaude do heroi: "+heroi2.saude);
     
     }
     }    
@@ -87,8 +91,12 @@ public class Boss extends Monstro{
     int rnd = new Random().nextInt(10);
     if (rnd>3){
         System.out.println("--> Boss contra atacou! Heroi recebeu "+JogoTeste.fasesteste.get(i).monstros.get(JogoTeste.fasesteste.get(nf).monstros.size()-1).forca+" de dano!");
-        heroi2.saude -= JogoTeste.fasesteste.get(i).monstros.get(JogoTeste.fasesteste.get(nf).monstros.size()-1).forca;
-        System.out.println("\nSaude do heroi:"+heroi2.saude);
+        int danoRecebido = JogoTeste.fasesteste.get(i).monstros.get(JogoTeste.fasesteste.get(nf).monstros.size()-1).forca;
+        if (danoRecebido < 0){danoRecebido = 0;}
+        System.out.println("--> Defesa do Heroi: "+heroi2.defesa);
+        System.out.println("--> Dano recebido reduzido para: "+danoRecebido);
+        heroi2.saude -= danoRecebido;
+        System.out.println("\nSaude do heroi:"+heroi2.saude);      
     }
     else{
         System.out.println("--> Boss contra atacou!");

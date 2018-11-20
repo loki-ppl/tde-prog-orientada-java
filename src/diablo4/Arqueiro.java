@@ -95,33 +95,57 @@ public class Arqueiro extends Heroi{
     
     @Override
     public void especial(Heroi heroi2, int i, int nf) {
-        System.out.println("--> *ESPECIAL* Monstro contra atacou! Arqueiro perfurou!!");
-        System.out.println("--> *ESPECIAL* Bonus de dano ao Monstro:"+heroi2.ataque);
-        Jogo.fases.get(i).monstros.get(nf-1).saude -= heroi2.ataque;
+        System.out.println("--> *ESPECIAL* Monstro contra atacou! Arqueiro perfurou!");
+        System.out.println("--> *ESPECIAL* Bonus de dano ao Monstro: "+heroi2.ataque);
+        System.out.println("--> Heroi recebeu "+Jogo.fases.get(i).monstros.get(nf-1).forca+" de dano!");
+        int danoRecebido = Jogo.fases.get(i).monstros.get(nf-1).forca - heroi2.defesa;
+        if (danoRecebido < 0){danoRecebido = 0;}
+        System.out.println("--> Defesa do Heroi: "+heroi2.defesa);
+        System.out.println("--> Dano recebido reduzido para: "+danoRecebido);
+        heroi2.saude -= Jogo.fases.get(i).monstros.get(nf-1).forca;
         System.out.println("\nSaude do heroi:"+heroi2.saude);
+        Jogo.fases.get(i).monstros.get(nf-1).saude -= heroi2.ataque;
     }   
     
     @Override
     public void especialTeste(Heroi heroi2, int i, int nf) {
-        System.out.println("--> *ESPECIAL* Monstro contra atacou! Arqueiro perfurou!!");
-        System.out.println("--> *ESPECIAL* Bonus de dano ao Monstro:"+heroi2.ataque);
-        JogoTeste.fasesteste.get(i).monstros.get(nf-1).saude -= heroi2.ataque;
+        System.out.println("--> *ESPECIAL* Monstro contra atacou! Arqueiro perfurou!");
+        System.out.println("--> *ESPECIAL* Bonus de dano ao Monstro: "+heroi2.ataque);
+        System.out.println("--> Heroi recebeu "+JogoTeste.fasesteste.get(i).monstros.get(nf-1).forca+" de dano!");
+        int danoRecebido = JogoTeste.fasesteste.get(i).monstros.get(nf-1).forca - heroi2.defesa;
+        if (danoRecebido < 0){danoRecebido = 0;}
+        System.out.println("--> Defesa do Heroi: "+heroi2.defesa);
+        System.out.println("--> Dano recebido reduzido para: "+danoRecebido);
+        heroi2.saude -= danoRecebido;
         System.out.println("\nSaude do heroi:"+heroi2.saude);
+        JogoTeste.fasesteste.get(i).monstros.get(nf-1).saude -= heroi2.ataque;
     }  
     
     @Override
     public void especialBoss(Heroi heroi2, int i, int nf) {
         System.out.println("--> *ESPECIAL* Boss contra atacou! Arqueiro perfurou!!");
-        System.out.println("--> *ESPECIAL* Bonus de dano ao Monstro:"+heroi2.ataque);
+        System.out.println("--> *ESPECIAL* Bonus de dano ao Monstro: "+heroi2.ataque);
+        System.out.println("--> Heroi recebeu "+Jogo.fases.get(i).monstros.get(Jogo.fases.get(nf).monstros.size()-1).forca+" de dano!");
+        int danoRecebido = +Jogo.fases.get(i).monstros.get(Jogo.fases.get(nf).monstros.size()-1).forca+ - heroi2.defesa;
+        if (danoRecebido < 0){danoRecebido = 0;}
+        System.out.println("--> Defesa do Heroi: "+heroi2.defesa);
+        System.out.println("--> Dano recebido reduzido para: "+danoRecebido);
+        heroi2.saude -= danoRecebido;        
+        System.out.println("\nSaude do heroi: "+heroi2.saude);
         Jogo.fases.get(i).monstros.get(Jogo.fases.get(nf).monstros.size()-1).saude -= heroi2.ataque;
-        System.out.println("\nSaude do heroi:"+heroi2.saude);
     }  
     
     @Override
     public void especialBossTeste(Heroi heroi2, int i, int nf) {
         System.out.println("--> *ESPECIAL* Boss contra atacou! Arqueiro perfurou!!");
-        System.out.println("--> *ESPECIAL* Bonus de dano ao Monstro:"+heroi2.ataque);
+        System.out.println("--> *ESPECIAL* Bonus de dano ao Monstro: "+heroi2.ataque);
+        System.out.println("--> Heroi recebeu "+JogoTeste.fasesteste.get(i).monstros.get(JogoTeste.fasesteste.get(nf).monstros.size()-1).forca+" de dano!");
+        int danoRecebido = +JogoTeste.fasesteste.get(i).monstros.get(JogoTeste.fasesteste.get(nf).monstros.size()-1).forca+ - heroi2.defesa;
+        if (danoRecebido < 0){danoRecebido = 0;}
+        System.out.println("--> Defesa do Heroi: "+heroi2.defesa);
+        System.out.println("--> Dano recebido reduzido para: "+danoRecebido);
+        heroi2.saude -= danoRecebido;        
+        System.out.println("\nSaude do heroi: "+heroi2.saude);
         JogoTeste.fasesteste.get(i).monstros.get(JogoTeste.fasesteste.get(nf).monstros.size()-1).saude -= heroi2.ataque;
-        System.out.println("\nSaude do heroi:"+heroi2.saude);
     }
 }
