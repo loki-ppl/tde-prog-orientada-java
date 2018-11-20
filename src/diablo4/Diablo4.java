@@ -93,12 +93,16 @@ public class Diablo4 {
                     if(opcoesadm == 1){Jogo.criarFase();}
                     if(opcoesadm == 2){Jogo.criarItem();}
                     if(opcoesadm == 3){Jogo.menuExcluiItem();}
-                    if(opcoesadm == 4){Jogo.criarFase();}
-                    if(opcoesadm == 5){Jogo.criarItem();}
-                    if(opcoesadm == 6){Jogo.menuExcluiItem();}   
-                    if(opcoesadm == 7){Jogo.criarFase();}
-                    if(opcoesadm == 8){Jogo.criarItem();}
-                    if(opcoesadm == 9){Jogo.menuExcluiItem();}   
+                    if(opcoesadm == 4){
+                        if(Jogo.fases.size()==1){ 
+                            System.out.println("Voce nao pode excluir sua unica fase!"); continue;}
+                    Jogo.menuExcluirFase();
+                    }
+                    if(opcoesadm == 5){Jogo.menuEditarItem();}
+                    if(opcoesadm == 6){}   
+                    if(opcoesadm == 7){}
+                    if(opcoesadm == 8){}
+                    if(opcoesadm == 9){}   
                     if(opcoesadm == 0){     
                         Jogo.criarHeroi();
                         Jogo.opcoesHeroi();
@@ -117,7 +121,7 @@ public class Diablo4 {
      TimeUnit.SECONDS.sleep(1);
      System.out.println("Iniciando jogo em 2");
      TimeUnit.SECONDS.sleep(1);
-     System.out.println("Iniciando jogo em 1");
+     System.out.println("Iniciando jogo em 1"); 
      TimeUnit.SECONDS.sleep(1);*/
      
      //Jogo.comecajogo();

@@ -590,10 +590,151 @@ public final class Jogo {
             }
         }   
     }
+    public static void editarItem(int item, String nome, int ataque, int def){
+    for (int j = 0; j < fases.size(); j++){
+            for (int k = 0; k < fases.get(j).monstros.size(); k++){
+                fases.get(j).monstros.get(k).itens.get(item).nomeItens = nome;
+                fases.get(j).monstros.get(k).itens.get(item).pontoAtk = ataque;
+                fases.get(j).monstros.get(k).itens.get(item).pontoDef = def;
+            }
+        }
+    
+    }
+    public static void menuEditarItem(){
+        int opcaoItemedit = 0;
+        int quantItemedit = 0;
+        int editarItem;
+        int ataque;
+        int defesa;
+        boolean foi = true;
+        Scanner inputItem = new Scanner(System.in);
+
+        while(foi == true || opcaoItemedit < 1 || opcaoItemedit > 2){
+            System.out.println("Digite 1 para ver os item criados");
+            System.out.println("Digite 2 para excluir algum item");
+            try{
+                opcaoItemedit = Integer.parseInt(inputItem.nextLine().trim()); 
+                foi = false;
+            }
+            catch(NumberFormatException e){
+                System.out.println("Digite apenas numeros");
+            }
+        }
+        foi = true;
+        switch(opcaoItemedit){
+            case 1:
+                mostrarItens();
+                while(foi == true || opcaoItemedit!= 2 && opcaoItemedit != 0){
+                    System.out.println("Caso deseje editar algum item, digite 2, se nao digite 0"); 
+                    try{
+                        opcaoItemedit =Integer.parseInt(inputItem.nextLine().trim()); 
+                        foi = false;
+                    }
+                    catch(NumberFormatException e){
+                        System.out.println("Digite apenas numeros");
+                    }
+                }
+                if (opcaoItemedit == 0)                    
+                    break;
+            case 2:
+                mostrarItens();
+                Scanner in = new Scanner(System.in);
+
+                while(true ){
+                    System.out.println("Digite quantos itens quer editar");
+                    try{
+                        opcaoItemedit =Integer.parseInt(in.nextLine().trim()); 
+                        break;
+                    }
+                    catch(NumberFormatException e){
+                        System.out.println("Digite apenas numeros");
+                    }
+                }
+                for(int i =0; i < opcaoItemedit; i++){
+                    mostrarItens();
+                    System.out.println("Digite o numero do item que queira editar");
+                    while(true){
+                        try{
+                            editarItem =Integer.parseInt(in.nextLine().trim()); 
+                            break;
+                        }
+                        catch(NumberFormatException e){
+                            System.out.println("Digite apenas numeros");
+                        }
+                    }
+                    System.out.println("Digite o nome do item: ");
+                    String nome = in.next();
+                    System.out.println("Digite o novo ataque do item: ");
+                    
+                    while(true){
+                        try{
+                            ataque =Integer.parseInt(in.nextLine().trim()); 
+                            break;
+                        }
+                        catch(NumberFormatException e){
+                            System.out.println("Digite apenas numeros");
+                        }
+                    }
+                    System.out.println("Digite a nova defesa do item: ");  
+                    while(true){
+                        try{
+                            defesa =Integer.parseInt(in.nextLine().trim()); 
+                            break;
+                        }
+                        catch(NumberFormatException e){
+                            System.out.println("Digite apenas numeros");
+                        }
+                    }
+                    
+                    
+                    editarItem(editarItem, nome, ataque, defesa);
+                }
+                break;
+        }
+    }
+   
+    public static void menuExcluirFase(){
+        int opcaoFase = 0;
+        int excluirFase;
+        boolean foi = true;
+        Scanner inputFase = new Scanner(System.in);
+        
+        
+        while(foi == true || opcaoFase < 1 || opcaoFase > 2){
+            System.out.println("Digite 1 para ver as fases");
+            System.out.println("Digite 2 para excluir fase");
+            try{
+                opcaoFase = Integer.parseInt(inputFase.nextLine().trim()); 
+                foi = false;
+            }
+            catch(NumberFormatException e){
+                System.out.println("Digite apenas numeros");
+            }
+        }
+        foi = true;
+        switch(opcaoFase){
+            case 1:
+                for(int f = 0; f < fases.size(); f++){
+                System.out.println("Fase"+(f+1)+fases.get(f).getNome());
+                }
+                break;
+            case 2:
+                for(int f = 0; f < fases.size(); f++){
+                System.out.println("Fase"+(f) +fases.get(f).getNome());
+                } 
+                System.out.println("Digite a fase que deseja excluir: ");
+                
+                int excf = inputFase.nextInt();
+                fases.remove(excf-1);
+
+        }
+
+    }
     public static void menuExcluiItem(){
         int opcaoItem = 0;
         int quantItem = 0;
-        int excluirItem = 0;
+        int excluirItem;
+        int editItem;
         boolean foi = true;
         Scanner inputItem = new Scanner(System.in);
 
@@ -613,7 +754,7 @@ public final class Jogo {
             case 1:
                 mostrarItens();
                 while(foi == true || opcaoItem!= 2 && opcaoItem != 0){
-                    System.out.println("Caso deseje excluir algum item, digite 2, se nao digite 0"); 
+                    System.out.println("Caso deseje excluir algum item, digite 2, caso deseje editar, digite 3, se nao digite 0"); 
                     try{
                         opcaoItem =Integer.parseInt(inputItem.nextLine().trim()); 
                         foi = false;
@@ -624,6 +765,8 @@ public final class Jogo {
                 }
                 if (opcaoItem == 0)                    
                     break;
+            
+                
             case 2:
                 mostrarItens();
                 System.out.println("Digite quantos itens quer excluir");
