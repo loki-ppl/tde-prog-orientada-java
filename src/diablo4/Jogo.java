@@ -111,7 +111,7 @@ public final class Jogo {
         Scanner in = new Scanner(System.in);
         boolean foi =true;
         int nf = 0;         
-        while (foi != true || nf < 1 || nf > 2){
+        while (foi == true || nf < 1 || nf > 2){
             System.out.println("\n/===/ Menu Heroi /===/");     
             System.out.println("/===/ Digite 1 para atacar os monstros/===/");    
             System.out.println("/===/ Digite 2 para mostrar os status/===/"); 
@@ -135,6 +135,7 @@ public final class Jogo {
     
     public static void gameOver(){
         int nf3 = 0;
+        boolean foi = true;
         if (Jogo.heroi2.saude> 0){
         System.out.println("\n/===/ Voce completou o jogo! /===/");
         System.exit(0);
@@ -144,15 +145,16 @@ public final class Jogo {
             System.out.println("Deseja criar outro Heroi?");
             System.out.println("1 - Criar outro heroi\n 0 - Sair do jogo");
             Scanner in3 = new Scanner(System.in);
-            while (true){
+            while (foi == true|| nf3 < 0 || nf3 > 1){
                 try{
                     nf3 = Integer.parseInt(in3.nextLine().trim());
-                    break;
+                    foi = false;
                 }
                 catch(NumberFormatException e){
-                    System.out.println("DIgite apenas numeros");
+                    System.out.println("Digite apenas numeros");
                 }
             }
+            foi = true;
             if (nf3 == 1)
                 criarHeroi();        
             else
@@ -162,6 +164,7 @@ public final class Jogo {
     
     public static void opcaoAtacar(){
         Scanner in = new Scanner(System.in);
+        boolean foi = true;
         for(int i = 0; i < fases.size(); i++){              
             while((fases.get(i).monstros.get(fases.get(i).monstros.size()-1).saude)>0){
             //while(bossDerrotado == false){
@@ -201,16 +204,18 @@ public final class Jogo {
                         heroi2.moeda += moedarnd;
                         System.out.println("Ataque: " +fases.get(i).monstros.get(nf).itens.get(rnd).pontoAtk+"");
                         System.out.println("Defesa: " +fases.get(i).monstros.get(nf).itens.get(rnd).pontoDef+"");
-                        System.out.println("\nInsira 1 para equipar o item dropado ou 0 para descartar:");
-                        while(true){
+                        
+                        while(foi == true || drop < 0 || drop > 1){
+                            System.out.println("\nInsira 1 para equipar o item dropado ou 0 para descartar:");
                             try{
                                 drop = Integer.parseInt(in.nextLine().trim());
-                                break;
+                                foi = false;
                             }
                             catch(NumberFormatException e){
                                 System.out.println("Digite apenas numeros");
                             }
                         }
+                        foi = true;
                         if (drop == 1){
                             heroi2.pegarItem(fases.get(i).monstros.get(i).itens.get(rnd));
                             if(fases.get(i).monstros.get(i).itens.get(rnd).pontoAtk == 0){ 
@@ -250,17 +255,19 @@ public final class Jogo {
                         System.out.println("\n$ Dropou o item: " +fases.get(i).monstros.get(nf-1).itens.get(rnd).nomeItens+"");
                         System.out.println("Ataque: " +fases.get(i).monstros.get(nf-1).itens.get(rnd).pontoAtk+"");                     
                         System.out.println("Defesa: " +fases.get(i).monstros.get(nf-1).itens.get(rnd).pontoDef+"");
-                        System.out.println("\nInsira 1 para equipar o item dropado ou 0 para descartar:");
+                        
                         int drop = 0;
-                        while(true){
+                        while(foi == true || drop < 0 || drop > 1){
+                            System.out.println("\nInsira 1 para equipar o item dropado ou 0 para descartar:");
                             try{
                                 drop = Integer.parseInt(in.nextLine().trim());
-                                break;
+                                foi = false;
                             }
-                            catch(Exception e){
+                            catch(NumberFormatException e){
                                 System.out.println("Digite apenas numeros");
                             }
                         }
+                        foi = true;
                         if (drop == 1){
                             heroi2.pegarItem(fases.get(i).monstros.get(nf-1).itens.get(rnd));
                             if(fases.get(i).monstros.get(nf-1).itens.get(rnd).getPontoAtk() == 0){
@@ -392,6 +399,7 @@ public final class Jogo {
     }
     public static void criarHeroi(){
         int classe = 0; 
+        boolean foi = true;
         Scanner scanNome = new Scanner(System.in);  
         System.out.println("\n/===/ Criar Heroi /===/");        
         System.out.println("Qual o seu nome?");
@@ -404,16 +412,18 @@ public final class Jogo {
         System.out.println("3 - Mago - (Chance de congelar inimigo");
         
         Scanner scanClasse = new Scanner(System.in); 
-        
-        try {
-           classe = Integer.parseInt(scanNome.nextLine().trim()); 
+        while(foi == true || classe< 1 || classe > 3){
+            try {
+               classe = Integer.parseInt(scanNome.nextLine().trim());
+               foi = false;
+            }
+            catch(NumberFormatException e){
+                System.out.println("Digite apenas numeros");
+            }
         }
-        catch(NumberFormatException e){
-            System.out.println("Digite apenas numeros");
-        }
+        foi = true;
         switch (classe) {
             case 1:
-
                 System.out.println("\n/===/ Status do Heroi /===/");   
                 System.out.println("Insira idade do seu personagem: ");
                 int idadearq = scanClasse.nextInt();
@@ -553,9 +563,19 @@ public final class Jogo {
         int excluirItem = 0;
         boolean foi = true;
         Scanner inputItem = new Scanner(System.in);
-        System.out.println("Digite 1 para ver os item criados");
-        System.out.println("Digite 2 para excluir algum item");
-        opcaoItem = inputItem.nextInt();                              
+
+        while(foi == true || opcaoItem < 1 || opcaoItem > 2){
+            System.out.println("Digite 1 para ver os item criados");
+            System.out.println("Digite 2 para excluir algum item");
+            try{
+                opcaoItem = Integer.parseInt(inputItem.nextLine().trim()); 
+                foi = false;
+            }
+            catch(NumberFormatException e){
+                System.out.println("Digite apenas numeros");
+            }
+        }
+        foi = true;
         switch(opcaoItem){
             case 1:
                 mostrarItens();
@@ -574,10 +594,11 @@ public final class Jogo {
                 mostrarItens();
                 System.out.println("Digite quantos itens quer excluir");
 
-                while(foi == true || quantItem!= 2 || quantItem != 0){
+                while(true ){
                     System.out.println("Digite quantos itens quer excluir");
                     try{
                         quantItem =Integer.parseInt(inputItem.nextLine().trim()); 
+                        break;
                     }
                     catch(NumberFormatException e){
                         System.out.println("Digite apenas numeros");
@@ -587,6 +608,15 @@ public final class Jogo {
                     mostrarItens();
                     System.out.println("Digite o numero do item que queira excluir");
                     excluirItem = inputItem.nextInt();
+                    while(true){
+                        try{
+                            excluirItem =Integer.parseInt(inputItem.nextLine().trim()); 
+                            break;
+                        }
+                        catch(NumberFormatException e){
+                            System.out.println("Digite apenas numeros");
+                        }
+                    }
                     excluirItem(excluirItem);
                 }
                 break;
