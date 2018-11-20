@@ -219,7 +219,7 @@ public final class Jogo {
                     fases.get(i).monstros.get(fases.get(nf).monstros.size()-1).contraGolpe(heroi2, i, nf);    
                     }                   
                     else{
-                    heroi2.especial(heroi2, i, nf);
+                    heroi2.especialBoss(heroi2, i, nf);
                     }
                     if(heroi2.saude<=0){
                         gameOver();

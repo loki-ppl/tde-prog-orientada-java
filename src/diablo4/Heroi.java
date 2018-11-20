@@ -28,4 +28,6 @@ public abstract class Heroi {
     abstract void soltarItem(Item item);
     abstract void especial(Heroi heroi2, int i, int nf);   
     abstract void especialTeste(Heroi heroi2, int i, int nf); 
+    abstract void especialBoss(Heroi heroi2, int i, int nf);   
+    abstract void especialBossTeste(Heroi heroi2, int i, int nf); 
 }

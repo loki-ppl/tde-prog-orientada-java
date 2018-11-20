@@ -250,7 +250,7 @@ opcoesHeroiteste();
                     fasesteste.get(i).monstros.get(fasesteste.get(nf).monstros.size()-1).contraGolpeTeste(heroi2, i, nf);
                     }
                     else{
-                    heroi2.especialTeste(heroi2, i, nf);
+                    heroi2.especialBossTeste(heroi2, i, nf);
                     }
                     if(heroi2.saude>0){
                     }
