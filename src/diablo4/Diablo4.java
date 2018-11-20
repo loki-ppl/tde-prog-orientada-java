@@ -81,9 +81,8 @@ public class Diablo4 {
                     System.out.println("Digite 4 para excluir fases."); 
                     System.out.println("Digite 5 para editar  itens.");
                     System.out.println("Digite 6 para editar fases.");
-                    System.out.println("Digite 7 para criar monstros.");
-                    System.out.println("Digite 8 para editar monstros.");
-                    System.out.println("Digite 9 para excluir monstros.");
+                    System.out.println("Digite 7 para editar monstros.");
+                    System.out.println("Digite 8 para excluir monstros.");
                     System.out.println("Digite 0 para iniciar o jogo.");
                      try {
                     opcoesadm = Integer.parseInt(ina.nextLine().trim());
@@ -99,10 +98,9 @@ public class Diablo4 {
                     Jogo.menuExcluirFase();
                     }
                     if(opcoesadm == 5){Jogo.menuEditarItem();}
-                    if(opcoesadm == 6){}   
+                    if(opcoesadm == 6){Jogo.menuEditarFase();}   
                     if(opcoesadm == 7){}
-                    if(opcoesadm == 8){}
-                    if(opcoesadm == 9){}   
+                    if(opcoesadm == 8){}  
                     if(opcoesadm == 0){     
                         Jogo.criarHeroi();
                         Jogo.opcoesHeroi();
