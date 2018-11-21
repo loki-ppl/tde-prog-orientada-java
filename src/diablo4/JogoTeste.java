@@ -152,7 +152,7 @@ opcoesHeroiteste();
                              catch(NumberFormatException e) {} }
                               
                 switch(opcaoitemteste){
-                    case 0: System.out.println("Insira o item pra excvluir: ");
+                    case 0: System.out.println("Insira o item pra excluir: ");
                             int a = ms.nextInt();
                             JogoTeste.excluirItem(a);
                             opcoesHeroiteste();
@@ -353,7 +353,8 @@ opcoesHeroiteste();
                         if (drop == 2){
                             System.out.println("Item descartado.");
                         } 
-                    }                      
+                        fasesteste.get(i).monstros.remove(nf-1);
+                    }                    
                 }                
                 opcoesHeroiteste();
             }
