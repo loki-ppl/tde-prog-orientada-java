@@ -48,7 +48,7 @@ opcoesHeroiteste();
                     opcoesHeroiteste();
     }                
     public static void heroiCriado(){ 
-        int classe; 
+        int classe=0; 
         Scanner scanNome = new Scanner(System.in);  
         System.out.println("\n/===/ Criar Heroi /===/");        
 
@@ -57,27 +57,34 @@ opcoesHeroiteste();
         System.out.println("2 - Guerreiro - (Chance de bloquear dano recebido)");
         System.out.println("3 - Mago - (Chance de congelar inimigo)");
         Scanner scanClasse = new Scanner(System.in);         
+        while (true){ 
         try {
-           classe = Integer.parseInt(scanNome.nextLine().trim());    
-            switch (classe) {
-                case 1:
-                    Arqueiro arqueiro = new Arqueiro("Arqueiro Eduardo Linux", 23, 30);
-                    heroi2 = arqueiro;                    
-                    break;                    
-                case 2:
-                    Guerreiro guerreiro = new Guerreiro("Guerreiro Eduardo Linux", 23, 30);
-                    heroi2 = guerreiro;
-                     break;
-                case 3:
-                    Mago mago = new Mago("Mago Eduardo Linux", 23, 30);
-                    heroi2 = mago;                                    
-                    break;
-                    default:
-             }
+               classe = Integer.parseInt(scanClasse.nextLine().trim());
+               break;
+            }
+            catch(NumberFormatException e) {
+                System.out.println("Digite apenas numeros");}
+        }
+              
+        switch (classe) {
+             case 1:
+                 Arqueiro arqueiro = new Arqueiro("Arqueiro Eduardo Linux", 23, 30);
+                 heroi2 = arqueiro;                    
+                 break;                    
+             case 2:
+                 Guerreiro guerreiro = new Guerreiro("Guerreiro Eduardo Linux", 23, 30);
+                 heroi2 = guerreiro;
+                  break;
+             case 3:
+                 Mago mago = new Mago("Mago Eduardo Linux", 23, 30);
+                 heroi2 = mago;                                    
+                 break;
+                 default:
+          }
             
-         } 
+          
        
-        catch(NumberFormatException e) {}   
+        
         
         
    }
